@@ -1,10 +1,7 @@
 async function test() {
-    const a = await fetch('http://localhost:3000/api/3?teste=2',
+    const a = await fetch('http://localhost:3000/api/3',
         {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify({ title: "Hello", body: "World" })
         });
     if (a.status == 200) {
@@ -13,10 +10,11 @@ async function test() {
     else {
         alert("Error!");
     }
+    console.log(a)
 }
 
 async function testGet() {
-    const a = await fetch('http://localhost:3000/api/products/3');
+    const a = await fetch('http://localhost:3000/api/products/3?universo=Marvel&precoOrdem=ASC&precoLimite=100');
     const b = await a.json();
     console.log(b)
 }

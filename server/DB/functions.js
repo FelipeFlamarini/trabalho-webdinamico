@@ -1,2 +1,8 @@
-import client from './connect.js'
+import client from './client.js'
 
+async function getAllProducts() {
+    const query = await client.query(`SELECT * FROM produtos;`)
+    return query;
+};
+
+export { getAllProducts };

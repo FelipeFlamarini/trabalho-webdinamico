@@ -1,4 +1,4 @@
-import client, { closeConnection } from './connect.js'
+import client, { closeConnection } from './client.js'
 
 const funko = {
     "produtos": [

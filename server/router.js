@@ -1,9 +1,9 @@
-const express = require('express');
-const cors = require('cors')
+import express, { json } from 'express';
+import cors from 'cors';
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 app.get("/api/products/:id", (req, res) => {
     const id = req.params.id;
@@ -21,3 +21,5 @@ app.put("/api/:id", (req, res) => {
 })
 
 app.listen(3000);
+
+export default app;

@@ -1,1 +1,1 @@
-const app = require('./router.js');
+import app from './router.js';

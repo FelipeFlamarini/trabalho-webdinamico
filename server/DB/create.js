@@ -1,4 +1,5 @@
 import {Sequelize, client} from './client.js';
+import {produtos, usuarios} from './structure.js';
 
 const funko = {
     "produtos": [
@@ -247,34 +248,6 @@ const funko = {
         }
     ]
 };
-
-
-const produtos = client.define('produtos', {
-    nome: {
-        type: Sequelize.STRING
-    },
-    universo: {
-        type: Sequelize.STRING
-    },
-    preco: {
-        type: Sequelize.FLOAT
-    },
-    descricao: {
-        type: Sequelize.STRING
-    }
-});
-
-const usuarios = client.define('usuarios', {
-    nome: {
-        type: Sequelize.STRING
-    },
-    email: {
-        type: Sequelize.STRING
-    },
-    senha: {
-        type: Sequelize.STRING
-    }
-});
 
 try {
     await produtos.sync({force: true});

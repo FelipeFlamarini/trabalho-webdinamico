@@ -2,7 +2,7 @@ import express, { json } from 'express';
 import cors from 'cors';
 import url from 'url';
 import bodyparser from 'body-parser';
-import { getAllProducts } from './DB/functions.js';
+import { getAllProducts, getProductById } from './DB/functions.js';
 import { error } from 'console';
 
 const app = express();
@@ -11,13 +11,21 @@ app.use(cors());
 app.use(json());
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: false}));
 
-app.get("/api/products/all", async (req, res) => {
-    var q = url.parse(req.url, true);
+app.get("/api/products/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
 
     try {
-        const allProducts = await getAllProducts();
+        let query = ""
+        if (isNaN(id)) {
+            query = await getAllProducts();
+            query = query.map((product) => product.dataValues);
+        }
+        else {
+            query = await getProductById(id).dataValues;
+        }
         res.status(200);
-        res.send(allProducts.rows);
+        // console.log(query)
+        res.send(query);
     }
     catch {
         console.log(error);

@@ -1,33 +1,16 @@
-import pkg from 'pg';
-const { Client } = pkg;
+import { Sequelize } from 'sequelize';
 
-const client = new Client({
-    host: 'localhost',
-    port: 5432,
-    database: 'funko',
-    user: 'funko',
-    password: '1234',
-  })
-
-client.connect((err) => {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log('connected to database');
-    }
+const client = new Sequelize(`funko`, `funko`, `1234`, {
+    host: `localhost`,
+    dialect: `postgres`,
 });
 
-async function closeConnection() {
-    client.end((err) => {
-        if (err) {
-            console.log(err)
-        }
-        else {
-            console.log(`finalizado`)
-        }
-    });
-}
-
+try {
+    await client.authenticate();
+    console.log('Connected to db.');
+  } catch (error) {
+    console.error('Error:', error);
+  }
 
 export default client;
-export { closeConnection };
+export { client, Sequelize }

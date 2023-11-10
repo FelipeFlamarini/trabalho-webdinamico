@@ -1,4 +1,4 @@
-import client, { closeConnection } from './client.js'
+import {Sequelize, client} from './client.js';
 
 const funko = {
     "produtos": [
@@ -248,30 +248,60 @@ const funko = {
     ]
 };
 
-await client.query(`
-    DROP TABLE IF EXISTS produtos;
-    CREATE TABLE produtos (
-        id SERIAL PRIMARY KEY,
-        nome VARCHAR(50) NOT NULL,
-        universo VARCHAR(30) NOT NULL,
-        preco NUMERIC(5,2) NOT NULL,
-        descricao VARCHAR(500) NOT NULL
-    );
-`);
+
+const produtos = client.define('produtos', {
+    nome: {
+        type: Sequelize.STRING
+    },
+    universo: {
+        type: Sequelize.STRING
+    },
+    preco: {
+        type: Sequelize.FLOAT
+    },
+    descricao: {
+        type: Sequelize.STRING
+    }
+});
+
+const usuarios = client.define('usuarios', {
+    nome: {
+        type: Sequelize.STRING
+    },
+    email: {
+        type: Sequelize.STRING
+    },
+    senha: {
+        type: Sequelize.STRING
+    }
+});
+
+try {
+    await produtos.sync({force: true});
+    await usuarios.sync({force: true});
+    console.log(`Table criada`);
+} catch (error) {
+    console.log(`Erro: ${error}`);
+};
 
 const promises = funko.produtos.map(async (produto) => {
-    return client.query(`
-        INSERT INTO produtos (nome, universo, preco, descricao)
-        VALUES ('${produto.nome}', '${produto.universo}', ${produto.preco}, '${produto.descricao}');
-    `)
-    .then(() => {
-        console.log(`${produto.nome} inserido`);
-    })
-    .catch((err) => {
-        console.log(err)
-    });
+    try {
+        await produtos.create({
+            nome: produto.nome,
+            universo: produto.universo,
+            preco: produto.preco,
+            descricao: produto.descricao
+        }, {
+            fields: ['nome', 'universo', 'preco', 'descricao']
+        });
+        console.log(`Produto ${produto.nome} criado`)
+    } catch (error) {
+        console.log(`Erro: ${error}`)
+    };
 });
 
 await Promise.all(promises);
 
-await closeConnection();
+await client.close();
+
+export {produtos, usuarios};

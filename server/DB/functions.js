@@ -1,8 +1,8 @@
 import client from './client.js'
+import { produtos, usuarios } from './create.js';
 
 async function getAllProducts() {
-    const query = await client.query(`SELECT * FROM produtos;`)
-    return query;
+    return await produtos.findAll();
 };
 
 export { getAllProducts };

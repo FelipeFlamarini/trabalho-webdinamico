@@ -9,4 +9,13 @@ async function getAllProducts() {
     return await produtos.findAll();
 };
 
-export { getAllProducts, getProductById };
+async function getProductsMostViewed(limit) {
+    return await produtos.findAll({
+        order: [
+            ['views', 'DESC']
+        ],
+        limit: limit,
+    })
+}
+
+export { getAllProducts, getProductById, getProductsMostViewed };

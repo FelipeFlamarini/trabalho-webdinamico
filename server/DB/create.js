@@ -1,13 +1,19 @@
 import {Sequelize, client} from './client.js';
 import {produtos, usuarios} from './structure.js';
 
+function randomNumber(x, y) {
+    return Math.floor(Math.random() * (y - x + 1)) + x;
+}
+
 const funko = {
     "produtos": [
         {
             "nome": "Funko Pop! Homem-Aranha",
             "universo": "Marvel",
             "preco": 49.99,
-            "descricao": "O Homem-Aranha é um super-herói da Marvel conhecido por sua agilidade e habilidades aracnídeas. Este Funko Pop! retrata o personagem em sua icônica roupa vermelha e azul."
+            "descricao": "O Homem-Aranha é um super-herói da Marvel conhecido por sua agilidade e habilidades aracnídeas. Este Funko Pop! retrata o personagem em sua icônica roupa vermelha e azul.",
+            "views": Math.random(),
+            "vendas": 12,
         },
         {
             "nome": "Funko Pop! Darth Vader",

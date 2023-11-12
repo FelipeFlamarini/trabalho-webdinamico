@@ -300,10 +300,10 @@ const funko = {
             "estoque": randomNumber(0, 20)
         },
         {
-            "nome": "Funko Pop! T\'\'Challa (Black Panther)",
+            "nome": "Funko Pop! T\'Challa (Black Panther)",
             "universo": "Marvel",
             "preco": 35.99,
-            "descricao": "T\'\'Challa, também conhecido como Pantera Negra, é o rei de Wakanda da Marvel. Este Funko Pop! destaca seu traje de herói.",
+            "descricao": "T\'Challa, também conhecido como Pantera Negra, é o rei de Wakanda da Marvel. Este Funko Pop! destaca seu traje de herói.",
             "views": randomNumber(0, 1000),
             "vendas": randomNumber(0, 100),
             "estoque": randomNumber(0, 20)

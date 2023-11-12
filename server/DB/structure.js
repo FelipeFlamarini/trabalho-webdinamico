@@ -51,4 +51,23 @@ const usuarios = client.define('usuarios', {
     }
 });
 
-export { produtos, usuarios };
+const compras = client.define('compras', {
+    usuario: {
+        type: Sequelize.INTEGER
+    },
+    produtos: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
+    },
+    data: {
+        type: Sequelize.DATE
+    },
+    valor: {
+        type: Sequelize.FLOAT
+    },
+});
+
+export { 
+    produtos, 
+    usuarios, 
+    compras,
+};

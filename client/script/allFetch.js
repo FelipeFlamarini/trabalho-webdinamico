@@ -35,9 +35,25 @@ async function getProductsMostViewed(limit) {
 
 async function getProductsMostSold(limit) {
     // filtrar no banco de dados os produtos mais vendidos
-    const allProducts = await getAllProducts();
-    return allProducts
+    return await fetch(`http://localhost:3000/api/productsFilters/mostSold?limit=${limit}`)
+    .then(async response => {
+        if (!response.ok) {
+            throw new Error('getProductsMostSold: Network response was not ok');
+        }
+        return await response.json();
+    })
 };
+
+async function getProductsLeastStock(limit) {
+    // filtrar no banco de dados os produtos com menos estoque
+    return await fetch(`http://localhost:3000/api/productsFilters/leastStock?limit=${limit}`)
+    .then(async response => {
+        if (!response.ok) {
+            throw new Error('getProductsLeastStock: Network response was not ok');
+        }
+        return await response.json();
+    })
+}
 
 async function getRecommended() {
     // filtrar no banco de dados os produtos recomendados

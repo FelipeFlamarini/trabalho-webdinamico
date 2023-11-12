@@ -2,7 +2,7 @@ import express, { json } from 'express';
 import cors from 'cors';
 import url from 'url';
 import bodyparser from 'body-parser';
-import { getAllProducts, getProductById } from './DB/functions.js';
+import { getAllProducts, getProductById, getProductsMostViewed, getProductsMostSold, getProductsLeastStock} from './DB/functions.js';
 import { error } from 'console';
 import { createReadStream } from 'fs';
 import { get } from 'http';
@@ -29,44 +29,61 @@ app.get("/api/products/:id", async (req, res) => {
     // se id for um número, retornar o produto com o id\
     const id = parseInt(req.params.id);
     try {
-        let query = ""
+        let query = [];
         if (isNaN(id)) {
             query = await getAllProducts();
             query = query.map((product) => product.dataValues);
-            query = query.map((product) => {
-                // adicionar nova chave
-                product.teste = "teste";
-                return product;
-            });
         }
         else {
             query = await getProductById(id).dataValues;
         }
-        res.status(200);
-        // console.log(query)
-        res.send(query);
+        res.status(200).send(query);
     }
     catch {
         console.log(error);
     }
 });
 
+// filtros
+
 app.get("/api/productsFilters/mostViewed", async (req, res) => {
+    // produtos mais vistos
     const { limit } = req.query;
-    if (!isNaN(limit)) {
-        const products = getProductsMostViewed(limit);
-        // filtrar no banco de dados os produtos mais vistos
+    try {
+        const query = await getProductsMostViewed(limit);
+        const query2 = [];
+        query.forEach((product) => query2.push(product.dataValues));
+        res.status(200).send(query);
+    } catch {
+        console.log(error);
     }
 });
 
-app.put("/api/:abc", async (req, res) => {
-    const id = req.params.abc;
-    const note = req.body;
-    console.log(id)
-    console.log(note)
-    res.status(200);
-    res.send()
-})
+app.get("/api/productsFilters/mostSold", async (req, res) => {
+    // produtos mais vendidos
+    const { limit } = req.query;
+    try {
+        const query = await getProductsMostSold(limit);
+        const query2 = [];
+        query.forEach((product) => query2.push(product.dataValues));
+        res.status(200).send(query);
+    } catch {
+        console.log(error);
+    }
+});
+
+app.get("/api/productsFilters/leastStock", async (req, res) => {
+    // produtos com menos estoque disponível
+    const { limit } = req.query;
+    try {
+        const query = await getProductsLeastStock(limit);
+        const query2 = [];
+        query.forEach((product) => query2.push(product.dataValues));
+        res.status(200).send(query);
+    } catch {
+        console.log(error);
+    }
+});
 
 try {
     app.listen(3000)

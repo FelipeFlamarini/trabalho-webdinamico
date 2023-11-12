@@ -1,4 +1,5 @@
 import client from './client.js'
+import { Op } from 'sequelize';
 import { produtos, usuarios } from './structure.js';
 
 async function getProductById(id) {
@@ -18,4 +19,30 @@ async function getProductsMostViewed(limit) {
     })
 }
 
-export { getAllProducts, getProductById, getProductsMostViewed };
+async function getProductsMostSold(limit) {
+    return await produtos.findAll({
+        order: [
+            ['vendas', 'DESC']
+        ],
+        limit: limit,
+    })
+}
+
+async function getProductsLeastStock(limit) {
+    return await produtos.findAll({
+        // where: {
+        //     [Op.gt]: 0
+        // },
+        order: [
+            ['estoque', 'ASC']
+        ],
+        limit: limit,
+    })
+}
+
+export { getAllProducts, 
+    getProductById, 
+    getProductsMostViewed, 
+    getProductsMostSold,
+    getProductsLeastStock
+};

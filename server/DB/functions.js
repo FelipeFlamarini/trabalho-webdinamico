@@ -30,9 +30,11 @@ async function getProductsMostSold(limit) {
 
 async function getProductsLeastStock(limit) {
     return await produtos.findAll({
-        // where: {
-        //     [Op.gt]: 0
-        // },
+        where: {
+            estoque: {
+                [Op.gt]: 0
+            }
+        },
         order: [
             ['estoque', 'ASC']
         ],

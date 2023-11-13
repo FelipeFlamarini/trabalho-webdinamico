@@ -75,36 +75,36 @@ async function updateLeastStock(limit) {
 };
 
 // updateRecommended();
-updateMostSold(5)
+updateMostSold(8)
 .then(() => {
     // glidejs
     document.querySelectorAll('.maisVendidos').forEach((el) => {
         new Glide(el, {
             type: 'carousel',
-            perView: 2,
+            perView: 3,
             gap: 0,
         }).mount();
     });
 });
 
-updateMostViewed(5)
+updateMostViewed(8)
 .then(() => {
     // glidejs
     document.querySelectorAll('.maisVistos').forEach((el) => {
         new Glide(el, {
             type: 'carousel',
-            perView: 2,
+            perView: 3,
         }).mount();
     });
 });
 
-updateLeastStock(5)
+updateLeastStock(8)
 .then(() => {
     // glidejs
     document.querySelectorAll('.menosEstoque').forEach((el) => {
         new Glide(el, {
             type: 'carousel',
-            perView: 2,
+            perView: 3,
         }).mount();
     });
 });

@@ -78,7 +78,7 @@
   padding: 0 20rem;
 }
 
-.card > div {
+.card {
   border: 1px solid black;
   border-radius: 10%;
   display: flex;
@@ -86,7 +86,7 @@
   max-width: 50%;
   align-items: center;
 }
-.card > div a {
+.card a {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -94,11 +94,11 @@
   height: 70%;
   width: 100%;
 }
-.card > div a img {
+.card a img {
   max-height: 70%;
   max-width: 70%;
 }
-.card > div a h3, .card > div a p {
+.card a h3, .card a p {
   text-align: center;
 }
 

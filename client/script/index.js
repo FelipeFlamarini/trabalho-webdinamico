@@ -61,13 +61,11 @@ async function updateLeastStock(limit) {
         li.classList.add('card');
     
         li.innerHTML = `
-            <div>
-                <a href="/product/${product.id}">
-                    <img src="http://localhost:3000/api/productImages/${product.id}/1.jpg" alt="${product.nome}">
-                    <h3>${product.nome}</h3>
-                    <p>R$ ${product.preco}</p>
-                </a>
-            </div>
+            <a href="/product/${product.id}">
+                <img src="http://localhost:3000/api/productImages/${product.id}/1.jpg" alt="${product.nome}">
+                <h3>${product.nome}</h3>
+                <p>R$ ${product.preco}</p>
+            </a>
         `;
     
         document.querySelector('.menosEstoque .glide__slides').appendChild(li);
@@ -81,7 +79,7 @@ updateMostSold(8)
     document.querySelectorAll('.maisVendidos').forEach((el) => {
         new Glide(el, {
             type: 'carousel',
-            perView: 3,
+            perView: 5,
             gap: 0,
         }).mount();
     });
@@ -93,7 +91,7 @@ updateMostViewed(8)
     document.querySelectorAll('.maisVistos').forEach((el) => {
         new Glide(el, {
             type: 'carousel',
-            perView: 3,
+            perView: 5,
         }).mount();
     });
 });
@@ -104,7 +102,7 @@ updateLeastStock(8)
     document.querySelectorAll('.menosEstoque').forEach((el) => {
         new Glide(el, {
             type: 'carousel',
-            perView: 3,
+            perView: 5,
         }).mount();
     });
 });

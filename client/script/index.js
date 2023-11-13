@@ -1,4 +1,5 @@
 async function updateRecommended() {
+    // fazer após estruturar as contas
     const recommended = await getRecommended();
     console.log(recommended)
 };
@@ -18,7 +19,7 @@ async function updateLeastStock(limit) {
     console.log(leastStock);
 };
 
-updateRecommended();
+// updateRecommended();
 updateMostViewed(5);
 updateMostSold(5);
 updateLeastStock(5);

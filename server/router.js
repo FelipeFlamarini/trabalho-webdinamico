@@ -4,25 +4,12 @@ import url from 'url';
 import bodyparser from 'body-parser';
 import { getAllProducts, getProductById, getProductsMostViewed, getProductsMostSold, getProductsLeastStock} from './DB/functions.js';
 import { error } from 'console';
-import { createReadStream } from 'fs';
-import { get } from 'http';
 
 const app = express();
 
 app.use(cors());
 app.use(json());
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: false}));
-
-let mime = {
-    html: 'text/html',
-    txt: 'text/plain',
-    css: 'text/css',
-    gif: 'image/gif',
-    jpg: 'image/jpeg',
-    png: 'image/png',
-    svg: 'image/svg+xml',
-    js: 'application/javascript'
-};
 
 app.get("/api/products/:id", async (req, res) => {
     // se id for NaN, retornar todos os produtos

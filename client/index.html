@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/index.css">
     <title>Início</title>
 </head>
+
 <body>
     <header>
         <nav>
-            
+
         </nav>
     </header>
 
     <div class="maisVendidos">
-        <div class="card"></div>
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides"></ul>
+        </div>
+
+        <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+        </div>
     </div>
-    
+
     <div class="recomendados">
 
     </div>
+    
+    <script src="../node_modules/@glidejs/glide/dist/glide.min.js"></script>
     <script src="script/allFetch.js"></script>
     <script src="script/index.js"></script>
 </body>
+
 </html>

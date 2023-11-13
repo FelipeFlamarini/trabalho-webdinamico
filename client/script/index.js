@@ -5,21 +5,54 @@ async function updateRecommended() {
 };
 
 async function updateMostViewed(limit) {
-    const mostViewed = await getProductsMostViewed(limit);
-    console.log(mostViewed)
+    return await getProductsMostViewed(limit);
 };
 
 async function updateMostSold(limit) {
     const mostSold = await getProductsMostSold(limit);
-    console.log(mostSold);
+    console.log(mostSold)
+
+    mostSold.forEach((product) => {
+        const li = document.createElement('li');
+        li.classList.add('glide__slide');
+    
+        const div = document.createElement('div');
+        div.classList.add('card');
+        div.innerHTML = `
+            <a href="/product/${product.id}">
+                <img src="/api/productImages/${product.id}/1.jpg" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>R$ ${product.price}</p>
+            </a>
+        `;
+    
+        li.appendChild(div);
+    
+        document.querySelector('.maisVendidos .glide__slides').appendChild(li);
+    });
+
 };
 
 async function updateLeastStock(limit) {
-    const leastStock = await getProductsLeastStock(limit);
-    console.log(leastStock);
+    return await getProductsLeastStock(limit);
 };
 
 // updateRecommended();
-updateMostViewed(5);
 updateMostSold(5);
-updateLeastStock(5);
+
+// glidejs
+document.querySelectorAll('.maisVendidos').forEach((el) => {
+    new Glide(el, {
+        type: 'carousel',
+        perView: 3,
+        gap: 20,
+        breakpoints: {
+            1024: {
+                perView: 2
+            },
+            768: {
+                perView: 1
+            },
+        }
+    }).mount();
+});

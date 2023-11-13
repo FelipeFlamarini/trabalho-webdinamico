@@ -62,4 +62,35 @@
   font-family: "Roboto", sans-serif;
 }
 
+.maisVendidos, .maisVistos, .menosEstoque {
+  width: 100%;
+}
+.maisVendidos .glide__track, .maisVistos .glide__track, .menosEstoque .glide__track {
+  padding: 0rem 15rem;
+}
+
+.card > div {
+  border: 1px solid black;
+  border-radius: 10%;
+  display: flex;
+  height: 200px;
+  max-width: 30%;
+  align-items: center;
+}
+.card > div a {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 100%;
+}
+.card > div a img {
+  max-height: 70%;
+  max-width: 70%;
+}
+.card > div a h3, .card > div a p {
+  text-align: center;
+}
+
 /*# sourceMappingURL=index.css.map */

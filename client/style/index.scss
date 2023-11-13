@@ -9,7 +9,38 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.card {
-    // height: 300px;
-    // width: 200px;
+.maisVendidos, .maisVistos, .menosEstoque {
+    width: 100%;
+
+    .glide__track {
+        padding: 0rem 15rem;
+        // overflow: hidden;
+    }
+
+}
+
+.card > div {
+    border: 1px solid black;
+    border-radius: 10%;
+    display: flex;
+    height: 200px;
+    max-width: 30%;
+    align-items: center;
+
+    a {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        height: 70%;
+        width: 100%;
+        img {
+            max-height: 70%;
+            max-width: 70%;
+        }
+        
+        h3, p {
+            text-align: center;
+        }
+    }
 }

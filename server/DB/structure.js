@@ -43,11 +43,29 @@ const usuarios = client.define('usuarios', {
     admin: {
         type: Sequelize.BOOLEAN
     },
-    imagem: {
-        type: Sequelize.STRING
-    },
     compras: {
         type: Sequelize.ARRAY(Sequelize.INTEGER)
+    }
+});
+
+const enderecos = client.define('enderecos', {
+    usuario: {
+        type: Sequelize.INTEGER
+    },
+    destinatario: {
+        type: Sequelize.STRING
+    },
+    nome: {
+        type: Sequelize.STRING
+    },
+    cep: {
+        type: Sequelize.INTEGER
+    },
+    numero: {
+        type: Sequelize.INTEGER
+    },
+    complemento: {
+        type: Sequelize.STRING
     }
 });
 
@@ -69,5 +87,6 @@ const compras = client.define('compras', {
 export { 
     produtos, 
     usuarios, 
+    enderecos,
     compras,
 };

@@ -1,11 +1,11 @@
 import {Sequelize, client} from './client.js';
-import {produtos, usuarios} from './structure.js';
+import {produtos, usuarios, enderecos, compras} from './structure.js';
 
 function randomNumber(x, y) {
     return Math.floor(Math.random() * (y - x + 1)) + x;
 }
 
-const funko = {
+const funkoProdutos = {
     "produtos": [
         {
             "nome": "Funko Pop! Homem-Aranha",
@@ -374,15 +374,56 @@ const funko = {
     ]
 };
 
+const funkoUsuarios = {
+    "usuarios": [
+        {
+            "nome": "user1",
+            "email": "user1@gmail.com",
+            "senha": "user1",
+            "endereco": 1,
+            "telefone": "18999999999",
+            "admin": false,
+            "compras": [1]
+        },
+    ]
+};
+
+const funkoEnderecos = {
+    "enderecos": [
+        {
+            "usuario": 1,
+            "destinatario": "user1",
+            "nome": "Casa",
+            "cep": 19000000,
+            "complemento": "Casa amarela com teto vermelho",
+        },
+    ]
+};
+
+const funkoCompras = {
+    "compras": [
+        {
+            "usuario": 1,
+            "produtos": [1, 2, 3],
+            "endereco": 1,
+            "data": "2021-05-01",
+            "status": "Entregue",
+            "valor": 109.97
+        }
+    ]
+};
+
 try {
     await produtos.sync({force: true});
     await usuarios.sync({force: true});
+    await enderecos.sync({force: true});
+    await compras.sync({force: true});
     console.log(`Table criada`);
 } catch (error) {
     console.log(`Erro: ${error}`);
 };
 
-const promises = funko.produtos.map(async (produto) => {
+const promises1 = funkoProdutos.produtos.map(async (produto) => {
     try {
         await produtos.create({
             nome: produto.nome,
@@ -401,7 +442,60 @@ const promises = funko.produtos.map(async (produto) => {
     };
 });
 
-await Promise.all(promises);
+const promises2 = funkoUsuarios.usuarios.map(async (usuario) => {
+    try {
+        await usuarios.create({
+            nome: usuario.nome,
+            email: usuario.email,
+            senha: usuario.senha,
+            endereco: usuario.endereco,
+            telefone: usuario.telefone,
+            admin: usuario.admin,
+            compras: usuario.compras
+        }, {
+            fields: ['nome', 'email', 'senha', 'endereco', 'telefone', 'admin', 'compras']
+
+        });
+    } catch (error) {
+        console.log(`Erro: ${error}`)
+    }
+});
+
+const promises3 = funkoEnderecos.enderecos.map(async (endereco) => {
+    try {
+        await enderecos.create({
+            usuario: endereco.usuario,
+            destinatario: endereco.destinatario,
+            nome: endereco.nome,
+            cep: endereco.cep,
+            complemento: endereco.complemento
+        }, {
+            fields: ['usuario', 'destinatario', 'nome', 'cep', 'complemento']
+        });
+    } catch (error) {
+        console.log(`Erro: ${error}`)
+    }
+});
+
+const promises4 = funkoCompras.compras.map(async (compra) => {
+    try {
+        await compras.create({
+            usuario: compra.usuario,
+            produtos: compra.produtos,
+            data: compra.data,
+            valor: compra.valor
+        }, {
+            fields: ['usuario', 'produtos', 'data', 'valor']
+        });
+    } catch (error) {
+        console.log(`Erro: ${error}`)
+    }
+});
+
+await Promise.all(promises1);
+await Promise.all(promises2);
+await Promise.all(promises3);
+await Promise.all(promises4);
 
 await client.close();
 

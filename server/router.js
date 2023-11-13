@@ -41,6 +41,9 @@ app.put("/api/:abc", async (req, res) => {
     res.send()
 })
 
+// servindo imagens dos produtos
+app.use("/api/productImages", express.static("./server/public/imgs/produtos"));
+
 try {
     app.listen(3000)
     console.log("Server running on port 3000");

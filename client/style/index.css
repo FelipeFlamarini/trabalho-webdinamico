@@ -69,40 +69,19 @@
   width: 100%;
 }
 
-.maisVendidos,
-.maisVistos,
-.menosEstoque {
+.holder {
   overflow: hidden;
   padding: 3rem 2rem;
   display: flex;
   flex-flow: column nowrap;
 }
-.maisVendidos .glide__bullets,
-.maisVistos .glide__bullets,
-.menosEstoque .glide__bullets {
-  align-self: center;
-  margin: 1rem 0;
-  padding: 0.7rem;
-  border-radius: 1rem;
-  display: flex;
-  gap: 0.7rem;
-  background-color: black;
-}
-.maisVendidos .glide__bullets .glide__bullet,
-.maisVistos .glide__bullets .glide__bullet,
-.menosEstoque .glide__bullets .glide__bullet {
-  border: none;
-  background-color: inherit;
-  color: white;
-}
-
-.glide__track {
+.holder .glide__track {
   overflow: visible;
 }
-.glide__track .glide__slides {
+.holder .glide__track .glide__slides {
   overflow: visible;
 }
-.glide__track .glide__slides a {
+.holder .glide__track .glide__slides a {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -113,14 +92,28 @@
   box-shadow: 0 0 0.6rem black;
   padding: 2rem;
 }
-.glide__track .glide__slides a img {
+.holder .glide__track .glide__slides a img {
   justify-self: start;
   object-fit: cover;
   height: 15rem;
 }
-.glide__track .glide__slides a div h3,
-.glide__track .glide__slides a div p {
+.holder .glide__track .glide__slides a div h3,
+.holder .glide__track .glide__slides a div p {
   text-align: center;
+}
+.holder .glide__bullets {
+  align-self: center;
+  margin: 1rem 0;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  display: flex;
+  gap: 0.7rem;
+  background-color: black;
+}
+.holder .glide__bullets .glide__bullet {
+  border: none;
+  background-color: inherit;
+  color: white;
 }
 
 /*# sourceMappingURL=index.css.map */

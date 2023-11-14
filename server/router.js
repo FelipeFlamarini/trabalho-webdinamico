@@ -24,7 +24,7 @@ app.get("/api/products/:id", async (req, res) => {
             query = await getProductById(id).dataValues;
         }
         res.status(200);
-        // console.log(query)
+        console.log(query)
         res.send(query);
     }
     catch {

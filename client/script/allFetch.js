@@ -22,6 +22,7 @@ async function getProductById(id) {
     });
 }
 
-async function getRecommended() {
-    console.log(await getAllProducts());
-}
+
+
+
+export {getAllProducts}

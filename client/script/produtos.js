@@ -1,3 +1,4 @@
+import { addInCart } from "./addInCart.js";
 import { getAllProducts } from "./allFetch.js";
 
 
@@ -49,14 +50,13 @@ async function products() {
     const button = document.createElement("button");
     button.classList.add("cart-button");
     button.textContent = "adicionar ao carrinho";
+    button.addEventListener("click", () => addInCart(produto.id));
   
-    
-
     // Append the brand, name, price, and button elements to the details container element
     detailsContainer.appendChild(brand);
     detailsContainer.appendChild(name);
     detailsContainer.appendChild(price);
-    
+
     allDetails.appendChild(detailsContainer)
     allDetails.appendChild(button)
 
@@ -69,9 +69,13 @@ async function products() {
   
     });
   }catch(err){
-    console.error(err)
+    console.log(err)
   }
   
 }
 
- products()
+
+window.onload = function() {
+  products();
+};
+

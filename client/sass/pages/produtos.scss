@@ -2,11 +2,16 @@
 @use "../base/colors.scss" as *;
 @use "../components/buttons.scss";
 .container-produtos{
-  border: 1px solid red;
-
+  // border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .grid-layout{
     display: grid;
-    grid-template-columns: repeat(5,auto);
+    width: 80rem;
+    // border: 1px solid red;
+    grid-template-columns: repeat(4,auto);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     // gap: 1rem;
     // border: 10px solid yellow;
     .produto{
@@ -31,29 +36,39 @@
         }
       }
 
-      .details{
+      .all-details{
         display: flex;
         flex-direction: column;
-        gap: .4rem;
+        justify-content: space-between;
+        height: 10rem;
+        .details{
+          // border: 1px solid red;
+          display: flex;
+          flex-direction: column;
+          gap: .2rem;
 
-        span:nth-child(1){
-          color: $brands;
+          span:nth-child(1){
+            color: $brands;
+          }
+  
+          span:nth-child(2){
+            color: $primary-color;
+            font-weight: bold;
+            font-size: 20px;
+          }
+  
+          span:nth-child(3){
+            font-size: 18px;
+            color: $primary-color;
+            margin-top: .4rem;
+          }
+  
+          button{
+            bottom: 0;
+          }
         }
-
-        span:nth-child(2){
-          color: $primary-color;
-          font-weight: bold;
-          font-size: 18px;
-        }
-
-        span:nth-child(3){
-          margin-bottom: 2rem;
-          font-size: 16px;
-          color: $primary-color;
-          margin-bottom: 2rem;
-        }
-
       }
+
     }
   }
 }

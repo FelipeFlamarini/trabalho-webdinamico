@@ -69,36 +69,57 @@
   width: 100%;
 }
 
-.maisVendidos, .maisVistos, .menosEstoque {
-  width: 100%;
-  height: 500px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 0 20rem;
-}
-
-.card {
-  border: 1px solid black;
-  border-radius: 10%;
-  display: flex;
-  height: 300px;
-  max-width: 50%;
-  align-items: center;
-}
-.card a {
+.maisVendidos,
+.maisVistos,
+.menosEstoque {
+  overflow: hidden;
+  padding: 3rem 2rem;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+}
+.maisVendidos .glide__bullets,
+.maisVistos .glide__bullets,
+.menosEstoque .glide__bullets {
+  align-self: center;
+  margin: 1rem 0;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  display: flex;
+  gap: 0.7rem;
+  background-color: black;
+}
+.maisVendidos .glide__bullets .glide__bullet,
+.maisVistos .glide__bullets .glide__bullet,
+.menosEstoque .glide__bullets .glide__bullet {
+  border: none;
+  background-color: inherit;
+  color: white;
+}
+
+.glide__track {
+  overflow: visible;
+}
+.glide__track .glide__slides {
+  overflow: visible;
+}
+.glide__track .glide__slides a {
+  display: flex;
   align-items: center;
-  height: 70%;
-  width: 100%;
+  justify-content: space-between;
+  flex-flow: column wrap;
+  border-radius: 10%;
+  width: auto;
+  height: 25rem;
+  box-shadow: 0 0 0.6rem black;
+  padding: 2rem;
 }
-.card a img {
-  max-height: 70%;
-  max-width: 70%;
+.glide__track .glide__slides a img {
+  justify-self: start;
+  object-fit: cover;
+  height: 15rem;
 }
-.card a h3, .card a p {
+.glide__track .glide__slides a div h3,
+.glide__track .glide__slides a div p {
   text-align: center;
 }
 

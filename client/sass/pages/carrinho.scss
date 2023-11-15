@@ -1,0 +1,47 @@
+@use "../base/colors.scss" as *;
+
+.carrinho-container{
+  table{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+    thead{
+      tr{
+        // border: 1px solid red;
+        // border: 1px solid black;
+
+        th{
+          color: #878787a1;
+          font-weight: 700;
+        }
+        th:nth-child(1){
+          text-align: start;
+        }
+      }
+    }
+    tbody{
+
+      tr{
+        // border: 1px solid black; 
+
+        td{
+          border-top: 1px solid black;
+          // border-top: 1px solid $primary-color;
+        }
+        td:nth-child(1){
+          .product-details{
+            // background-color: aqua;
+            display: flex;
+            .img-item{
+              width: 10rem;
+              height: 10rem;
+            }
+          }
+        }
+        td:nth-child(2),td:nth-child(3){
+          text-align: center;
+        }
+      }
+    }
+  }
+}

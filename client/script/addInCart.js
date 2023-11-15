@@ -1,6 +1,7 @@
-function addInCart(id){
+
+function addInCart(produto){
   const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
-  arrayOfIds.push(id)
+  arrayOfIds.push(produto.id)
   localStorage.setItem('productID', JSON.stringify(arrayOfIds))
 }
 

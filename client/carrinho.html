@@ -4,23 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="./script/createCart.js" type="module" defer></script>
 </head>
 <body>
     <div class="carrinho-container">
-        <h1></h1>
-        <table>
+        <h1>Meu Carrinho</h1>
+        <table >
             <thead>
-                <th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </th>
-            </thead>
-            <tbody>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th>item</th>
+                    <th>qtd</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="content-table">
+                <tr>
+                    <td>
+                        <div class="product-details">
+                            <img src="" alt="" class="img-item">
+                            <span>Marvel</span>
+                            <span>SpiderMan</span>
+                            <img src="./img/trash.svg" alt="">
+                        </div>
+                    </td>
+                    <td>
+                        <select name="" id="">
+                            <option value="1">1</option>
+                        </select>
+                    </td>
+                    <td>12.00</td>
                 </tr>
             </tbody>
         </table>

@@ -50,7 +50,7 @@ async function products() {
     const button = document.createElement("button");
     button.classList.add("cart-button");
     button.textContent = "adicionar ao carrinho";
-    button.addEventListener("click", () => addInCart(produto.id));
+    button.addEventListener("click", () => addInCart(produto));
   
     // Append the brand, name, price, and button elements to the details container element
     detailsContainer.appendChild(brand);

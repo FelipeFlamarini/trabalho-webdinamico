@@ -97,5 +97,30 @@
     padding: 0.25em 0.75em;
   }
 }
+.carrinho-container table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+}
+.carrinho-container table thead tr th {
+  color: rgba(135, 135, 135, 0.631372549);
+  font-weight: 700;
+}
+.carrinho-container table thead tr th:nth-child(1) {
+  text-align: start;
+}
+.carrinho-container table tbody tr td {
+  border-top: 1px solid black;
+}
+.carrinho-container table tbody tr td:nth-child(1) .product-details {
+  display: flex;
+}
+.carrinho-container table tbody tr td:nth-child(1) .product-details .img-item {
+  width: 10rem;
+  height: 10rem;
+}
+.carrinho-container table tbody tr td:nth-child(2), .carrinho-container table tbody tr td:nth-child(3) {
+  text-align: center;
+}
 
 /*# sourceMappingURL=index.css.map */

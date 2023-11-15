@@ -1,6 +1,7 @@
 async function getAllProducts() {
     return await fetch ('http://localhost:3000/api/products/all')
     .then(async response => {
+        console.log(response)
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -25,4 +26,4 @@ async function getProductById(id) {
 
 
 
-export {getAllProducts}
+export {getAllProducts,getProductById}

@@ -4,7 +4,7 @@ console.log("a")
 async function teste() {
   const aa = await getAllProducts()
   console.log(aa)
-  const bb = await getProductById(1)
+  let bb = await getProductById(1)
   console.log(bb)
 }
 

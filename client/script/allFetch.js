@@ -9,14 +9,14 @@ async function getAllProducts() {
 };
 
 async function getProductById(id) {
-    await fetch(`http://localhost:3000/api/products/${id}`)
+    return await fetch(`http://localhost:3000/api/products/${id}`)
     .then(async response => {
-        console.log(response)
         if (!response.ok) {
             throw new Error('getProductById: Network response was not ok');
         }
-        else return await response;
+        return await response.json()
     })
+
     .catch(error => {
         console.log(error);
     });

@@ -25,11 +25,12 @@ app.get("/api/products/:id", async (req, res) => {
             })
             .then((query) => {
                 res.status(200).send(query);
+
             });
         } else {
             await getProductById(id)
             .then((query) => {
-                res.status(200).send(query.dataValues);
+                res.status(200).send(query);
             });
         }
     }

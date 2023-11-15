@@ -16,15 +16,22 @@ app.get("/api/products/:id", async (req, res) => {
     // se id for um número, retornar o produto com o id\
     const id = parseInt(req.params.id);
     try {
-        let query = [];
         if (isNaN(id)) {
-            query = await getAllProducts();
-            query = query.map((product) => product.dataValues);
+            await getAllProducts()
+            .then((query) => {
+                return query.map((product) => {
+                    return product.dataValues;
+                })
+            })
+            .then((query) => {
+                res.status(200).send(query);
+            });
+        } else {
+            await getProductById(id)
+            .then((query) => {
+                res.status(200).send(query.dataValues);
+            });
         }
-        else {
-            query = await getProductById(id).dataValues;
-        }
-        res.status(200).send(query);
     }
     catch {
         console.log(error);

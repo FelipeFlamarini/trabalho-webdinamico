@@ -38,13 +38,16 @@ app.get("/api/products/:id", async (req, res) => {
     }
 });
 
-app.put("/api/:abc", async (req, res) => {
-    const id = req.params.abc;
-    const note = req.body;
-    console.log(id)
-    console.log(note)
-    res.status(200);
-    res.send()
+app.put("/api/cart/checkout", async (req, res) => {
+    const { body } = req;
+    body.forEach(async (item) => {
+        await getProductById(item.id)
+        .then((product) => {
+            product.estoque -= item.quantity;
+            product.save();
+        });
+    });
+    res.status(200).send();
 })
 
 // servindo imagens dos produtos

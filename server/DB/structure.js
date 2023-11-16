@@ -12,7 +12,16 @@ const produtos = client.define('produtos', {
     },
     descricao: {
         type: Sequelize.STRING
-    }
+    },
+    views: {
+        type: Sequelize.INTEGER
+    },
+    vendas: {
+        type: Sequelize.INTEGER
+    },
+    estoque: {
+        type: Sequelize.INTEGER
+    },
 });
 
 const usuarios = client.define('usuarios', {
@@ -24,7 +33,60 @@ const usuarios = client.define('usuarios', {
     },
     senha: {
         type: Sequelize.STRING
+    },
+    endereco: {
+        type: Sequelize.STRING
+    },
+    telefone: {
+        type: Sequelize.STRING
+    },
+    admin: {
+        type: Sequelize.BOOLEAN
+    },
+    compras: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
     }
 });
 
-export { produtos, usuarios };
+const enderecos = client.define('enderecos', {
+    usuario: {
+        type: Sequelize.INTEGER
+    },
+    destinatario: {
+        type: Sequelize.STRING
+    },
+    nome: {
+        type: Sequelize.STRING
+    },
+    cep: {
+        type: Sequelize.INTEGER
+    },
+    numero: {
+        type: Sequelize.INTEGER
+    },
+    complemento: {
+        type: Sequelize.STRING
+    }
+});
+
+const compras = client.define('compras', {
+    usuario: {
+        type: Sequelize.INTEGER
+    },
+    produtos: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
+    },
+    data: {
+        type: Sequelize.DATE
+    },
+    valor: {
+        type: Sequelize.FLOAT
+    },
+});
+
+export { 
+    produtos, 
+    usuarios, 
+    enderecos,
+    compras,
+};

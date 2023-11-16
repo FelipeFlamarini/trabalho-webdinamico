@@ -1,16 +1,17 @@
 import { addInCart } from "./addInCart.js";
-import { getAllProducts } from "./allFetch.js";
+import { getAllProducts,GetProductByPrice,GetProductByUniverse } from "./allFetch.js";
 
 
-async function products() {
-  const produto = await getAllProducts()
+async function products(param = getAllProducts()) {
+  const produto = await param
   console.log(produto)
   try{
 
+    const parentElement = document.querySelector(".grid-layout");
+    parentElement.innerHTML = ""
     produto.forEach(produto => {
       // Get the parent element where the card will be appended
-    const parentElement = document.querySelector(".grid-layout");
-  
+    
     // Create the card container element
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("produto");
@@ -23,9 +24,15 @@ async function products() {
     const img = document.createElement("img");
     img.src = `http://localhost:3000/api/productImages/${produto.id}/1.jpg`;
     img.alt = produto.nome;
+    img.classList.add("main-image")
   
+    const secondimg = document.createElement("img")
+    secondimg.src = `http://localhost:3000/api/productImages/${produto.id}/2.jpg`;
+    secondimg.alt = produto.nome + " in box";
+    secondimg.classList.add("box-image")
     // Append the image element to the image container element
     imgContainer.appendChild(img);
+    imgContainer.appendChild(secondimg)
   
     const allDetails = document.createElement("div")
     allDetails.classList.add("all-details")
@@ -75,7 +82,68 @@ async function products() {
 }
 
 
+
+const checkboxes = document.querySelectorAll('input[name="filtro"]');
+checkboxes.forEach(checkbox =>{
+  checkbox.addEventListener("click",(ev)=>{
+    uncheckOthers(ev.target)
+    if(ev.target.value && ev.target.checked){
+      console.log("ABGGA")
+      console.log(ev.target.value)
+      selectFilter(ev.target.value)
+      return localStorage.setItem("filtro", JSON.stringify(ev.target.value));
+    }
+    selectFilter('default')
+    return localStorage.setItem("filtro",JSON.stringify('default'))
+  })
+})
+
+function uncheckOthers(clickedCheckbox) {
+  // Obtém todos os checkboxes dentro do mesmo grupo
+  const checkboxes = document.querySelectorAll('input[name="filtro"]');
+  
+  // Desmarca os outros checkboxes, exceto o clicado
+  checkboxes.forEach(checkbox => {
+      if (checkbox !== clickedCheckbox) {
+          checkbox.checked = false;
+      }
+  });
+}
+
+function selectFilter(param){
+  switch (param){
+    case 'Marvel':
+      products(GetProductByUniverse('Marvel'))
+      break;
+    case 'precoASC':
+      products(GetProductByPrice("ASC"))
+      break;
+    case 'precoDESC':
+      products(GetProductByPrice('DESC'))
+      break;
+    case 'default':
+      products(getAllProducts())
+    default:
+      products(getAllProducts())
+      console.log("default caiu")
+  }
+}
+
+function savedFilter(){
+  const savedFilter = JSON.parse(localStorage.getItem("filtro"));
+  if (savedFilter && savedFilter !== 'default') {
+    // Seleciona o checkbox correspondente ao filtro salvo
+    const checkbox = document.querySelector(`input[value="${savedFilter}"]`);
+    if (checkbox) {
+      checkbox.checked = true;
+      // Chama a função selectFilter para aplicar o filtro salvo
+      return selectFilter(savedFilter);
+    }
+  }
+  selectFilter(savedFilter)
+}
+
 window.onload = function() {
-  products();
+  savedFilter()
 };
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 * {
   margin: 0;
@@ -36,6 +37,53 @@
   flex-direction: column;
   align-items: center;
 }
+.container-produtos .filtros {
+  /* Estilo do botão */
+  /* Estilo do conteúdo do dropdown */
+  /* Estilo dos inputs do dropdown */
+  /* Estilo dos labels do dropdown */
+  /* Muda a cor dos labels ao passar o mouse */
+  /* Mostra o conteúdo do dropdown ao clicar no botão */
+  /* Muda a cor do botão ao passar o mouse */
+}
+.container-produtos .filtros .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.container-produtos .filtros .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.container-produtos .filtros .dropdown-content input {
+  margin: 10px;
+}
+.container-produtos .filtros .dropdown-content label {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.container-produtos .filtros .dropdown-content label:hover {
+  background-color: #ddd;
+}
+.container-produtos .filtros .dropdown:hover .dropdown-content {
+  display: block;
+}
+.container-produtos .filtros .dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 .container-produtos .grid-layout {
   display: grid;
   width: 80rem;
@@ -55,6 +103,7 @@
   border-radius: 5px;
 }
 .container-produtos .grid-layout .produto .img-container {
+  position: relative;
   width: 12rem;
   height: 12rem;
   margin-bottom: 0.5rem;
@@ -62,6 +111,22 @@
 .container-produtos .grid-layout .produto .img-container img {
   width: 11rem;
   height: 11rem;
+}
+.container-produtos .grid-layout .produto .img-container .main-image {
+  transition: opacity 0.2s ease-in-out; /* Adiciona uma transição suave */
+}
+.container-produtos .grid-layout .produto .img-container .box-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* Inicialmente, a imagem hover está invisível */
+  transition: opacity 0.2s ease-in-out; /* Adiciona uma transição suave */
+}
+.container-produtos .grid-layout .produto .img-container:hover .box-image {
+  opacity: 1;
+}
+.container-produtos .grid-layout .produto .img-container:hover .main-image {
+  opacity: 0;
 }
 .container-produtos .grid-layout .produto .all-details {
   display: flex;

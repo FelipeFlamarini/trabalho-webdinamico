@@ -2,7 +2,7 @@ import express, { json } from 'express';
 import cors from 'cors';
 import url from 'url';
 import bodyparser from 'body-parser';
-import { getAllProducts, getProductById } from './DB/functions.js';
+import { getAllProducts, getProductById,GetProductByUniverse,GetProductByPrice } from './DB/functions.js';
 import { error } from 'console';
 
 const app = express();
@@ -35,6 +35,32 @@ app.get("/api/products/:id", async (req, res) => {
     }
     catch {
         console.log(error);
+    }
+});
+
+app.get("/api/products/universe/:universe", async (req, res) => {
+    const universe = req.params.universe;
+
+    try {
+        const query = await GetProductByUniverse(universe);
+        const formattedQuery = query.map((product) => product.dataValues);
+        res.status(200).send(formattedQuery);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Internal Server Error' });
+    }
+});
+
+app.get("/api/products/price/:order", async (req, res) => {
+    const order = req.params.order; // 'ASC' ou 'DESC'
+
+    try {
+        const query = await GetProductByPrice(order);
+        const formattedQuery = query.map((product) => product.dataValues);
+        res.status(200).send(formattedQuery);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Internal Server Error' });
     }
 });
 

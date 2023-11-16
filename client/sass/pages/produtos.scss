@@ -6,6 +6,62 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .filtros{
+    /* Estilo do botão */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do conteúdo do dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Estilo dos inputs do dropdown */
+.dropdown-content input {
+  margin: 10px;
+}
+
+/* Estilo dos labels do dropdown */
+.dropdown-content label {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Muda a cor dos labels ao passar o mouse */
+.dropdown-content label:hover {
+  background-color: #ddd;
+}
+
+/* Mostra o conteúdo do dropdown ao clicar no botão */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Muda a cor do botão ao passar o mouse */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+  }
+
   .grid-layout{
     display: grid;
     width: 80rem;
@@ -28,12 +84,34 @@
       border-radius: sizes.$radius;
       .img-container{
         // border: 1px solid blue;
+        position: relative;
         width: 12rem;
         height: 12rem;
         margin-bottom: .5rem;
         img{
           width: 11rem;
           height: 11rem;
+        }
+
+        .main-image{
+          transition: opacity 0.2s ease-in-out; /* Adiciona uma transição suave */
+        }
+
+        .box-image{
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0; /* Inicialmente, a imagem hover está invisível */
+          transition: opacity 0.2s ease-in-out; /* Adiciona uma transição suave */
+        }
+      }
+
+      .img-container:hover{
+        .box-image{
+          opacity: 1;
+        }
+        .main-image{
+          opacity: 0;
         }
       }
 

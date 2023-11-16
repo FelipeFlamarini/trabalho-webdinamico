@@ -9,8 +9,23 @@
     <script src="./script/produtos.js" defer type="module"></script>
     <body>
         <div class="container-produtos">
+            <div class="filtros">
+                <div class="dropdown">
+                    <button class="dropbtn">Filtrar por</button>
+                    <div class="dropdown-content">
+                        <input type="checkbox" id="marvel" name="filtro" value="Marvel">
+                        <label for="marvel">Marvel</label>
+                        
+                        <input type="checkbox" id="preco-crescente" name="filtro" value="precoASC">
+                        <label for="preco-crescente">Preço crescente</label>
+                        
+                        <input type="checkbox" id="preco-decrescente" name="filtro" value="precoDESC">
+                        <label for="preco-decrescente">Preço decrescente</label>
+                    </div>
+                </div>
+            </div>
             <div class="grid-layout">
-                <div class="produto">
+                <!-- <div class="produto">
                     <div class="img-container">
                         <img src="http://localhost:3000/api/productImages/1/1.jpg" alt="">
                     </div>
@@ -23,7 +38,7 @@
 
                         <button class="cart-button">adicionar ao carrinho</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 </body>

@@ -1,34 +1,37 @@
-import { getAllProducts, getProductById } from "./allFetch.js";
+import { getProductById } from "./allFetch.js";
+import { PriceCalculator } from "./price.js";
 console.log("a")
 
-async function teste() {
-  const aa = await getAllProducts()
-  console.log(aa)
-  let bb = await getProductById(1)
-  console.log(bb)
+const calculator = new PriceCalculator();
+
+// let allPrice= 
+
+function getIdsLocalStorage(){
+  const ids = JSON.parse(localStorage.getItem("productID")) 
+  
+  console.log(ids)
+  if (ids){
+    totalItens(ids.length)
+    ids.forEach(id => {
+      teste(id)
+    });
+  }
 }
 
+
+async function teste(id) {
+  const produto = await getProductById(id)
+  console.log(produto)
+  CreateRows(produto)
+  putPrice(produto.preco)
+}
+
+
+
+
 function CreateRows(produto) {
-  // create table element
-const tbody = document.createElement("tbody");
-console.log(produto)
-// // create table header
-// const thead = document.createElement('thead');
-// const headerRow = document.createElement('tr');
-// const itemHeader = document.createElement('th');
-// itemHeader.textContent = 'item';
-// const qtdHeader = document.createElement('th');
-// qtdHeader.textContent = 'qtd';
-// const totalHeader = document.createElement('th');
-// totalHeader.textContent = 'Total';
+const tbody = document.getElementById("content-table");
 
-// headerRow.appendChild(itemHeader);
-// headerRow.appendChild(qtdHeader);
-// headerRow.appendChild(totalHeader);
-// thead.appendChild(headerRow);
-
-// create table body
-// const tbody = document.createElement('tbody');
 const bodyRow = document.createElement('tr');
 const itemCell = document.createElement('td');
 
@@ -50,9 +53,13 @@ const imgTrash = document.createElement('img');
 imgTrash.src= './img/trash.svg'
 imgTrash.alt = 'exclude buttonn sybolized by trash'
 
+const names = document.createElement('div')
+names.classList.add("names-product")
+names.appendChild(span1)
+names.appendChild(span2)
+
 productDetails.appendChild(imgItem);
-productDetails.appendChild(span1);
-productDetails.appendChild(span2);
+productDetails.appendChild(names);
 productDetails.appendChild(imgTrash);
 
 itemCell.appendChild(productDetails);
@@ -73,11 +80,20 @@ bodyRow.appendChild(itemCell);
 bodyRow.appendChild(qtdCell);
 bodyRow.appendChild(totalCell);
 tbody.appendChild(bodyRow);
-
-// add header and body to table
-// table.appendChild(thead);
-// tab.appendChild(tbody);
 }
 
-teste()
+function totalItens(total) {
+  const totalItens = document.getElementById("total-itens")
+  totalItens.textContent = total
+}
 
+function putPrice(preco){
+  const priceText = document.getElementById("preco")
+  calculator.addPrice(preco)
+  // console.log(calculator.getTotalPrice() + "teste")
+  priceText.textContent = calculator.getTotalPrice()
+}
+
+window.onload = () => {
+  getIdsLocalStorage()
+}

@@ -24,6 +24,6 @@ async function getProductById(id) {
 }
 
 
-
+console.log(getProductById(1))
 
 export {getAllProducts,getProductById}

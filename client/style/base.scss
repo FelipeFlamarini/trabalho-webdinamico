@@ -33,6 +33,9 @@ header {
     }
   }
   nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: colors.$lightblue;
     margin: 0 1rem;
     padding: 1rem;
@@ -46,6 +49,20 @@ header {
         background-color: colors.$darkblue;
         padding: 0.3rem 1rem;
         border-radius: 1rem;
+    }
+
+    .searchBar {
+        background-color: white;
+        padding: 0.5rem;
+        width: auto;
+        border-radius: 1rem;
+
+        * {
+            background-color: inherit;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
     }
   }
 }

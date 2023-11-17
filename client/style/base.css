@@ -84,6 +84,9 @@ header .topBanner img {
   max-width: 100%;
 }
 header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #2a9d8f;
   margin: 0 1rem;
   padding: 1rem;
@@ -98,6 +101,18 @@ header nav a {
   background-color: #264653;
   padding: 0.3rem 1rem;
   border-radius: 1rem;
+}
+header nav .searchBar {
+  background-color: white;
+  padding: 0.5rem;
+  width: auto;
+  border-radius: 1rem;
+}
+header nav .searchBar * {
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 footer {

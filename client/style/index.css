@@ -96,6 +96,7 @@
   overflow: visible;
 }
 .mainContainer .holder .glide__track .glide__slides a {
+  background-color: #e9c46a;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -113,6 +114,9 @@
   object-fit: cover;
   height: 15rem;
 }
+.mainContainer .holder .glide__track .glide__slides a div {
+  background-color: #e76f51;
+}
 .mainContainer .holder .glide__track .glide__slides a div h3,
 .mainContainer .holder .glide__track .glide__slides a div p {
   text-align: center;
@@ -124,16 +128,16 @@
   border-radius: 1rem;
   display: flex;
   gap: 0.7rem;
-  background-color: black;
+  background-color: inherit;
 }
 .mainContainer .holder .glide__bullets .glide__bullet {
   border: none;
   background-color: inherit;
-  color: white;
+  color: #2a9d8f;
 }
 .mainContainer .holder .glide__bullets .active {
   background-color: inherit;
-  color: red;
+  color: #264653;
 }
 
 /*# sourceMappingURL=index.css.map */

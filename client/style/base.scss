@@ -1,0 +1,28 @@
+$header-footerHeight: 5rem;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    height: $header-footerHeight;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    
+    a {
+        justify-self: flex-start;
+        text-decoration: none;
+        color: white;
+    }
+}
+
+footer {
+    height: $header-footerHeight;
+    background-color: black;
+}

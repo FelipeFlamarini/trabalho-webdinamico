@@ -67,21 +67,31 @@
   flex-flow: column nowrap;
   justify-content: center;
   width: 100%;
+  padding: 2rem 0;
 }
-
-.holder {
+.mainContainer .holder {
   overflow: hidden;
   padding: 3rem 2rem;
   display: flex;
   flex-flow: column nowrap;
 }
-.holder .glide__track {
+.mainContainer .holder .banner {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+.mainContainer .holder .banner * {
+  text-align: center;
+}
+.mainContainer .holder .glide__track {
   overflow: visible;
 }
-.holder .glide__track .glide__slides {
+.mainContainer .holder .glide__track .glide__slides {
   overflow: visible;
 }
-.holder .glide__track .glide__slides a {
+.mainContainer .holder .glide__track .glide__slides a {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,17 +101,19 @@
   height: 25rem;
   box-shadow: 0 0 0.6rem black;
   padding: 2rem;
+  text-decoration: none;
+  color: black;
 }
-.holder .glide__track .glide__slides a img {
+.mainContainer .holder .glide__track .glide__slides a img {
   justify-self: start;
   object-fit: cover;
   height: 15rem;
 }
-.holder .glide__track .glide__slides a div h3,
-.holder .glide__track .glide__slides a div p {
+.mainContainer .holder .glide__track .glide__slides a div h3,
+.mainContainer .holder .glide__track .glide__slides a div p {
   text-align: center;
 }
-.holder .glide__bullets {
+.mainContainer .holder .glide__bullets {
   align-self: center;
   margin: 1rem 0;
   padding: 0.7rem;
@@ -110,7 +122,7 @@
   gap: 0.7rem;
   background-color: black;
 }
-.holder .glide__bullets .glide__bullet {
+.mainContainer .holder .glide__bullets .glide__bullet {
   border: none;
   background-color: inherit;
   color: white;

@@ -60,3 +60,5 @@ async function getRecommended() {
     const allProducts = await getAllProducts();
     return allProducts
 };
+
+export { getAllProducts, getProductById, getProductsMostViewed, getProductsMostSold, getProductsLeastStock, getRecommended}

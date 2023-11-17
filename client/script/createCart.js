@@ -12,24 +12,30 @@ function getIdsLocalStorage(){
   console.log(ids)
   if (ids){
     totalItens(ids.length)
-    ids.forEach(id => {
-      teste(id)
+    ids.forEach(produto => {
+      teste(produto.id,produto.quantity)
+      calculator.totalPrice = 0
+      putPrice(produto.quantity,produto.id)
     });
   }
+  
 }
 
 
-async function teste(id) {
+
+
+async function teste(id,quantity) {
   const produto = await getProductById(id)
-  console.log(produto)
-  CreateRows(produto)
-  putPrice(produto.preco)
+  // console.log(produto)
+  CreateRows(produto,quantity)
+  
 }
 
 
 
 
-function CreateRows(produto) {
+function CreateRows(produto,quantity) {
+  console.log(produto.preco)
 const tbody = document.getElementById("content-table");
 
 const bodyRow = document.createElement('tr');
@@ -65,12 +71,39 @@ productDetails.appendChild(imgTrash);
 itemCell.appendChild(productDetails);
 const qtdCell = document.createElement('td');
 const select = document.createElement('select');
+select.classList.add("select-quantitys")
+// select.dataset.productId = produto.id
+select.addEventListener("change",(ev)=>{
+  // `${produto.id} + ${ev.target.value}`
+  const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
+  
+  const found = arrayOfIds.find(produtoLocal => produtoLocal.id === produto.id);
+  console.log(found)
+  if(found){
+    found.quantity = +ev.target.value;
+    localStorage.setItem('productID', JSON.stringify(arrayOfIds))
+    arrayOfIds.forEach((produto)=>{
+      calculator.totalPrice = 0
+      putPrice(produto.quantity,produto.id)
+    })
+  }
 
-const option = document.createElement('option');
-option.setAttribute('value', '1');
-option.textContent = '1';
+})
 
-select.appendChild(option);
+
+for (let index = 1; index < 16; index++) {
+  const option = document.createElement('option');
+  option.setAttribute('value', index);
+  option.textContent = index
+
+  if (index == quantity) {
+    option.setAttribute('selected', 'selected');
+  }
+
+  select.appendChild(option);
+}
+
+
 qtdCell.appendChild(select);
 
 const totalCell = document.createElement('td');
@@ -87,13 +120,35 @@ function totalItens(total) {
   totalItens.textContent = total
 }
 
-function putPrice(preco){
+
+
+async function putPrice(quantity,id){
+  const produto = await getProductById(id)
+  const preco =  produto.preco
   const priceText = document.getElementById("preco")
-  calculator.addPrice(preco)
-  // console.log(calculator.getTotalPrice() + "teste")
+
+  calculator.addPrice(preco,quantity)
+  console.log(calculator.getTotalPrice())
   priceText.textContent = calculator.getTotalPrice()
 }
 
 window.onload = () => {
   getIdsLocalStorage()
+}
+
+function a() {
+  
+  const quantitySelects = document.querySelectorAll(".select-quantitys");
+  // console.log(quantitySelects)
+  quantitySelects.forEach((select) => {
+    select.addEventListener("change", (ev) => {
+      const productId = select.dataset.productId;
+      const newQuantity = ev.target.value;
+      
+      // Atualize a quantidade do item no localStorage com o novo valor do input
+      // const cart = JSON.parse(localStorage.getItem("cart")) || {};
+      // cart[productId].quantity = newQuantity;
+      // localStorage.setItem("cart", JSON.stringify(cart));
+    });
+  });
 }

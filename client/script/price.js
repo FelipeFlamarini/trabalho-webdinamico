@@ -3,14 +3,14 @@ class PriceCalculator {
     this.totalPrice = 0;
   }
 
-  addPrice(individualPrice) {
-    this.totalPrice += individualPrice;
+  addPrice(preco,quantity) {
+    this.totalPrice += (preco*quantity)
   }
 
   getTotalPrice() {
-    return this.totalPrice.toFixed(2);
+    return this.totalPrice.toFixed(2)
   }
 }
 
 
-export  {PriceCalculator,};
+export  {PriceCalculator};

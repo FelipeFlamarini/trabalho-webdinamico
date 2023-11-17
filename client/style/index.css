@@ -55,11 +55,15 @@
   direction: rtl;
 }
 
+@font-face {
+  font-family: Nakana;
+  src: url("./fonts/Nakana.otf");
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Nakana", "Roboto", sans-serif;
 }
 
 .mainContainer {
@@ -126,6 +130,10 @@
   border: none;
   background-color: inherit;
   color: white;
+}
+.mainContainer .holder .glide__bullets .active {
+  background-color: inherit;
+  color: red;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,53 +1,59 @@
-import { getProductsMostViewed, getProductsMostSold, getProductsLeastStock, getRecommended } from './allFetch.js';
+import {
+  getProductsMostViewed,
+  getProductsMostSold,
+  getProductsLeastStock,
+  getRecommended,
+} from "./allFetch.js";
 import { Breakpoints } from "../../node_modules/@glidejs/glide/dist/glide.modular.esm.js";
 
 async function teste() {
-    const ids = ["maisVendidos", "maisVistos", "menosEstoque"];
-    await Promise.all(ids.map(async (id) => {
-        document.querySelector(`#${id}`).innerHTML += `
+  const ids = ["maisVendidos", "maisVistos", "menosEstoque"];
+  await Promise.all(
+    ids.map(async (id) => {
+      document.querySelector(`#${id}`).innerHTML += `
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides"></ul>
             </div>
-            <div class="glide__bullets" data-glide-el="controls[nav]"></div>`
-    }));
+            <div class="glide__bullets" data-glide-el="controls[nav]"></div>`;
+    })
+  );
 }
 
 async function updateRecommended() {
-    // fazer após estruturar as contas
-    const recommended = await getRecommended();
-    console.log(recommended)
-};
+  // fazer após estruturar as contas
+  const recommended = await getRecommended();
+  console.log(recommended);
+}
 
 async function updateMostViewed(limit) {
-    await getProductsMostViewed(limit)
-    .then((products) => {
-        createCards(products, '#maisVistos');
-    });
-};
+  await getProductsMostViewed(limit).then((products) => {
+    createCards(products, "#maisVistos");
+  });
+}
 
 async function updateMostSold(limit) {
-    await getProductsMostSold(limit)
-    .then((products) => {
-        createCards(products, '#maisVendidos');
-    });
-};
+  await getProductsMostSold(limit).then((products) => {
+    createCards(products, "#maisVendidos");
+  });
+}
 
 async function updateLeastStock(limit) {
-    await getProductsLeastStock(limit)
-    .then((products) => {
-        createCards(products, '#menosEstoque');
-    });
-};
+  await getProductsLeastStock(limit).then((products) => {
+    createCards(products, "#menosEstoque");
+  });
+}
 
 async function createCards(products, idName) {
-    await products.forEach((product, index) => {
-        const li = document.createElement('li');
-        li.classList.add('glide__slide');
-        li.classList.add('card');
+  await products.forEach((product, index) => {
+    const li = document.createElement("li");
+    li.classList.add("glide__slide");
+    li.classList.add("card");
 
-        li.innerHTML = `
+    li.innerHTML = `
             <a href="/product/${product.id}">
-                <img src="http://localhost:3000/api/productImages/${product.id}/1.jpg" alt="${product.nome}">
+                <img src="http://localhost:3000/api/productImages/${
+                  product.id
+                }/1.jpg" alt="${product.nome}">
                 <div>
                     <h3>${product.nome.split(/(!)/)[0]}!</h3>
                     <h3>${product.nome.split(/(!)/)[2]}</h3>
@@ -55,40 +61,56 @@ async function createCards(products, idName) {
                 </div>
             </a>
         `;
-    
-        document.querySelector(`${idName} .glide__slides`).appendChild(li);
-        document.querySelector(`${idName} .glide__bullets`).innerHTML += 
-            `<button class="glide__bullet" data-glide-dir="=${index}">
+
+    document.querySelector(`${idName} .glide__slides`).appendChild(li);
+    document.querySelector(
+      `${idName} .glide__bullets`
+    ).innerHTML += `<button class="glide__bullet" data-glide-dir="=${index}">
                 <i class="fa-solid fa-circle"></i>
             </button>
         `;
+  });
+  new Glide(document.querySelector(idName), {
+    type: "carousel",
+    perView: 5,
+    breakpoints: {
+      1440: {
+        perView: 4,
+      },
+      1200: {
+        perView: 3,
+      },
+      950: {
+        perView: 2,
+      },
+      625: {
+        perView: 1,
+      },
+    },
+    gap: 20,
+    autoplay: 5000,
+    focusAt: "center",
+  }).mount({ Breakpoints });
+
+  const slides = document.querySelectorAll(
+    `${idName} .glide__track .glide__slide.card:not(.glide__slide--clone)`
+  );
+  const bullets = document.querySelectorAll(`${idName} .glide__bullet`);
+  const observer = new MutationObserver((mutations) => {
+    slides.forEach((slide, index) => {
+        if (slide.classList.contains("glide__slide--active")) {
+            bullets.forEach((bullet) => {
+                bullet.classList.remove("active");
+                });
+                bullets[index].classList.add("active");
+        }
     });
-    new Glide(document.querySelector(idName), {
-        type: 'carousel',
-        perView: 5,
-        breakpoints: {
-            1440: {
-                perView: 4
-            },
-            1200: {
-                perView: 3
-            },
-            950: {
-                perView: 2
-            },
-            625: {
-                perView: 1
-            }
-        },
-        gap: 20,
-        autoplay: 5000,
-        focusAt: 'center',
-    }).mount({Breakpoints});
-};
+  });
+  observer.observe(slides[0], { attributes: true });
+}
 // updateRecommended();
-teste()
-.then(() => {
-    updateMostSold(8);
-    updateMostViewed(8);
-    updateLeastStock(8);
+teste().then(() => {
+  updateMostSold(10);
+  updateMostViewed(10);
+  updateLeastStock(10);
 });

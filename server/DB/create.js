@@ -183,15 +183,6 @@ const funkoProdutos = {
             "estoque": randomNumber(0, 20)
         },
         {
-            "nome": "Funko Pop! Rick and Morty - Rick",
-            "universo": "Rick and Morty",
-            "preco": 23.99,
-            "descricao": "Rick, o cientista maluco da série animada Rick and Morty. Este Funko Pop! o mostra com uma expressão peculiar e uma garrafa de bebida alcoólica.",
-            "views": randomNumber(0, 1000),
-            "vendas": randomNumber(0, 100),
-            "estoque": randomNumber(0, 20)
-        },
-        {
             "nome": "Funko Pop! The Flash",
             "universo": "DC Comics",
             "preco": 29.99,
@@ -223,15 +214,6 @@ const funkoProdutos = {
             "universo": "Toy Story",
             "preco": 24.99,
             "descricao": "Buzz Lightyear é um patrulheiro espacial intergaláctico de Toy Story. Este Funko Pop! destaca seu traje espacial e asas retráteis.",
-            "views": randomNumber(0, 1000),
-            "vendas": randomNumber(0, 100),
-            "estoque": randomNumber(0, 20)
-        },
-        {
-            "nome": "Funko Pop! Captain Marvel Binary Form",
-            "universo": "Marvel",
-            "preco": 36.99,
-            "descricao": "A Capitã Marvel em sua forma binária, uma forma poderosa com energia cósmica. Este Funko Pop! a retrata com brilho radiante.",
             "views": randomNumber(0, 1000),
             "vendas": randomNumber(0, 100),
             "estoque": randomNumber(0, 20)
@@ -362,15 +344,6 @@ const funkoProdutos = {
             "vendas": randomNumber(0, 100),
             "estoque": randomNumber(0, 20)
         },
-        {
-            "nome": "Funko Pop! Gus Porter",
-            "universo": "The Owl House",
-            "preco": 23.99,
-            "descricao": "Gus Porter é o melhor amigo de Luz e um entusiasta de feitiçaria. Este Funko Pop! o mostra com sua mochila de feitiços e varinha.",
-            "views": randomNumber(0, 1000),
-            "vendas": randomNumber(0, 100),
-            "estoque": randomNumber(0, 20)
-        }
     ]
 };
 

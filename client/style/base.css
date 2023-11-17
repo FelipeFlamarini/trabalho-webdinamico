@@ -66,18 +66,38 @@
   font-family: "Nakana", "Roboto", sans-serif;
 }
 
-header {
-  height: 5rem;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 2rem;
+body {
+  background-color: #e9c46a;
 }
-header a {
-  justify-self: flex-start;
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+header .topBanner {
+  height: auto;
+}
+header .topBanner img {
+  object-fit: cover;
+  max-width: 100%;
+}
+header nav {
+  background-color: #2a9d8f;
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: relative;
+  width: 90%;
+  top: -2rem;
+}
+header nav a {
   text-decoration: none;
   color: white;
+  background-color: #264653;
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
 }
 
 footer {

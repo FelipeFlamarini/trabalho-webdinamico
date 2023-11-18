@@ -67,7 +67,7 @@
 }
 
 body {
-  background-color: #e9c46a;
+  background-color: #f3dca3;
 }
 
 header {
@@ -75,9 +75,11 @@ header {
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
+  width: 100%;
 }
 header .topBanner {
   height: auto;
+  overflow: hidden;
 }
 header .topBanner img {
   object-fit: cover;
@@ -89,13 +91,15 @@ header nav {
   justify-content: space-between;
   background-color: #2a9d8f;
   margin: 0 1rem;
+  height: 6rem;
   padding: 1rem;
   border-radius: 1rem;
   position: relative;
   width: 90%;
-  top: -2rem;
+  top: -3rem;
 }
 header nav a {
+  font-size: 1.5rem;
   text-decoration: none;
   color: white;
   background-color: #264653;
@@ -103,12 +107,19 @@ header nav a {
   border-radius: 1rem;
 }
 header nav .searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: white;
-  padding: 0.2rem;
-  height: 2rem;
+  padding: 0.5rem;
+  height: 3rem;
   width: auto;
   border-radius: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+}
+header nav .searchBar input {
+  font-size: 1.5rem;
+  height: 2rem;
 }
 header nav .searchBar * {
   background-color: inherit;
@@ -118,7 +129,8 @@ header nav .searchBar * {
 }
 
 footer {
-  height: 5rem;
+  height: 15rem;
+  border-radius: 1.5rem 1.5rem 0 0;
   background-color: black;
 }
 

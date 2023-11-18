@@ -7,8 +7,6 @@
   src: url("./fonts/Nakana.otf");
 }
 
-$header-footerHeight: 5rem;
-
 * {
   padding: 0;
   margin: 0;
@@ -17,7 +15,7 @@ $header-footerHeight: 5rem;
 }
 
 body {
-  background-color: colors.$orange;
+  background-color: colors.$bege;
 }
 
 header {
@@ -25,8 +23,12 @@ header {
     justify-content: center;
     align-items: center;
     flex-flow: column nowrap;
+    width: 100%;
   .topBanner {
+    // position: relative;
     height: auto;
+    // border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
     img {
       object-fit: cover;
       max-width: 100%;
@@ -38,12 +40,14 @@ header {
     justify-content: space-between;
     background-color: colors.$lightblue;
     margin: 0 1rem;
+    height: 6rem;
     padding: 1rem;
     border-radius: 1rem;
     position: relative;
     width: 90%;
-    top: -2rem;
+    top: -3rem;
     a {
+      font-size: 1.5rem;
         text-decoration: none;
         color: white;
         background-color: colors.$darkblue;
@@ -52,12 +56,20 @@ header {
     }
 
     .searchBar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         background-color: white;
-        padding: 0.2rem;
-        height: 2rem;
+        padding: 0.5rem;
+        height: 3rem;
         width: auto;
         border-radius: 1rem;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+
+        input {
+          font-size: 1.5rem;
+          height: 2rem;
+        }
 
         * {
             background-color: inherit;
@@ -70,6 +82,7 @@ header {
 }
 
 footer {
-  height: $header-footerHeight;
+  height: 15rem;
+  border-radius: 1.5rem 1.5rem 0 0;
   background-color: black;
 }

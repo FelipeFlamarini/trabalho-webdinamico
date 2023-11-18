@@ -73,9 +73,42 @@
   width: 100%;
   padding: 2rem 0;
 }
+.mainContainer #maisVendidos > .banner {
+  height: 13rem;
+  width: 35rem;
+  background: url("../imgs/bg1.png") no-repeat center;
+  background-size: cover;
+}
+.mainContainer #maisVendidos > .banner img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.mainContainer #maisVendidos > .banner h1 {
+  position: relative;
+  font-size: 3rem;
+  left: 1rem;
+  top: -0.4rem;
+}
+.mainContainer #marvel > .banner {
+  height: 13rem;
+  width: 35rem;
+  background: url("../imgs/bg2.png") no-repeat center;
+  background-size: cover;
+}
+.mainContainer #marvel > .banner img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.mainContainer #marvel > .banner h1 {
+  position: relative;
+  font-size: 3rem;
+  top: -0.4rem;
+}
 .mainContainer .holder {
   overflow: hidden;
-  padding: 3rem 2rem;
+  padding: 3rem;
   display: flex;
   flex-flow: column nowrap;
 }
@@ -85,10 +118,8 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  padding: 1.2rem;
-  border-radius: 1rem;
+  padding: 5rem;
   color: white;
-  background-color: #e76f51;
 }
 .mainContainer .holder .banner * {
   text-align: center;
@@ -100,7 +131,6 @@
   overflow: visible;
 }
 .mainContainer .holder .glide__track .glide__slides a {
-  background-color: #e9c46a;
   display: flex;
   align-items: center;
   justify-content: space-around;

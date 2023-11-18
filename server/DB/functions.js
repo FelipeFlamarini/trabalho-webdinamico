@@ -21,6 +21,11 @@ async function getProductsMostViewed(limit) {
 
 async function getProductsMostSold(limit) {
     return await produtos.findAll({
+        where: {
+            estoque: {
+                [Op.gt]: 0
+            }
+        },
         order: [
             ['vendas', 'DESC']
         ],
@@ -42,9 +47,19 @@ async function getProductsLeastStock(limit) {
     })
 }
 
+async function GetProductByUniverse(specificUniverse, limit){
+    return await produtos.findAll({
+        where: {
+            universo: specificUniverse,
+        },
+        limit: limit,
+    })
+}
+
 export { getAllProducts, 
     getProductById, 
     getProductsMostViewed, 
     getProductsMostSold,
-    getProductsLeastStock
+    getProductsLeastStock,
+    GetProductByUniverse,
 };

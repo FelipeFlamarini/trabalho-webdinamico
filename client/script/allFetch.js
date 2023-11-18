@@ -55,10 +55,24 @@ async function getProductsLeastStock(limit) {
     })
 }
 
+async function GetProductByUniverse(specificUniverse, limit) {
+    return await fetch(`http://localhost:3000/api/products/universe/${encodeURIComponent(specificUniverse)}?limit=${limit}`)
+    .then(async response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return await response.json()
+    })
+
+    .catch(error => {
+        console.log(error);
+    });
+}
+
 async function getRecommended() {
     // filtrar no banco de dados os produtos recomendados
     const allProducts = await getAllProducts();
     return allProducts
 };
 
-export { getAllProducts, getProductById, getProductsMostViewed, getProductsMostSold, getProductsLeastStock, getRecommended}
+export { getAllProducts, getProductById, getProductsMostViewed, getProductsMostSold, getProductsLeastStock, getRecommended, GetProductByUniverse}

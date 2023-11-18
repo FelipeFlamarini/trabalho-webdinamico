@@ -2,7 +2,7 @@ import express, { json } from 'express';
 import cors from 'cors';
 import url from 'url';
 import bodyparser from 'body-parser';
-import { getAllProducts, getProductById, getProductsMostViewed, getProductsMostSold, getProductsLeastStock} from './DB/functions.js';
+import { getAllProducts, getProductById, getProductsMostViewed, getProductsMostSold, getProductsLeastStock, GetProductByUniverse} from './DB/functions.js';
 import { error } from 'console';
 
 const app = express();
@@ -77,6 +77,21 @@ app.get("/api/productsFilters/leastStock", async (req, res) => {
         res.status(200).send(query);
     } catch {
         console.log(error);
+    }
+});
+
+app.get("/api/products/universe/:universe", async (req, res) => {
+    const universe = req.params.universe;
+    let {limit} = req.query;
+    if (isNaN(limit)) limit = 1;
+
+    try {
+        const query = await GetProductByUniverse(universe, limit);
+        const formattedQuery = query.map((product) => product.dataValues);
+        res.status(200).send(formattedQuery);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Internal Server Error' });
     }
 });
 

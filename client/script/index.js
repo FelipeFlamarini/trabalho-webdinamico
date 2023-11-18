@@ -3,11 +3,12 @@ import {
   getProductsMostSold,
   getProductsLeastStock,
   getRecommended,
+  GetProductByUniverse,
 } from "./allFetch.js";
 import { Breakpoints } from "../../node_modules/@glidejs/glide/dist/glide.modular.esm.js";
 
 async function teste() {
-  const ids = ["maisVendidos", "maisVistos", "menosEstoque"];
+  const ids = ["maisVendidos", "marvel"];
   await Promise.all(
     ids.map(async (id) => {
       document.querySelector(`#${id}`).innerHTML += `
@@ -17,12 +18,6 @@ async function teste() {
             <div class="glide__bullets" data-glide-el="controls[nav]"></div>`;
     })
   );
-}
-
-async function updateRecommended() {
-  // fazer após estruturar as contas
-  const recommended = await getRecommended();
-  console.log(recommended);
 }
 
 async function updateMostViewed(limit) {
@@ -41,6 +36,13 @@ async function updateLeastStock(limit) {
   await getProductsLeastStock(limit).then((products) => {
     createCards(products, "#menosEstoque");
   });
+}
+
+async function updateMarvel(limit) {
+  await GetProductByUniverse("Marvel", limit).then((products) => {
+    createCards(products, "#marvel");
+  });
+
 }
 
 async function createCards(products, idName) {
@@ -114,7 +116,8 @@ async function createCards(products, idName) {
 }
 // updateRecommended();
 teste().then(() => {
-  updateMostSold(10);
-  updateMostViewed(10);
-  updateLeastStock(10);
+  updateMostSold(8);
+  updateMarvel(8);
+  // updateMostViewed(10);
+  // updateLeastStock(10);
 });

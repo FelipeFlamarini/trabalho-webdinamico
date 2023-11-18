@@ -53,9 +53,11 @@ header {
 
     .searchBar {
         background-color: white;
-        padding: 0.5rem;
+        padding: 0.2rem;
+        height: 2rem;
         width: auto;
         border-radius: 1rem;
+        font-size: 1.2rem;
 
         * {
             background-color: inherit;

@@ -51,13 +51,17 @@ async function createCards(products, idName) {
 
     li.innerHTML = `
             <a href="/product/${product.id}">
-                <img src="http://localhost:3000/api/productImages/${
-                  product.id
-                }/1.jpg" alt="${product.nome}">
-                <div>
-                    <h3>${product.nome.split(/(!)/)[0]}!</h3>
-                    <h3>${product.nome.split(/(!)/)[2]}</h3>
-                    <p>R$ ${product.preco}</p>
+                <div class="product">
+                  <div class="productImage">
+                    <img src="http://localhost:3000/api/productImagesTransparent/${
+                      product.id
+                    }/1.jpg" alt="${product.nome}">
+                  </div>
+                  <div class=productInfo>
+                      <h3>${product.nome.split(/(!)/)[0]}!</h3>
+                      <h3>${product.nome.split(/(!)/)[2]}</h3>
+                      <p>R$ ${product.preco}</p>
+                  </div>
                 </div>
             </a>
         `;

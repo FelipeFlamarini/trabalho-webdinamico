@@ -80,11 +80,15 @@
   flex-flow: column nowrap;
 }
 .mainContainer .holder .banner {
+  align-self: center;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  color: white;
+  background-color: #e76f51;
 }
 .mainContainer .holder .banner * {
   text-align: center;
@@ -99,27 +103,44 @@
   background-color: #e9c46a;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-flow: column wrap;
   border-radius: 10%;
   width: auto;
   height: 25rem;
-  box-shadow: 0 0 0.6rem black;
-  padding: 2rem;
+  margin: 2rem;
   text-decoration: none;
   color: black;
 }
-.mainContainer .holder .glide__track .glide__slides a img {
-  justify-self: start;
-  object-fit: cover;
+.mainContainer .holder .glide__track .glide__slides a .product {
+  box-shadow: 0 0 0.3rem white;
+  background-color: #2a9d8f;
+  width: 100%;
+  border-radius: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.mainContainer .holder .glide__track .glide__slides a .product .productImage {
   height: 15rem;
 }
-.mainContainer .holder .glide__track .glide__slides a div {
-  background-color: #e76f51;
+.mainContainer .holder .glide__track .glide__slides a .product .productImage img {
+  padding: 0.5rem;
+  object-fit: cover;
+  max-height: 100%;
 }
-.mainContainer .holder .glide__track .glide__slides a div h3,
-.mainContainer .holder .glide__track .glide__slides a div p {
+.mainContainer .holder .glide__track .glide__slides a .product .productInfo {
+  background-color: #e76f51;
+  width: 100%;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.mainContainer .holder .glide__track .glide__slides a .product .productInfo h3,
+.mainContainer .holder .glide__track .glide__slides a .product .productInfo p {
+  font-size: 1.5rem;
   text-align: center;
+  color: white;
 }
 .mainContainer .holder .glide__bullets {
   align-self: center;
@@ -128,16 +149,16 @@
   border-radius: 1rem;
   display: flex;
   gap: 0.7rem;
-  background-color: inherit;
+  background-color: #e76f51;
 }
 .mainContainer .holder .glide__bullets .glide__bullet {
   border: none;
   background-color: inherit;
-  color: #2a9d8f;
+  color: white;
 }
 .mainContainer .holder .glide__bullets .active {
   background-color: inherit;
-  color: #264653;
+  color: #2a9d8f;
 }
 
 /*# sourceMappingURL=index.css.map */

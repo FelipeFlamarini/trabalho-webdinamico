@@ -82,6 +82,7 @@ app.get("/api/productsFilters/leastStock", async (req, res) => {
 
 // servindo imagens dos produtos
 app.use("/api/productImages", express.static("./server/public/imgs/produtos"));
+app.use("/api/productImagesTransparent", express.static("./server/public/imgs/produtosTransparent"));
 
 try {
     app.listen(3000)

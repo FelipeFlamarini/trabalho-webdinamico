@@ -104,9 +104,11 @@ header nav a {
 }
 header nav .searchBar {
   background-color: white;
-  padding: 0.5rem;
+  padding: 0.2rem;
+  height: 2rem;
   width: auto;
   border-radius: 1rem;
+  font-size: 1.2rem;
 }
 header nav .searchBar * {
   background-color: inherit;

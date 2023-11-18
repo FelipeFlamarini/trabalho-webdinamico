@@ -8,6 +8,7 @@
     // border: 1px solid black;
     width: 60%;
     margin: 1rem;
+    height: auto;
     thead{
       tr{
         // border: 1px solid red;
@@ -70,7 +71,7 @@
   }
 
   .purchase-container{
-    height: 30rem;
+    // height: 30rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

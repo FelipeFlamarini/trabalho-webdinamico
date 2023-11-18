@@ -3,25 +3,36 @@ import { PriceCalculator } from "./price.js";
 console.log("a")
 
 const calculator = new PriceCalculator();
-
+//atualizar itens
 // let allPrice= 
+
+const btnprice = document.getElementById("btnPrice")
+btnprice.addEventListener("click",()=>{
+  console.log(calculator.getTotalPrice())
+})
 
 function getIdsLocalStorage(){
   const ids = JSON.parse(localStorage.getItem("productID")) 
   
   console.log(ids)
   if (ids){
-    totalItens(ids.length)
+    totalItens()
     ids.forEach(produto => {
       teste(produto.id,produto.quantity)
       calculator.totalPrice = 0
       putPrice(produto.quantity,produto.id)
     });
   }
-  
+  if(ids.length === 0){
+    zeroPrice()
+  }
 }
 
-
+function zeroPrice(){
+  const price = document.getElementById("preco")
+  calculator.totalPrice = 0
+  price.textContent = `$ ${calculator.getTotalPrice()}`
+}
 
 
 async function teste(id,quantity) {
@@ -59,6 +70,33 @@ const imgTrash = document.createElement('img');
 imgTrash.src= './img/trash.svg'
 imgTrash.alt = 'exclude buttonn sybolized by trash'
 
+imgTrash.addEventListener("click",()=>{
+  const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
+  const filterArray = arrayOfIds.filter( p => p.id !== produto.id)
+  console.log("click")
+  console.log(filterArray)
+  console.log(filterArray.length)
+  
+  console.log(arrayOfIds)
+  localStorage.setItem('productID', JSON.stringify(filterArray))
+  if(filterArray.length > 0){
+    filterArray.forEach((produto)=>{
+      calculator.totalPrice = 0
+      putPrice(produto.quantity,produto.id)
+    })
+    tbody.removeChild(bodyRow)
+    totalItens()
+  }else if(filterArray.length === 0){
+    tbody.removeChild(bodyRow)
+    zeroPrice()
+    totalItens()
+  }
+  
+
+})
+
+
+
 const names = document.createElement('div')
 names.classList.add("names-product")
 names.appendChild(span1)
@@ -86,6 +124,7 @@ select.addEventListener("change",(ev)=>{
       calculator.totalPrice = 0
       putPrice(produto.quantity,produto.id)
     })
+    totalItens()
   }
 
 })
@@ -115,21 +154,28 @@ bodyRow.appendChild(totalCell);
 tbody.appendChild(bodyRow);
 }
 
-function totalItens(total) {
+function totalItens() {
+  // let totalItensCount = 0
+  const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
+  // arrayOfIds.forEach((produtos)=>{
+  //   totalItensCount += produtos.quantity
+  // })
+  const totalItensCount = arrayOfIds.reduce((total, produto) => total + produto.quantity, 0);
   const totalItens = document.getElementById("total-itens")
-  totalItens.textContent = total
+  totalItens.textContent = `${totalItensCount} itens`
 }
 
 
 
 async function putPrice(quantity,id){
+  console.log(quantity,id)
   const produto = await getProductById(id)
   const preco =  produto.preco
   const priceText = document.getElementById("preco")
 
   calculator.addPrice(preco,quantity)
   console.log(calculator.getTotalPrice())
-  priceText.textContent = calculator.getTotalPrice()
+  priceText.textContent = `$ ${calculator.getTotalPrice()}`
 }
 
 window.onload = () => {

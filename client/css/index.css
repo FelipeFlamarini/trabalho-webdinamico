@@ -170,6 +170,7 @@
   border-collapse: collapse;
   width: 60%;
   margin: 1rem;
+  height: auto;
 }
 .carrinho-container table thead tr th {
   color: rgba(135, 135, 135, 0.631372549);
@@ -209,7 +210,6 @@
   text-align: center;
 }
 .carrinho-container .purchase-container {
-  height: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -76,35 +76,72 @@
 .mainContainer #maisVendidos > .banner {
   height: 13rem;
   width: 35rem;
-  background: url("../imgs/bg1.png") no-repeat center;
+  background: url("../imgs/bg1.png") no-repeat -1rem -3rem;
   background-size: cover;
 }
-.mainContainer #maisVendidos > .banner img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+@media screen and (max-width: 390px) {
+  .mainContainer #maisVendidos > .banner {
+    background: url("../imgs/bg1.png") no-repeat -1rem -0.4rem;
+    background-size: cover;
+    width: 20rem;
+    height: 8rem;
+  }
+}
+@media screen and (min-width: 391px) and (max-width: 530px) {
+  .mainContainer #maisVendidos > .banner {
+    background: url("../imgs/bg1.png") no-repeat -1rem -0.8rem;
+    background-size: cover;
+    width: 25rem;
+    height: 12rem;
+  }
 }
 .mainContainer #maisVendidos > .banner h1 {
-  position: relative;
   font-size: 3rem;
-  left: 1rem;
-  top: -0.4rem;
+}
+@media screen and (min-width: 391px) and (max-width: 530px) {
+  .mainContainer #maisVendidos > .banner h1 {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 390px) {
+  .mainContainer #maisVendidos > .banner h1 {
+    font-size: 1.5rem;
+  }
 }
 .mainContainer #marvel > .banner {
   height: 13rem;
   width: 35rem;
-  background: url("../imgs/bg2.png") no-repeat center;
+  background: url("../imgs/bg1.png") no-repeat -1rem -3rem;
   background-size: cover;
 }
-.mainContainer #marvel > .banner img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+@media screen and (max-width: 390px) {
+  .mainContainer #marvel > .banner {
+    background: url("../imgs/bg1.png") no-repeat -1rem -0.4rem;
+    background-size: cover;
+    width: 20rem;
+    height: 8rem;
+  }
+}
+@media screen and (min-width: 391px) and (max-width: 530px) {
+  .mainContainer #marvel > .banner {
+    background: url("../imgs/bg1.png") no-repeat -1rem -0.8rem;
+    background-size: cover;
+    width: 25rem;
+    height: 12rem;
+  }
 }
 .mainContainer #marvel > .banner h1 {
-  position: relative;
   font-size: 3rem;
-  top: -0.4rem;
+}
+@media screen and (min-width: 391px) and (max-width: 530px) {
+  .mainContainer #marvel > .banner h1 {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 390px) {
+  .mainContainer #marvel > .banner h1 {
+    font-size: 1.5rem;
+  }
 }
 .mainContainer .holder {
   overflow: hidden;

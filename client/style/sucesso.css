@@ -1,0 +1,30 @@
+.mainContainer {
+  height: 70vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: url("../imgs/bg3.png") no-repeat -1.2rem -7rem;
+  background-size: cover;
+}
+.mainContainer h1 {
+  font-size: 5rem;
+  color: white;
+}
+.mainContainer a {
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #e76f51;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 0 0.5rem white;
+  transition: all 0.2s ease-in-out;
+}
+.mainContainer a:hover {
+  transform: scale(1.1);
+}
+
+/*# sourceMappingURL=sucesso.css.map */

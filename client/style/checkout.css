@@ -5,6 +5,13 @@
   font-family: "Nakana", "Roboto", sans-serif;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
 .mainContainer {
   display: grid;
   align-items: center;
@@ -12,12 +19,13 @@
   grid-template-columns: 65% 25% 20%;
   width: 90%;
   height: auto;
-  margin: 0 auto;
   background-color: white;
   border-radius: 2rem;
   padding: 1rem;
   padding-bottom: 20rem;
   position: relative;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .mainContainer .nomeProdutoHeader,
 .mainContainer .precoProdutoHeader,
@@ -36,6 +44,14 @@
   gap: 3rem;
   height: 12rem;
 }
+@media screen and (max-width: 1000px) {
+  .mainContainer .nomeProduto {
+    flex-flow: column nowrap;
+    gap: 0;
+    justify-content: center;
+    height: 17rem;
+  }
+}
 .mainContainer .nomeProduto img {
   width: 6rem;
   max-height: 100%;
@@ -47,6 +63,7 @@
   align-items: center;
 }
 .mainContainer .nomeProduto div h2 {
+  text-align: center;
   font-size: 2rem;
 }
 .mainContainer .quantidadeProduto {
@@ -72,6 +89,12 @@
 }
 .pagamento h2 {
   font-size: 2.5rem;
+  text-align: center;
+}
+@media screen and (max-width: 400px) {
+  .pagamento h2 {
+    font-size: 2rem;
+  }
 }
 .pagamento .metodosPagamento {
   display: flex;
@@ -79,6 +102,12 @@
   justify-content: center;
   background-color: #f3dca3;
   border-radius: 1rem;
+}
+@media screen and (max-width: 550px) {
+  .pagamento .metodosPagamento {
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
 }
 .pagamento .metodosPagamento span {
   font-size: 1.5rem;
@@ -98,7 +127,8 @@
 }
 
 .totalContainer {
-  background: url("../imgs/bg4.png") no-repeat -1.2rem -0.5rem;
+  background: url("../imgs/bg4.png") no-repeat 0 0;
+  background-position: -1.2rem -0.5rem;
   background-size: cover;
   width: 40rem;
   height: 20rem;
@@ -110,6 +140,20 @@
   flex-flow: column wrap;
   position: relative;
   top: -17rem;
+}
+@media screen and (max-width: 640px) {
+  .totalContainer {
+    width: 100%;
+    background: none;
+    background-size: contain;
+    background-position: 0 0.5rem;
+    background-color: #009E90;
+    height: auto;
+    width: auto;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+  }
 }
 .totalContainer .totalPreco {
   display: flex;

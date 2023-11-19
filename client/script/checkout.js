@@ -70,11 +70,12 @@ async function setCards() {
 
                 const quantidadeProduto = document.createElement("div");
                 quantidadeProduto.classList.add("quantidadeProduto");
-                quantidadeProduto.innerHTML = `
-                <button onclick=decrement(${index},'quantity')>-</button>
-                <h2 id=quantity_${index}>${id.quantity}</h2>
-                <button onclick=increment(${index},'quantity')>+</button>
-                `;
+                // quantidadeProduto.innerHTML = `
+                // <button onclick=decrement(${index},'quantity')>-</button>
+                // <h2 id=quantity_${index}>${id.quantity}</h2>
+                // <button onclick=increment(${index},'quantity')>+</button>
+                // `;
+                quantidadeProduto.innerHTML =`<h2 id=quantity_${index}>${id.quantity}</h2>`
                 document
                     .querySelector(".mainContainer")
                     .appendChild(quantidadeProduto);

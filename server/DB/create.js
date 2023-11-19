@@ -121,12 +121,6 @@ const funko = {
             "descricao": "Wolverine, também conhecido como Logan, é um mutante com garras retráteis da Marvel. Este Funko Pop! destaca suas garras e traje amarelo e azul."
         },
         {
-            "nome": "Funko Pop! Rick and Morty - Rick",
-            "universo": "Rick and Morty",
-            "preco": 23.99,
-            "descricao": "Rick, o cientista maluco da série animada Rick and Morty. Este Funko Pop! o mostra com uma expressão peculiar e uma garrafa de bebida alcoólica."
-        },
-        {
             "nome": "Funko Pop! The Flash",
             "universo": "DC Comics",
             "preco": 29.99,
@@ -149,12 +143,6 @@ const funko = {
             "universo": "Toy Story",
             "preco": 24.99,
             "descricao": "Buzz Lightyear é um patrulheiro espacial intergaláctico de Toy Story. Este Funko Pop! destaca seu traje espacial e asas retráteis."
-        },
-        {
-            "nome": "Funko Pop! Captain Marvel Binary Form",
-            "universo": "Marvel",
-            "preco": 36.99,
-            "descricao": "A Capitã Marvel em sua forma binária, uma forma poderosa com energia cósmica. Este Funko Pop! a retrata com brilho radiante."
         },
         {
             "nome": "Funko Pop! Voldemort",
@@ -240,12 +228,6 @@ const funko = {
             "preco": 25.99,
             "descricao": "Amity Blight é uma estudante brilhante e feiticeira em The Owl House. Este Funko Pop! a retrata com seu uniforme da Escola Hexside."
         },
-        {
-            "nome": "Funko Pop! Gus Porter",
-            "universo": "The Owl House",
-            "preco": 23.99,
-            "descricao": "Gus Porter é o melhor amigo de Luz e um entusiasta de feitiçaria. Este Funko Pop! o mostra com sua mochila de feitiços e varinha."
-        }
     ]
 };
 

@@ -1,21 +1,118 @@
 @use "../base/colors.scss" as *;
 
-.container-produto{
-  border: 1px solid blue;
+.container-produtoIndividual{
+  // border: 1px solid blue;
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
   background-color:$yellow ;
+}
+
+.container-produto{
+  display: flex;
+  padding: 1rem;
+  background-color:$bg-color;
+  border-radius: 5px;
   .container-image{
+    padding: 1rem;
+    background-color: $cian;
     img{
-      width: 22rem;
-      height: 22rem;
+      width: 24rem;
+      height: 24rem;
     }
   }
   .product-details{
+    // border: 1px solid red;
+    height: 26.2rem;
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border: 1px solid red;
+
+    div:nth-child(1){
+      // border: 1px solid red;
+      span:nth-child(1){
+        color: $dark-blue;
+      }
+
+      span:nth-child(3){
+        font-size: 30px;
+        color: $orange;
+      }
+    }
+
+    div:nth-child(2){
+      margin-top: 1rem;
+      // border: 1px solid blue;
+      p{
+        color: $dark-blue;
+        font-size: 20px;
+      }
+    }
+
+    span{
+      color: $dark-blue;
+    }
     h1{
+      color: $dark-blue;
       font-size: 60px;
+    }
+
+    div:nth-child(3){
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button{
+        // display: none;
+        background-color: $orange;
+        color: $bg-color;
+        text-transform: uppercase;
+        border: none;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        height: 5rem;
+        width: 15rem;
+        // padding: .3rem .8rem;
+        margin-left:1rem ;
+      }
+
+      button:hover{
+        background-color:$yellow;
+        color: $orange;
+      }
+
+      .changes-button{
+        display: none;
+        align-items:center;
+        justify-content: space-around;
+        background-color: $orange;
+        text-transform: uppercase;
+        border: none;
+        font-size: 17px;
+        font-weight: bold;
+        height: 5rem;
+        width: 15rem;
+        cursor: pointer;
+        border-radius: 5px;
+        
+        select{
+        background-color: transparent;
+        color: $dark-blue;
+        border: 2px solid $dark-blue;
+        border-radius: 7px;
+        outline: none;
+        }
+        span{
+          color: $bg-color;
+        }
+        margin-left:1rem;
+      }
     }
   }
 }

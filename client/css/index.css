@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container-produto {
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e9c46a;
+}
+.container-produto .container-image img {
+  width: 22rem;
+  height: 22rem;
+}
+.container-produto .product-details {
+  border: 1px solid red;
+}
+.container-produto .product-details h1 {
+  font-size: 60px;
+}
+
+/*# sourceMappingURL=index.css.map */

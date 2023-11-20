@@ -1,0 +1,21 @@
+@use "../base/colors.scss" as *;
+
+.container-produto{
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background-color:$yellow ;
+  .container-image{
+    img{
+      width: 22rem;
+      height: 22rem;
+    }
+  }
+  .product-details{
+    border: 1px solid red;
+    h1{
+      font-size: 60px;
+    }
+  }
+}

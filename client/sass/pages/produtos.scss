@@ -65,29 +65,33 @@
   .grid-layout{
     display: grid;
     width: 80rem;
+    
     // border: 1px solid red;
-    grid-template-columns: repeat(4,auto);
+    grid-template-columns: repeat(auto-fit,14.6rem);
     // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    // gap: 1rem;
+    gap: 1rem;
+    padding-top: 1rem;
+    justify-content: center;
+    // justify-items: center;
     // border: 10px solid yellow;
     .produto{
-      margin: 1rem;
+      // margin: 1rem;
       width: 14.6rem;
-      height: 26.9rem;
-      border: 1px solid black;
+      // height: 23rem;
+      background-color:$cian ;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 1rem;
+      // justify-content: center;
+      padding-top: 1rem ;
       border-radius: sizes.$radius;
       .img-container{
         // border: 1px solid blue;
         position: relative;
-        width: 12rem;
-        height: 12rem;
-        margin-bottom: .5rem;
+        // width: 12rem;
+        // height: 12rem;
+        // margin-bottom: .5rem;
         img{
           width: 11rem;
           height: 11rem;
@@ -116,35 +120,49 @@
       }
 
       .all-details{
+        background-color: $orange;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 10rem;
+        padding: 0 .2rem .2rem .2rem;
+        align-items: center;
+        width: 100%;
+        border-radius:  0 0 sizes.$radius sizes.$radius;
+        
         .details{
           // border: 1px solid red;
           display: flex;
           flex-direction: column;
+          // justify-content: center;
+          width: 100%;
           gap: .2rem;
+          position: relative;
+          // border: 1px solid white;
+          height: 6.4rem;
 
           span:nth-child(1){
             color: $brands;
           }
   
           span:nth-child(2){
-            color: $primary-color;
+            color: $bg-color;
             font-weight: bold;
             font-size: 20px;
           }
   
           span:nth-child(3){
+            position: absolute;
             font-size: 18px;
-            color: $primary-color;
+            color: $dark-blue;
             margin-top: .4rem;
-          }
-  
-          button{
             bottom: 0;
           }
+  
+          
+          // button{
+          //   border: 1px solid red;
+          // }
         }
       }
 

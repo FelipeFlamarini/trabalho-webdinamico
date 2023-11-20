@@ -55,9 +55,93 @@ async function products(param = getAllProducts()) {
   
     // Create the button element
     const button = document.createElement("button");
-    button.classList.add("cart-button");
-    button.textContent = "adicionar ao carrinho";
-    button.addEventListener("click", () => addInCart(produto));
+
+    const div2button = document.createElement("div")
+    const div2Span = document.createElement("span")
+    div2Span.textContent ="Adicionar ao Carrinho"
+    div2button.appendChild(div2Span)
+
+    const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
+    // console.log(arrayOfIds)
+    arrayOfIds.forEach((purchasedProduct)=>{
+      // console.log("mesmo produto")
+      if(purchasedProduct.id == produto.id){
+        button.classList.remove("primary-button")
+        button.classList.add("cart-button")
+        div2Span.textContent= "Adicionado"
+      }
+    })
+
+    if(button.className !== "cart-button"){
+      button.classList.add("primary-button")
+    }
+
+    button.addEventListener("click",() =>{
+      if(button.className === "primary-button"){
+        button.classList.remove("primary-button")
+        button.classList.add("cart-button")
+      }
+
+      div2Span.textContent = "Adicionado"
+    })
+
+
+  const purchasedProduct = arrayOfIds.find(item => item.id == produto.id);
+  const valueSelect = purchasedProduct ? purchasedProduct.quantity : undefined;
+  // console.log(valueSelect);
+
+    const div1button = document.createElement("div")
+    const select = document.createElement("select")
+
+    select.addEventListener("change",(ev)=>{
+      const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
+      
+      const found = arrayOfIds.find(produtoLocal => produtoLocal.id === produto.id);
+      
+      if(found){
+        found.quantity = +ev.target.value;
+        localStorage.setItem('productID', JSON.stringify(arrayOfIds))
+      }
+    
+    })
+
+    for (let index = 1; index < 16; index++) {
+      const option = document.createElement('option');
+      option.setAttribute('value', index);
+      option.textContent = index
+      // console.log(valueselect)
+      if (index == valueSelect) {
+        console.log(index)
+        option.setAttribute('selected', 'selected');
+      }
+
+      select.appendChild(option);
+    }
+
+    div1button.appendChild(select)
+
+
+    const div3button = document.createElement("div")
+    const div3img = document.createElement ("img")
+    div3img.src= "./img/trash.svg"
+    div3button.appendChild(div3img)
+    div3button.addEventListener("click",() =>{
+      button.disabled = false
+      button.classList.remove("cart-button")
+      button.classList.add("primary-button")
+      div2Span.textContent ="Adicionar ao Carrinho"
+      const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
+      const filterArray = arrayOfIds.filter( p => p.id !== produto.id)
+  
+      localStorage.setItem('productID', JSON.stringify(filterArray))
+    })
+
+    button.append(div1button,div2button,div3button)
+    if(button.className = "primary-button"){
+      button.addEventListener("click", () => {addInCart(produto)
+        button.disabled = true
+      });
+    }
   
     // Append the brand, name, price, and button elements to the details container element
     detailsContainer.appendChild(brand);

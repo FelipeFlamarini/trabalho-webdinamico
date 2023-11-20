@@ -2,7 +2,7 @@
 @use "../base/sizes.scss" as sizes;
 .carrinho-container{
   display: flex;
-  justify-content: center;
+  padding-left: 3rem;
   table{
     border-collapse: collapse;
     // border: 1px solid black;
@@ -70,12 +70,10 @@
     }
   }
 
-  .purchase-container{
-    // height: 30rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     .purchase{
+      position: absolute;
+      right: 10rem;
+      top: 11rem;
       background-color: lightgray;
       width: 17rem;
       padding: 1rem;
@@ -109,6 +107,6 @@
         color: lightgray;
       }
     }
-  }
+  
   
 }

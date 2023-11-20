@@ -1,26 +1,85 @@
 @use "../base/sizes.scss" as sizes;
+@use "../base/colors.scss" as *;
+
 
 .cart-button {
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
-  cursor: pointer;
-  border: 3px solid black;
-  border-radius: sizes.$radius;
-  background-color: white;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,5px 5px 0px 0px;;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  color:$bg-color;
+  background-color: $dark-blue;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 12rem;
+  height: 2.5rem;
 }
 
-.cart-button:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
+.cart-button div:first-child,button div:last-child{
+  
+  // border: 1px solid red; 
+  padding: 0.2rem;
+  // width: 100%;
+  // display: none;
 }
+
+
+.cart-button div:first-child{
+  select{
+    background-color: transparent;
+    color: $bg-color;
+    outline: none;
+    border: none;
+    font-size: 15px;
+
+    option{
+      background-color: $dark-blue;
+    }
+  }
+}
+
+.cart-button div:last-child{
+  cursor: pointer;
+}
+
+.cart-button div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.cart-button div:nth-child(2){
+  border-left:1px solid $bg-color ;
+  border-right:1px solid $bg-color;
+  padding:0  0.2rem;
+  width: 5.4rem;
+  span{
+    font-size: 15px;
+  }
+  margin: 0 .5rem;
+}
+
+.primary-button{
+  color:$bg-color;
+  background-color: $dark-blue;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 12rem;
+  height: 2.5rem;
+  cursor: pointer;
+
+  div:nth-child(2){
+    span{
+      font-size: 18px;
+    }
+  }
+
+  div:first-child, div:last-child{
+    display: none;
+    // border: 1px solid red;
+  }
+}
+

@@ -68,7 +68,7 @@ span2.textContent = produto.nome;
 
 const imgTrash = document.createElement('img');
 imgTrash.src= './img/trash.svg'
-imgTrash.alt = 'exclude buttonn sybolized by trash'
+imgTrash.alt = 'exclude button sybolized by trash'
 
 imgTrash.addEventListener("click",()=>{
   const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []

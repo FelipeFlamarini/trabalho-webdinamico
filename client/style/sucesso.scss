@@ -1,0 +1,67 @@
+@use "./colors.scss";
+
+.mainContainer {
+    // height: 35rem;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: colors.$greenblue;
+    padding: 5rem 2rem;
+    margin: 2rem auto;
+    margin-bottom: 4rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem white;
+    gap: 1rem;
+    // background: url("../imgs/bg3.png") no-repeat -1.2rem -5rem;
+    // background-size: cover;
+
+    @media screen and (max-width: 640px) {
+        padding: 3rem 1rem;
+    }
+
+    @media screen and (max-width: 410px) {
+        padding: 1.5rem 1rem;;
+    }
+
+    h1 {
+        font-size: 5rem;
+        color: white;
+        flex-shrink: 1;
+        text-align: center;
+
+        @media screen and (max-width: 640px) {
+            font-size: 3rem;
+        }
+
+        @media screen and (max-width: 410px) {
+            font-size: 2rem;
+        }
+    }
+
+    a {
+        font-size: 3rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: colors.$lightred;
+        text-decoration: none;
+        color: white;
+        box-shadow: 0 0 0.5rem white;
+        text-align: center;
+        transition: all 0.2s ease-in-out;
+
+        @media screen and (max-width: 640px) {
+            font-size: 2rem;
+        }
+
+        @media screen and (max-width: 410px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    a:hover {
+        transform: scale(1.1);
+    }
+}

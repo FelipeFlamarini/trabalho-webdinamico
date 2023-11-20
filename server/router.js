@@ -2,7 +2,7 @@ import express, { json } from 'express';
 import cors from 'cors';
 import url from 'url';
 import bodyparser from 'body-parser';
-import { getAllProducts, getProductById } from './DB/functions.js';
+import { getAllProducts, getProductById, getProductsMostViewed, getProductsMostSold, getProductsLeastStock, GetProductByUniverse} from './DB/functions.js';
 import { error } from 'console';
 
 const app = express();
@@ -12,8 +12,9 @@ app.use(json());
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: false}));
 
 app.get("/api/products/:id", async (req, res) => {
+    // se id for NaN, retornar todos os produtos
+    // se id for um número, retornar o produto com o id\
     const id = parseInt(req.params.id);
-
     try {
         if (isNaN(id)) {
             await getAllProducts()
@@ -38,14 +39,61 @@ app.get("/api/products/:id", async (req, res) => {
     }
 });
 
-app.put("/api/:abc", async (req, res) => {
-    const id = req.params.abc;
-    const note = req.body;
-    console.log(id)
-    console.log(note)
-    res.status(200);
-    res.send()
-})
+// filtros
+
+app.get("/api/productsFilters/mostViewed", async (req, res) => {
+    // produtos mais vistos
+    const { limit } = req.query;
+    try {
+        const query = await getProductsMostViewed(limit);
+        const query2 = [];
+        query.forEach((product) => query2.push(product.dataValues));
+        res.status(200).send(query);
+    } catch {
+        console.log(error);
+    }
+});
+
+app.get("/api/productsFilters/mostSold", async (req, res) => {
+    // produtos mais vendidos
+    const { limit } = req.query;
+    try {
+        const query = await getProductsMostSold(limit);
+        const query2 = [];
+        query.forEach((product) => query2.push(product.dataValues));
+        res.status(200).send(query);
+    } catch {
+        console.log(error);
+    }
+});
+
+app.get("/api/productsFilters/leastStock", async (req, res) => {
+    // produtos com menos estoque disponível
+    const { limit } = req.query;
+    try {
+        const query = await getProductsLeastStock(limit);
+        const query2 = [];
+        query.forEach((product) => query2.push(product.dataValues));
+        res.status(200).send(query);
+    } catch {
+        console.log(error);
+    }
+});
+
+app.get("/api/products/universe/:universe", async (req, res) => {
+    const universe = req.params.universe;
+    let {limit} = req.query;
+    if (isNaN(limit)) limit = 1;
+
+    try {
+        const query = await GetProductByUniverse(universe, limit);
+        const formattedQuery = query.map((product) => product.dataValues);
+        res.status(200).send(formattedQuery);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Internal Server Error' });
+    }
+});
 
 // servindo imagens dos produtos
 app.use("/api/productImages", express.static("./server/public/imgs/produtos"));
@@ -57,5 +105,6 @@ try {
 }
 catch {
     console.log("Error on server");
-}
+};
+
 export default app;

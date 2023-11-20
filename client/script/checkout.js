@@ -136,9 +136,9 @@ async function updatePrices() {
             .then((res) => res.json())
             .then((product) => {
                 finalPrice += product.preco * id.quantity;
-                prices[index].innerHTML = `R$ ${(
-                    product.preco * id.quantity
-                ).toFixed(2)}`;
+                // prices[index].innerHTML = `R$ ${(
+                //     product.preco * id.quantity
+                // ).toFixed(2)}`;
             });
     });
 

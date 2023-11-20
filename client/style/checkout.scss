@@ -30,16 +30,38 @@ body {
     padding-left: 2rem;
     padding-right: 2rem;
 
+    @media screen and (max-width: 540px) {
+        grid-template-columns: 50% 20% 30%;
+    }
+
+    @media screen and (max-width: 400px) {
+        grid-template-columns: 40% 20% 40%;
+    }
+
     .nomeProdutoHeader,
-    .precoProdutoHeader,
+    .precoFinalProdutoHeader,
     .quantidadeProdutoHeader,
     .nomeProduto,
-    .precoProduto,
+    .precoFinalProduto,
     .quantidadeProduto {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        h2 {
+            // text-align: center;
+        }
     }
+
+    .nomeProdutoHeader,
+    .precoFinalProdutoHeader,
+    .quantidadeProdutoHeader {
+        @media screen and (max-width: 400px) {
+            display: none;
+        }
+    }
+
+
 
     .nomeProduto {
         display: flex;
@@ -62,6 +84,11 @@ body {
             object-fit: cover;
             // position: relative;
             align-self: center;
+
+            @media screen and (max-width: 480px) {
+                width: 4rem;
+                
+            }
         }
         div {
             // position: absolute;
@@ -73,6 +100,9 @@ body {
                 text-align: center;
                 // width: 30rem;
                 font-size: 2rem;
+                @media screen and (max-width: 500px) {
+                    font-size: 1.5rem;
+                }
             }
         }
     }
@@ -82,12 +112,33 @@ body {
         justify-content: center;
         align-items: center;
         gap: 1rem;
+
         button {
             border: none;
             background-color: inherit;
             font-size: 2rem;
         }
+
+        h2 {
+            @media screen and (max-width: 540px) {
+                font-size: 1.3rem;
+            }
+        }
     }
+
+    .precoFinalProduto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            @media screen and (max-width: 540px) {
+                font-size: 1.3rem;
+            }
+        }
+
+    }
+
 }
 
 .pagamento {
@@ -171,6 +222,10 @@ body {
         border-radius: 1rem;
     }
 
+    @media screen and (max-width: 400px) {
+        padding: 1rem;
+    }
+
     .totalPreco {
         display: flex;
         justify-content: space-between;
@@ -181,6 +236,10 @@ body {
         h2 {
             font-size: 2.5rem;
             color: white;
+
+            @media screen and (max-width: 400px) {
+                font-size: 2rem;
+            }
         }
     }
 

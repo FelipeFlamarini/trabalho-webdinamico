@@ -1,17 +1,43 @@
 .mainContainer {
-  height: 70vh;
   width: 90%;
   margin: 0 auto;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  background: url("../imgs/bg3.png") no-repeat -1.2rem -7rem;
-  background-size: cover;
+  background-color: #009E90;
+  padding: 5rem 2rem;
+  margin: 2rem auto;
+  margin-bottom: 4rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem white;
+  gap: 1rem;
+}
+@media screen and (max-width: 640px) {
+  .mainContainer {
+    padding: 3rem 1rem;
+  }
+}
+@media screen and (max-width: 410px) {
+  .mainContainer {
+    padding: 1.5rem 1rem;
+  }
 }
 .mainContainer h1 {
   font-size: 5rem;
   color: white;
+  flex-shrink: 1;
+  text-align: center;
+}
+@media screen and (max-width: 640px) {
+  .mainContainer h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 410px) {
+  .mainContainer h1 {
+    font-size: 2rem;
+  }
 }
 .mainContainer a {
   font-size: 3rem;
@@ -21,7 +47,18 @@
   text-decoration: none;
   color: white;
   box-shadow: 0 0 0.5rem white;
+  text-align: center;
   transition: all 0.2s ease-in-out;
+}
+@media screen and (max-width: 640px) {
+  .mainContainer a {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 410px) {
+  .mainContainer a {
+    font-size: 1.5rem;
+  }
 }
 .mainContainer a:hover {
   transform: scale(1.1);

@@ -67,7 +67,7 @@ const span2 = document.createElement('span');
 span2.textContent = produto.nome;
 
 const imgTrash = document.createElement('img');
-imgTrash.src= './img/trash.svg'
+imgTrash.src= './img/cartTrash.svg'
 imgTrash.alt = 'exclude button sybolized by trash'
 
 imgTrash.addEventListener("click",()=>{

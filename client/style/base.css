@@ -122,8 +122,9 @@ header nav .searchBar {
   background-color: white;
   padding: 0.5rem;
   height: 3rem;
-  width: auto;
+  width: 16rem;
   border-radius: 1rem;
+  position: relative;
 }
 header nav .searchBar input {
   font-size: 1.5rem;
@@ -133,6 +134,65 @@ header nav .searchBar input {
   header nav .searchBar input {
     font-size: 1rem;
   }
+}
+header nav .searchBar input:focus {
+  outline: none;
+}
+header nav .searchBar .searchCards {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  height: auto;
+  width: auto;
+  background-color: none;
+  font-size: 1.5rem;
+  top: 2rem;
+  padding-top: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  left: 0%;
+  z-index: 2;
+  gap: 0.5rem;
+}
+header nav .searchBar .searchCards .searchCard {
+  border-radius: 1rem;
+  padding: 0 0.7rem;
+  display: flex;
+  align-items: center;
+  width: 16rem;
+  height: 8rem;
+  transition: 0.1s ease-in-out;
+}
+header nav .searchBar .searchCards .searchCard .searchImg {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+header nav .searchBar .searchCards .searchCard .searchImg img {
+  object-fit: cover;
+  height: 5rem;
+  width: auto;
+}
+header nav .searchBar .searchCards .searchCard .searchNome {
+  display: flex;
+  flex-flow: column nowrap;
+}
+header nav .searchBar .searchCards .searchCard .searchNome span {
+  width: 10rem;
+  color: black;
+  text-align: center;
+}
+header nav .searchBar .searchCards .searchCard:hover {
+  transform: scale(1.13);
+  background-color: #e76f51;
+  box-shadow: 0 0 1rem white;
+}
+header nav .searchBar .searchCards .searchCard:hover .searchNome span {
+  color: white;
 }
 header nav .searchBar * {
   background-color: inherit;

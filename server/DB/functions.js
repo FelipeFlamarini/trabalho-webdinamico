@@ -56,10 +56,31 @@ async function GetProductByUniverse(specificUniverse, limit){
     })
 }
 
+async function getProductsByName(name, limit) {
+    return await produtos.findAll({
+        where: {
+            [Op.or]: [
+                {
+                    nome: {
+                        [Op.iLike]: `%${name}%`
+                    }
+                },
+                {
+                    universo: {
+                        [Op.iLike]: `%${name}%`
+                    }
+                }
+            ]
+        },
+        limit: limit,
+    })
+}
+
 export { getAllProducts, 
     getProductById, 
     getProductsMostViewed, 
     getProductsMostSold,
     getProductsLeastStock,
     GetProductByUniverse,
+    getProductsByName,
 };

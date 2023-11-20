@@ -3,208 +3,208 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import "../../node_modules/@glidejs/glide/src/assets/sass/glide.core";
 @font-face {
-  font-family: Nakana;
-  src: url("./fonts/Nakana.otf");
+    font-family: Nakana;
+    src: url("./fonts/Nakana.otf");
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Nakana", "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Nakana", "Roboto", sans-serif;
 }
 
 .mainContainer {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  // align-items: center;
-  width: 100%;
-  // height: 100vh;
-  // background-color: #f5f5f5;
-  padding: 2rem 0;
-
-  #maisVendidos > .banner {
-    // align-self: flex-start;
-    height: 13rem;
-    width: 35rem;
-    // overflow: visible;
-    background: url("../imgs/bg1.png") no-repeat -1rem -3rem;
-    background-size: cover;
-
-    @media screen and (max-width: 390px) {
-      background: url("../imgs/bg1.png") no-repeat -1rem -0.4rem;
-      background-size: cover;
-      width: 20rem;
-      height: 8rem;
-    }
-
-    @media screen and (min-width: 391px) and (max-width: 530px) {
-      background: url("../imgs/bg1.png") no-repeat -1rem -0.8rem;
-      background-size: cover;
-
-      width: 25rem;
-      height: 12rem;
-    }
-
-    h1 {
-      // position: relative;
-      // left: 1rem;
-      // top: -0.4rem;
-      font-size: 3rem;
-
-      @media screen and (min-width: 391px) and (max-width: 530px) {
-        font-size: 2rem;
-      }
-
-      @media screen and (max-width: 390px) {
-        font-size: 1.5rem;
-      }
-    }
-  }
-
-  #marvel > .banner {
-    // align-self: flex-start;
-    height: 13rem;
-    width: 35rem;
-    // overflow: visible;
-    background: url("../imgs/bg1.png") no-repeat -1rem -3rem;
-    background-size: cover;
-
-    @media screen and (max-width: 390px) {
-      background: url("../imgs/bg1.png") no-repeat -1rem -0.4rem;
-      background-size: cover;
-      width: 20rem;
-      height: 8rem;
-    }
-
-    @media screen and (min-width: 391px) and (max-width: 530px) {
-      background: url("../imgs/bg1.png") no-repeat -1rem -0.8rem;
-      background-size: cover;
-
-      width: 25rem;
-      height: 12rem;
-    }
-
-    h1 {
-      // position: relative;
-      // top: -0.4rem;
-
-      font-size: 3rem;
-
-      @media screen and (min-width: 391px) and (max-width: 530px) {
-        font-size: 2rem;
-      }
-
-      @media screen and (max-width: 390px) {
-        font-size: 1.5rem;
-      }
-    }
-  }
-
-  .holder {
-    // width: 98%;
-    // margin: 0 auto;
-    // border: 1px solid red;
-    overflow: hidden;
-    padding: 3rem;
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
+    // align-items: center;
+    width: 100%;
+    // height: 100vh;
+    // background-color: #f5f5f5;
+    padding: 2rem 0;
 
-    .banner {
-      align-self: center;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      padding: 5rem;
-      // border-radius: 1rem;
-      color: white;
-      // width: 10rem;
-      // background-color: colors.$lightred;
+    #maisVendidos > .banner {
+        // align-self: flex-start;
+        height: 13rem;
+        width: 35rem;
+        // overflow: visible;
+        background: url("../imgs/bg1.png") no-repeat -1rem -3rem;
+        background-size: cover;
 
-      * {
-        text-align: center;
-      }
+        @media screen and (max-width: 390px) {
+            background: url("../imgs/bg1.png") no-repeat -1rem -0.4rem;
+            background-size: cover;
+            width: 20rem;
+            height: 8rem;
+        }
+
+        @media screen and (min-width: 391px) and (max-width: 530px) {
+            background: url("../imgs/bg1.png") no-repeat -1rem -0.8rem;
+            background-size: cover;
+
+            width: 25rem;
+            height: 12rem;
+        }
+
+        h1 {
+            // position: relative;
+            // left: 1rem;
+            // top: -0.4rem;
+            font-size: 3rem;
+
+            @media screen and (min-width: 391px) and (max-width: 530px) {
+                font-size: 2rem;
+            }
+
+            @media screen and (max-width: 390px) {
+                font-size: 1.5rem;
+            }
+        }
     }
 
-    .glide__track {
-      overflow: visible;
+    #marvel > .banner {
+        // align-self: flex-start;
+        height: 13rem;
+        width: 35rem;
+        // overflow: visible;
+        background: url("../imgs/bg1.png") no-repeat -1rem -3rem;
+        background-size: cover;
 
-      .glide__slides {
-        overflow: visible;
+        @media screen and (max-width: 390px) {
+            background: url("../imgs/bg1.png") no-repeat -1rem -0.4rem;
+            background-size: cover;
+            width: 20rem;
+            height: 8rem;
+        }
 
-        a {
-          // background-color: colors.$orange;
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          flex-flow: column wrap;
-          border-radius: 10%;
-          width: auto;
-          height: 25rem;
-          margin: 2rem;
-          text-decoration: none;
-          color: black;
+        @media screen and (min-width: 391px) and (max-width: 530px) {
+            background: url("../imgs/bg1.png") no-repeat -1rem -0.8rem;
+            background-size: cover;
 
-          .product {
-            box-shadow: 0 0 0.3rem white;
-            background-color: colors.$lightblue;
-            // border: 1px solid red;
-            width: 100%;
-            // padding: 1rem;
-            border-radius: 1rem;
+            width: 25rem;
+            height: 12rem;
+        }
+
+        h1 {
+            // position: relative;
+            // top: -0.4rem;
+
+            font-size: 3rem;
+
+            @media screen and (min-width: 391px) and (max-width: 530px) {
+                font-size: 2rem;
+            }
+
+            @media screen and (max-width: 390px) {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .holder {
+        // width: 98%;
+        // margin: 0 auto;
+        // border: 1px solid red;
+        overflow: hidden;
+        padding: 3rem;
+        display: flex;
+        flex-flow: column nowrap;
+
+        .banner {
+            align-self: center;
             display: flex;
             flex-flow: column nowrap;
             justify-content: center;
             align-items: center;
-            .productImage {
-              height: 15rem;
+            padding: 5rem;
+            // border-radius: 1rem;
+            color: white;
+            // width: 10rem;
+            // background-color: colors.$lightred;
 
-              img {
-                padding: 0.5rem;
-                // justify-self: start;
-                object-fit: cover;
-                max-height: 100%;
-              }
-            }
-
-            .productInfo {
-              background-color: colors.$lightred;
-              width: 100%;
-              border-bottom-left-radius: 1rem;
-              border-bottom-right-radius: 1rem;
-              h3,
-              p {
-                font-size: 1.5rem;
+            * {
                 text-align: center;
-                color: white;
-              }
             }
-          }
         }
-      }
+
+        .glide__track {
+            overflow: visible;
+
+            .glide__slides {
+                overflow: visible;
+
+                a {
+                    // background-color: colors.$orange;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    flex-flow: column wrap;
+                    border-radius: 10%;
+                    width: auto;
+                    height: 25rem;
+                    margin: 2rem;
+                    text-decoration: none;
+                    color: black;
+
+                    .product {
+                        box-shadow: 0 0 0.3rem white;
+                        background-color: colors.$lightblue;
+                        // border: 1px solid red;
+                        width: 100%;
+                        // padding: 1rem;
+                        border-radius: 1rem;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        justify-content: center;
+                        align-items: center;
+                        .productImage {
+                            height: 15rem;
+
+                            img {
+                                padding: 0.5rem;
+                                // justify-self: start;
+                                object-fit: cover;
+                                max-height: 100%;
+                            }
+                        }
+
+                        .productInfo {
+                            background-color: colors.$lightred;
+                            width: 100%;
+                            border-bottom-left-radius: 1rem;
+                            border-bottom-right-radius: 1rem;
+                            h3,
+                            p {
+                                font-size: 1.5rem;
+                                text-align: center;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .glide__bullets {
+            align-self: center;
+            margin: 1rem 0;
+            padding: 0.7rem;
+            border-radius: 1rem;
+            display: flex;
+            gap: 0.7rem;
+            background-color: colors.$lightred;
+
+            .glide__bullet {
+                border: none;
+                background-color: inherit;
+                color: white;
+            }
+
+            .active {
+                background-color: inherit;
+                color: colors.$lightblue;
+            }
+        }
     }
-
-    .glide__bullets {
-      align-self: center;
-      margin: 1rem 0;
-      padding: 0.7rem;
-      border-radius: 1rem;
-      display: flex;
-      gap: 0.7rem;
-      background-color: colors.$lightred;
-
-      .glide__bullet {
-        border: none;
-        background-color: inherit;
-        color: white;
-      }
-
-      .active {
-        background-color: inherit;
-        color: colors.$lightblue;
-      }
-    }
-  }
 }

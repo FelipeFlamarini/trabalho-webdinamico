@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/index.css">
-  <script src="./script/ProdutoIndividual.js" type="module" defer></script> 
-</head>
-<body>
-  <header>
-    <div class="topBanner">
-        <a href="./index.html">
-            <img src="./imgs/topBanner.png" alt="" />
-        </a>
-    </div>
-
-    <nav>
-        <h2><a href="./produtos.html">Nossos produtos</a></h2>
-        <div class="searchBar">
-            <input type="text" placeholder="Pesquisar" />
-            <a href=""><button><i class="fas fa-search"></i></button></a>
-            <div class="searchCards">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/index.css" />
+        <script
+            src="./script/ProdutoIndividual.js"
+            type="module"
+            defer
+        ></script>
+    </head>
+    <body>
+        <header>
+            <div class="topBanner">
+                <a href="./index.html">
+                    <img src="./imgs/topBanner.png" alt="" />
+                </a>
             </div>
-        </div>
-    </nav>
-</header>
 
-  <div class="container-produtoIndividual">
-    <div class="container-produto" id="container-produtoID">
-      <!-- <div class="container-image">
+            <nav>
+                <h2><a href="./produtos.html">Nossos produtos</a></h2>
+                <div class="searchBar">
+                    <input type="text" placeholder="Pesquisar" />
+                    <a href=""
+                        ><button><i class="fas fa-search"></i></button
+                    ></a>
+                    <div class="searchCards"></div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container-produtoIndividual">
+            <div class="container-produto" id="container-produtoID">
+                <!-- <div class="container-image">
         <img src="../server/public/imgs/produtos/1/1.jpg" alt="">
       </div>
       <div class="product-details">
@@ -53,13 +58,23 @@
           </div>
         </div>
       </div> -->
-    </div>
-  </div>
+            </div>
+        </div>
 
-  <footer>
+        <footer>
+            <div class="footerContainer">
+                <div class="logo">
+                    <img src="./imgs/logo.png" alt="logo" />
+                </div>
+                <div class="contact">
+                    <h2>Nossos contatos</h2>
+                    <p href="#">contact@funkoparadise.com</p>
+                    <p>(67) 99999-9999</p>
+                </div>
+            </div>
+        </footer>
 
-  </footer>
-  <script src="./script/searchbar.js" defer type="module"></script>
-  <script src="script/searchbar.js" type="module"></script>
-</body>
+        <script src="./script/searchbar.js" defer type="module"></script>
+        <script src="./script/searchbar.js" type="module"></script>
+    </body>
 </html>

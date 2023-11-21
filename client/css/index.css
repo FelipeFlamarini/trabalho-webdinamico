@@ -217,7 +217,7 @@
   height: 6.4rem;
 }
 .container-produtos .grid-layout .produto .all-details .details span:nth-child(1) {
-  color: #606060;
+  color: white;
   align-self: flex-start;
 }
 .container-produtos .grid-layout .produto .all-details .details span:nth-child(2), .container-produtos .grid-layout .produto .all-details .details span:nth-child(3) {

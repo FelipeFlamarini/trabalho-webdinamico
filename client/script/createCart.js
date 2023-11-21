@@ -1,6 +1,6 @@
 import { getProductById } from "./allFetch.js";
 import { PriceCalculator } from "./price.js";
-console.log("a");
+// console.log("a");
 
 const calculator = new PriceCalculator();
 //atualizar itens
@@ -14,7 +14,7 @@ btnprice.addEventListener("click", () => {
 function getIdsLocalStorage() {
     const ids = JSON.parse(localStorage.getItem("productID"));
 
-    console.log(ids);
+    // console.log(ids);
     if (ids && ids.length !== 0) {
         const allTable = document.querySelector(".all-table");
         allTable.style.display = "flex";
@@ -226,3 +226,10 @@ function a() {
         });
     });
 }
+
+document.querySelector("#btnPrice").addEventListener("click", () => {
+    if (JSON.parse(localStorage.getItem("productID")).length === 0) {
+    } else {
+        window.location.href = "./checkout.html";
+    }
+});

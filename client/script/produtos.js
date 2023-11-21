@@ -2,7 +2,7 @@ import { addInCart } from "./addInCart.js";
 import { getAllProducts,GetProductByPrice,GetProductByUniverse } from "./allFetch.js";
 
 async function products(param = getAllProducts()) {
-  const produto = await param
+  const produto = await param;
   console.log(produto)
   try{
 
@@ -211,11 +211,11 @@ function selectFilter(param){
     case 'precoDESC':
       products(GetProductByPrice('DESC'))
       break;
-    case 'default':
-      products(getAllProducts())
-    // default:
+    // case 'default':
     //   products(getAllProducts())
-    //   console.log("default caiu")
+    default:
+      products(getAllProducts())
+      console.log("default caiu")
   }
 }
 
@@ -233,7 +233,4 @@ function savedFilter(){
   selectFilter(savedFilter)
 }
 
-window.onload = function() {
-  savedFilter()
-};
-
+savedFilter()

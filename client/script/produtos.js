@@ -138,7 +138,6 @@ async function products(param = getAllProducts()) {
     div3button.addEventListener("click",() =>{
       // console.log("a")
       div2button.style.pointerEvents = 'auto'
-      button.style.border = "1px solid red"
       button.classList.remove("cart-button")
       button.classList.add("primary-button")
       div2Span.textContent ="Adicionar ao Carrinho"

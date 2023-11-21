@@ -1,81 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/base.css">
-    <script src="./script/createCart.js" type="module" defer></script>
-</head>
-<body>
-    <header>
-        <div class="topBanner">
-            <a href="./home.html">
-                <img src="./imgs/topBanner.png" alt="" />
-            </a>
-        </div>
-
-        <nav>
-            <h2><a href="./produtos.html">Nossos produtos</a></h2>
-            <div class="searchBar">
-                <input type="text" placeholder="Pesquisar" />
-                <a href=""><button><i class="fas fa-search"></i></button></a>
-                <div class="searchCards">
-                </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Carrinho</title>
+        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <script src="./script/createCart.js" type="module" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="topBanner">
+                <a href="./home.html">
+                    <img src="./imgs/topBanner.png" alt="" />
+                </a>
             </div>
-        </nav>
-    </header>
 
-    <div class="carrinho-container">
-        <!-- <h1>Meu Carrinho</h1> -->
-        <div class="all-table">
-            <h1>Meu Carrinho</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>item</th>
-                        <th>qtd</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody id="content-table">
-            
-            
-                </tbody>
-            </table>
-        </div>
+            <nav>
+                <h2><a href="./produtos.html">Nossos produtos</a></h2>
+
+                <div class="productRelated">
+                    <a href="./carrinho.html">
+                        <i
+                            class="fa-solid fa-cart-shopping"
+                            style="color: #ffffff"
+                            id="cartButton"
+                        ></i>
+                    </a>
+                    <div class="searchBar">
+                        <input type="text" placeholder="Pesquisar" />
+                        <a href=""
+                            ><button><i class="fas fa-search"></i></button
+                        ></a>
+                        <div class="searchCards"></div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="carrinho-container">
+            <!-- <h1>Meu Carrinho</h1> -->
+            <div class="all-table">
+                <h1>Meu Carrinho</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>item</th>
+                            <th>qtd</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content-table"></tbody>
+                </table>
+            </div>
 
             <div class="purchase">
                 <div>
-                    <span >Total</span>
+                    <span>Total</span>
                     <span id="total-itens"></span>
                 </div>
                 <div>
-                    <span >Preço Final</span>
+                    <span>Preço Final</span>
                     <span id="preco"></span>
                 </div>
-                <button id="btnPrice">
-                    Comprar
-                </button>
-            </div>
-        
-
-    </div>
-
-    <footer>
-        <div class="footerContainer">
-            <div class="logo">
-                <img src="./imgs/logo.png" alt="logo">
-            </div>
-            <div class="contact">
-                <h2>Nossos contatos</h2>
-                <p href="#">contact@funkoparadise.com</p>
-                <p>(67) 99999-9999</p>
+                <button id="btnPrice">Comprar</button>
             </div>
         </div>
-    </footer>
 
-    <script src="script/searchbar.js" type="module"></script>
-</body>
+        <footer>
+            <div class="footerContainer">
+                <div class="logo">
+                    <img src="./imgs/logo.png" alt="logo" />
+                </div>
+                <div class="contact">
+                    <h2>Nossos contatos</h2>
+                    <p href="#">contact@funkoparadise.com</p>
+                    <p>(67) 99999-9999</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script/searchbar.js" type="module"></script>
+    </body>
 </html>

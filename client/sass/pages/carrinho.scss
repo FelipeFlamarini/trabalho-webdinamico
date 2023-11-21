@@ -206,6 +206,7 @@
       left: 0;
       bottom: 0;
       width: 100%;
+      border-radius: 0;
     }
   }
 
@@ -290,7 +291,7 @@
       table{
         tbody{
           tr{
-            border: 1px solid $dark-blue;
+            border-top: 2px solid $dark-blue;
             display: flex;
             flex-wrap: wrap;
             align-items: center;

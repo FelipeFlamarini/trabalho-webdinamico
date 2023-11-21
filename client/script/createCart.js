@@ -176,7 +176,7 @@ const totalLabel = document.createElement('span');
 totalLabel.textContent = 'TOTAL'
 
 const total = document.createElement('span');
-total.textContent = `R$ ${produto.preco}`;
+total.textContent = `R$${produto.preco}`;
 
 totalCell.appendChild(totalLabel)
 totalCell.appendChild(total)

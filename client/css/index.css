@@ -396,6 +396,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
+    border-radius: 0;
   }
   .empty-cart {
     width: 100% !important;
@@ -435,7 +436,7 @@
     display: none;
   }
   .carrinho-container .all-table table tbody tr {
-    border: 1px solid #264653;
+    border-top: 2px solid #264653;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

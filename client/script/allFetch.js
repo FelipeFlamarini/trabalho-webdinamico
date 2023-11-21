@@ -81,6 +81,38 @@ async function GetProductByUniverse(specificUniverse, limit) {
         });
 }
 
+async function GetProductByUniverse(specificUniverse) {
+    return await fetch(
+        `http://localhost:3000/api/products/universe/${encodeURIComponent(
+            specificUniverse
+        )}`
+    )
+        .then(async (response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return await response.json();
+        })
+
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
+async function GetProductByPrice(orderPrice) {
+    return await fetch(`http://localhost:3000/api/products/price/${orderPrice}`)
+        .then(async (response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return await response.json();
+        })
+
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
 async function getRecommended() {
     // filtrar no banco de dados os produtos recomendados
     const allProducts = await getAllProducts();
@@ -105,7 +137,8 @@ async function cartCheckout(items) {
 
 async function getProductsByName(name, limit) {
     return await fetch(
-        `http://localhost:3000/api/productsSearch?name=${encodeURIComponent(name
+        `http://localhost:3000/api/productsSearch?name=${encodeURIComponent(
+            name
         )}&limit=${parseInt(limit)}`
     )
         .then(async (response) => {
@@ -129,4 +162,6 @@ export {
     getRecommended,
     GetProductByUniverse,
     getProductsByName,
+    GetProductByPrice,
 };
+

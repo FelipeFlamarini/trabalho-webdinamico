@@ -76,8 +76,16 @@ async function getProductsByName(name, limit) {
     })
 }
 
+async function GetProductByUniverse(specificUniverse){
+    return await produtos.findAll({where:{universo:specificUniverse}})
+}
+
+async function GetProductByPrice(orderPrice){
+    return await produtos.findAll({ order:[['preco',orderPrice]]})
+}
+
 export { getAllProducts, 
-    getProductById, 
+    getProductById,GetProductByUniverse,GetProductByPrice, 
     getProductsMostViewed, 
     getProductsMostSold,
     getProductsLeastStock,

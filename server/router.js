@@ -4,7 +4,7 @@ import url from "url";
 import bodyparser from "body-parser";
 import {
     getAllProducts,
-    getProductById,
+    getProductById,GetProductByUniverse,GetProductByPrice,
     getProductsMostViewed,
     getProductsMostSold,
     getProductsLeastStock,
@@ -127,18 +127,38 @@ app.get("/api/productsFilters/leastStock", async (req, res) => {
 
 app.get("/api/products/universe/:universe", async (req, res) => {
     const universe = req.params.universe;
-    let { limit } = req.query;
-    if (isNaN(limit)) limit = 1;
 
     try {
-        const query = await GetProductByUniverse(universe, limit);
+        const query = await GetProductByUniverse(universe);
         const formattedQuery = query.map((product) => product.dataValues);
         res.status(200).send(formattedQuery);
     } catch (error) {
         console.error(error);
-        res.status(500).send({ error: "Internal Server Error" });
+        res.status(500).send({ error: 'Internal Server Error' });
     }
 });
+
+app.get("/api/products/price/:order", async (req, res) => {
+    const order = req.params.order; // 'ASC' ou 'DESC'
+
+    try {
+        const query = await GetProductByPrice(order);
+        const formattedQuery = query.map((product) => product.dataValues);
+        res.status(200).send(formattedQuery);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Internal Server Error' });
+    }
+});
+
+app.put("/api/:abc", async (req, res) => {
+    const id = req.params.abc;
+    const note = req.body;
+    console.log(id)
+    console.log(note)
+    res.status(200);
+    res.send()
+})
 
 // servindo imagens dos produtos
 app.use("/api/productImages", express.static("./server/public/imgs/produtos"));

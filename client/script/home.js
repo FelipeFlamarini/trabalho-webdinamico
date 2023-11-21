@@ -51,7 +51,7 @@ async function createCards(products, idName) {
     li.classList.add("card");
 
     li.innerHTML = `
-            <a href="/product/${product.id}">
+            <a href="./produto.html?id=${product.id}">
                 <div class="product">
                   <div class="productImage">
                     <img src="http://localhost:3000/api/productImagesTransparent/${

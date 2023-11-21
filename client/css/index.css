@@ -383,31 +383,5 @@
     width: auto;
   }
 }
-.container-teste button {
-  padding: 1rem;
-  margin-left: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* padding: .6rem; */
-  border-radius: 10px;
-  border: none;
-  height: 3rem;
-  padding: 0 0.5rem;
-}
-.container-teste button div:first-child, .container-teste button div:last-child {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* border: 1px solid red; */
-  padding: 0.2rem;
-}
-.container-teste div:nth-child(2) {
-  padding: 0.2rem;
-}
-.container-teste div:nth-child(2) span {
-  font-size: 50px;
-}
 
 /*# sourceMappingURL=index.css.map */

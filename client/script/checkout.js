@@ -75,7 +75,7 @@ async function setCards() {
                 // <h2 id=quantity_${index}>${id.quantity}</h2>
                 // <button onclick=increment(${index},'quantity')>+</button>
                 // `;
-                quantidadeProduto.innerHTML =`<h2 id=quantity_${index}>${id.quantity}</h2>`
+                quantidadeProduto.innerHTML = `<h2 id=quantity_${index}>${id.quantity}</h2>`;
                 document
                     .querySelector(".mainContainer")
                     .appendChild(quantidadeProduto);
@@ -146,6 +146,7 @@ async function updatePrices() {
         document.querySelector("#total").innerHTML = `R$ ${finalPrice.toFixed(
             2
         )}`;
+        return parseFloat(finalPrice).toFixed(2);
     });
 }
 
@@ -163,9 +164,12 @@ async function checkout() {
         (res) => {
             console.log(res);
             if (res.status === 200) {
-                window.location.assign(
-                    "http://localhost:5500/client/sucesso.html"
+                localStorage.setItem("productID", JSON.stringify([]));
+                const finalPrice = parseFloat(
+                    document.querySelector("#total").innerHTML.split("R$ ")[1]
                 );
+                window.location.assign(
+                    `http://localhost:5500/client/sucesso.html?price=${finalPrice}`);
             }
         }
     );
@@ -173,3 +177,5 @@ async function checkout() {
 
 paymentMethod();
 setCards();
+
+document.querySelector("#checkoutButton").addEventListener("click", checkout);

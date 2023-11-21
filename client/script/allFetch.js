@@ -63,7 +63,7 @@ async function getProductsLeastStock(limit) {
     });
 }
 
-async function GetProductByUniverse(specificUniverse, limit) {
+async function getProductsByUniverseLimit(specificUniverse, limit) {
     return await fetch(
         `http://localhost:3000/api/products/universe/${encodeURIComponent(
             specificUniverse
@@ -113,12 +113,6 @@ async function GetProductByPrice(orderPrice) {
         });
 }
 
-async function getRecommended() {
-    // filtrar no banco de dados os produtos recomendados
-    const allProducts = await getAllProducts();
-    return allProducts;
-}
-
 async function cartCheckout(items) {
     // array no modelo [ {id: 1, quantity: 2}, {id: 2, quantity: 1}]
     return await fetch("http://localhost:3000/api/cart/checkout", {
@@ -160,8 +154,8 @@ export {
     getProductsMostSold,
     getProductsLeastStock,
     getRecommended,
+    getProductsByUniverseLimit,
     GetProductByUniverse,
     getProductsByName,
     GetProductByPrice,
 };
-

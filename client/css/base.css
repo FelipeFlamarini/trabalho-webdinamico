@@ -57,7 +57,7 @@
 
 @font-face {
   font-family: Nakana;
-  src: url("./fonts/Nakana.otf");
+  src: url("../sass/fonts/Nakana.otf");
 }
 * {
   padding: 0;

@@ -2,8 +2,7 @@ import {
   getProductsMostViewed,
   getProductsMostSold,
   getProductsLeastStock,
-  getRecommended,
-  GetProductByUniverse,
+  getProductsByUniverseLimit,
 } from "./allFetch.js";
 import { Breakpoints } from "../../node_modules/@glidejs/glide/dist/glide.modular.esm.js";
 
@@ -39,7 +38,7 @@ async function updateLeastStock(limit) {
 }
 
 async function updateMarvel(limit) {
-  await GetProductByUniverse("Marvel", limit).then((products) => {
+  await getProductsByUniverseLimit("Marvel", limit).then((products) => {
     createCards(products, "#marvel");
   });
 

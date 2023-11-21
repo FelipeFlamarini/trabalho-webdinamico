@@ -172,5 +172,4 @@ async function checkout() {
 }
 
 paymentMethod();
-teste();
 setCards();

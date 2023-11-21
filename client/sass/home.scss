@@ -141,7 +141,7 @@
                     justify-content: space-around;
                     flex-flow: column wrap;
                     border-radius: 10%;
-                    width: auto;
+                    // width: 15rem;
                     height: 25rem;
                     margin: 2rem;
                     text-decoration: none;
@@ -172,8 +172,13 @@
                         .productInfo {
                             background-color: colors.$lightred;
                             width: 100%;
+                            height: 8rem;
                             border-bottom-left-radius: 1rem;
                             border-bottom-right-radius: 1rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-flow: column nowrap;
                             h3,
                             p {
                                 font-size: 1.5rem;

@@ -92,7 +92,7 @@ async function createCards(products, idName) {
         perView: 1,
       },
     },
-    gap: 20,
+    gap: 15,
     autoplay: 5000,
     focusAt: "center",
   }).mount({ Breakpoints });

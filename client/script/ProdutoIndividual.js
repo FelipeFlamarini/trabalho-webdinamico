@@ -2,12 +2,12 @@ import { addInCart } from "./addInCart.js";
 import { getProductById } from "./allFetch.js";
 
 
-localStorage.setItem('produtoAtual',JSON.stringify(1))
+// localStorage.setItem('produtoAtual',JSON.stringify(1))
 
-function produtsReturn() {
-  const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
-  return arrayOfIds
-}
+// function produtsReturn() {
+//   const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
+//   return arrayOfIds
+// }
 
 function renderProduto(produto){
   const containerProduto = document.getElementById("container-produtoID");
@@ -139,8 +139,11 @@ containerProduto.appendChild(productDetails);
 
 
 async function render(){
-  const produto = JSON.parse(localStorage.getItem('produtoAtual'))
-  const atualProduto = await getProductById(produto)
+  const id = window.location.search.split('id=')[1];
+  // se não tiver id
+  if (!id) window.location.href = './home.html'; 
+
+  const atualProduto = await getProductById(id)
   console.log(atualProduto)
   renderProduto(atualProduto)
 }

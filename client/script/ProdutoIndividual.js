@@ -4,10 +4,10 @@ import { getProductById } from "./allFetch.js";
 
 // localStorage.setItem('produtoAtual',JSON.stringify(1))
 
-// function produtsReturn() {
-//   const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
-//   return arrayOfIds
-// }
+function produtsReturn() {
+  const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []
+  return arrayOfIds
+}
 
 function renderProduto(produto){
   const containerProduto = document.getElementById("container-produtoID");

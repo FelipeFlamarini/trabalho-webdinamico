@@ -40,7 +40,7 @@ detailsDiv1.appendChild(priceSpan);
 
 const detailsDiv2 = document.createElement('div');
 const descriptionP = document.createElement('p');
-descriptionP.textContent = produto.dexcricao;
+descriptionP.textContent = produto.descricao;
 
 detailsDiv2.appendChild(descriptionP);
 

@@ -1,7 +1,6 @@
 import { addInCart } from "./addInCart.js";
 import { getAllProducts,GetProductByPrice,GetProductByUniverse } from "./allFetch.js";
 
-
 async function products(param = getAllProducts()) {
   const produto = await param
   console.log(produto)

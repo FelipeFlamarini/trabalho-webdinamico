@@ -153,7 +153,6 @@ export {
     getProductsMostViewed,
     getProductsMostSold,
     getProductsLeastStock,
-    getRecommended,
     getProductsByUniverseLimit,
     GetProductByUniverse,
     getProductsByName,

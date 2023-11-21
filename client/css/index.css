@@ -118,7 +118,7 @@
 .container-produtos .filtros .dropdown-content {
   display: none;
   position: absolute;
-  top: 3.4rem;
+  top: 3.5rem;
   background-color: #2a9d8f;
   overflow: auto;
   border-radius: 10px;
@@ -142,6 +142,7 @@
   background-color: #2a9d8f;
 }
 .container-produtos .filtros .dropdown {
+  position: relative;
   width: 6.5rem;
   height: 3.4rem;
 }

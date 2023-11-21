@@ -10,6 +10,7 @@
   width: 100%;
 
   .filtros{
+    
     width: 100%;
     padding-left: 4rem;
 .dropbtn {
@@ -30,7 +31,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 3.4rem;
+  top: 3.5rem;
   background-color: $cian;
   // min-width: 160px;
   
@@ -70,8 +71,10 @@
 
 .dropdown{
   // border: 1px solid red;
+  position: relative;
   width: 6.5rem;
   height: 3.4rem;
+
 }
 
 /* Mostra o conteúdo do dropdown ao clicar no botão */

@@ -65,5 +65,3 @@ document
     .addEventListener("focusout", async (event) => {
         clearSearchCards();
     });
-
-console.log("teste")

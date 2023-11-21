@@ -241,6 +241,7 @@
   background-color: #e9c46a;
   width: 100%;
   min-height: 100vh;
+  position: relative;
 }
 .carrinho-container .all-table {
   display: flex;

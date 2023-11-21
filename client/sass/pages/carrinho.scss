@@ -135,14 +135,14 @@
           }
 
           select {
-            background-color: transparent;
+            background-color: $bg-color;
             border: 1px solid $cian;
             outline: none;
             color: $cian;
             border-radius: 5px;
 
             option {
-              background-color: $beige;
+              background-color: $bg-color;
             }
           }
         }

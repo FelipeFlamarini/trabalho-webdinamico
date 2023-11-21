@@ -136,7 +136,11 @@ function CreateRows(produto, quantity) {
         );
         console.log(found);
         if (found) {
+            // total.textContent = ""
+            // console.log(produto.preco)
+            // console.log(found.quantity)
             found.quantity = +ev.target.value;
+            total.textContent= `R$${found.quantity * produto.preco}`
             localStorage.setItem("productID", JSON.stringify(arrayOfIds));
             arrayOfIds.forEach((produto) => {
                 calculator.totalPrice = 0;
@@ -169,7 +173,19 @@ function CreateRows(produto, quantity) {
     totalLabel.textContent = "TOTAL";
 
     const total = document.createElement("span");
-    total.textContent = `R$${produto.preco}`;
+    
+    const arrayOfIds = localStorage.getItem("productID")
+            ? JSON.parse(localStorage.getItem("productID"))
+            : [];
+
+        const found = arrayOfIds.find(
+            (produtoLocal) => produtoLocal.id === produto.id
+        );
+        
+        if (found) {
+
+            total.textContent = `R$${produto.preco * found.quantity}`;
+        }
 
     totalCell.appendChild(totalLabel);
     totalCell.appendChild(total);
@@ -197,7 +213,7 @@ function totalItens() {
 }
 
 async function putPrice(quantity, id) {
-    console.log(quantity, id);
+    // console.log(quantity, id);
     const produto = await getProductById(id);
     const preco = produto.preco;
     const priceText = document.getElementById("preco");

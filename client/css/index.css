@@ -339,14 +339,14 @@
   display: none;
 }
 .carrinho-container table tbody tr td:nth-child(2) select {
-  background-color: transparent;
+  background-color: #ffffff;
   border: 1px solid #2a9d8f;
   outline: none;
   color: #2a9d8f;
   border-radius: 5px;
 }
 .carrinho-container table tbody tr td:nth-child(2) select option {
-  background-color: #f3dca3;
+  background-color: #ffffff;
 }
 .carrinho-container table tbody tr td:nth-child(3) span:nth-child(1) {
   display: none;

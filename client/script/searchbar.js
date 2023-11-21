@@ -68,5 +68,5 @@ document
         clearTimeout(timeoutFocusout);
         timeoutFocusout = setTimeout(async () => {
             clearSearchCards();
-        }, 100);
+        }, 1000);
     });

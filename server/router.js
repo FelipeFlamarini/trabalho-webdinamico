@@ -12,9 +12,12 @@ import {
     getProductsMostSold,
     getProductsLeastStock,
     getProductsByName,
+    incrementSell,
+    incrementView
 } from "./DB/functions.js";
 import { error } from "console";
 import { produtos } from "./DB/structure.js";
+import { Sequelize } from "sequelize";
 
 const app = express();
 
@@ -40,6 +43,16 @@ app.get("/api/products/:id", async (req, res) => {
                 res.status(200).send(query);
             });
         }
+    } catch {
+        console.log(error);
+    }
+});
+
+app.get("/api/products/incrementView/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    try {
+        await incrementView(id);
+        res.status(200).send("ok");
     } catch {
         console.log(error);
     }
@@ -79,6 +92,10 @@ app.put("/api/cart/checkout", async (req, res) => {
         productsOnDB.forEach(async (product, index) => {
             await produtos.update(
                 { estoque: newEstoque[index] },
+                { where: { id: product.id } }
+            );
+            await produtos.update(
+                { vendas: Sequelize.literal(`vendas + ${body[index].quantity}`) },
                 { where: { id: product.id } }
             );
         });

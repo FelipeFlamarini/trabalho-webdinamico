@@ -15,7 +15,13 @@ function getIdsLocalStorage(){
   const ids = JSON.parse(localStorage.getItem("productID")) 
   
   console.log(ids)
-  if (ids){
+  if (ids && ids.length !== 0){
+    const allTable = document.querySelector('.all-table')
+    allTable.style.display ='flex'
+
+    const emptyCart = document.querySelector('.empty-cart')
+    emptyCart.style.display ='none'
+
     totalItens()
     ids.forEach(produto => {
       teste(produto.id,produto.quantity)
@@ -24,6 +30,11 @@ function getIdsLocalStorage(){
     });
   }
   if(ids.length === 0){
+    const allTable = document.querySelector('.all-table')
+    allTable.style.display ='none'
+
+    const emptyCart = document.querySelector('.empty-cart')
+    emptyCart.style.display ='flex'
     zeroPrice()
   }
 }
@@ -90,6 +101,13 @@ imgTrash.addEventListener("click",()=>{
     tbody.removeChild(bodyRow)
     totalItens()
   }else if(filterArray.length === 0){
+
+    const allTable = document.querySelector('.all-table')
+    allTable.style.display ='none'
+
+    const emptyCart = document.querySelector('.empty-cart')
+    emptyCart.style.display ='flex'
+
     tbody.removeChild(bodyRow)
     zeroPrice()
     totalItens()

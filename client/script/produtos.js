@@ -16,17 +16,18 @@ async function products(param = getAllProducts()) {
     cardContainer.classList.add("produto");
   
     // Create the image container element
-    const imgContainer = document.createElement("div");
+    const imgContainer = document.createElement("a");
+    imgContainer.href = `./produto.html?id=${produto.id}`
     imgContainer.classList.add("img-container");
   
     // Create the image element
     const img = document.createElement("img");
-    img.src = `http://localhost:3000/api/productImages/${produto.id}/1.jpg`;
+    img.src = `http://localhost:3000/api/productImagesTransparent/${produto.id}/1.jpg`;
     img.alt = produto.nome;
     img.classList.add("main-image")
   
     const secondimg = document.createElement("img")
-    secondimg.src = `http://localhost:3000/api/productImages/${produto.id}/2.jpg`;
+    secondimg.src = `http://localhost:3000/api/productImagesTransparent/${produto.id}/2.jpg`;
     secondimg.alt = produto.nome + " in box";
     secondimg.classList.add("box-image")
     // Append the image element to the image container element
@@ -45,12 +46,14 @@ async function products(param = getAllProducts()) {
     brand.textContent = produto.universo;
   
     // Create the name element
-    const name = document.createElement("span");
-    name.textContent = produto.nome;
-  
+    const name1 = document.createElement("span");
+    name1.textContent = `${produto.nome.split("!")[0]}!`;
+    const name2 = document.createElement("span");
+    name2.textContent = `${produto.nome.split("!")[1]}!`;
+
     // Create the price element
     const price = document.createElement("span");
-    price.textContent =`$${produto.preco}` ;
+    price.textContent =`R$${produto.preco}` ;
   
     // Create the button element
     const button = document.createElement("button");
@@ -151,7 +154,8 @@ async function products(param = getAllProducts()) {
     
     // Append the brand, name, price, and button elements to the details container element
     detailsContainer.appendChild(brand);
-    detailsContainer.appendChild(name);
+    detailsContainer.appendChild(name1);
+    detailsContainer.appendChild(name2);
     detailsContainer.appendChild(price);
 
     allDetails.appendChild(detailsContainer)
@@ -211,8 +215,8 @@ function selectFilter(param){
     case 'precoDESC':
       products(GetProductByPrice('DESC'))
       break;
-    // case 'default':
-    //   products(getAllProducts())
+    case 'default':
+      products(getAllProducts())
     default:
       products(getAllProducts())
       console.log("default caiu")

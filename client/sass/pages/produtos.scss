@@ -3,7 +3,7 @@
 @use "../components/buttons.scss";
 .container-produtos{
   // border: 1px solid red;
-  background-color: $yellow;
+  background-color: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,7 +93,7 @@
   .grid-layout{
     display: grid;
     width: 100%;
-    background-color: $yellow;
+    background-color: inherit;
 
     // border: 1px solid red;
     grid-template-columns: repeat(auto-fit,14.6rem);
@@ -103,6 +103,7 @@
     justify-content: center;
     // justify-items: center;
     // border: 10px solid yellow;
+    margin-bottom: 2rem;
     .produto{
       // margin: 1rem;
       width: 14.6rem;
@@ -121,8 +122,9 @@
         // height: 12rem;
         // margin-bottom: .5rem;
         img{
-          width: 11rem;
+          // width: 11rem;
           height: 11rem;
+          object-fit: cover;
         }
 
         .main-image{
@@ -163,6 +165,7 @@
           display: flex;
           flex-direction: column;
           // justify-content: center;
+          align-items: center;
           width: 100%;
           gap: .2rem;
           position: relative;
@@ -171,18 +174,19 @@
 
           span:nth-child(1){
             color: $brands;
+            align-self: flex-start;
           }
   
-          span:nth-child(2){
+          span:nth-child(2), span:nth-child(3){
             color: $bg-color;
             font-weight: bold;
             font-size: 20px;
           }
   
-          span:nth-child(3){
+          span:nth-child(4){
             position: absolute;
             font-size: 18px;
-            color: $dark-blue;
+            color: white;
             margin-top: .4rem;
             bottom: 0;
           }

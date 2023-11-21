@@ -150,6 +150,7 @@ async function render() {
     if (!id) window.location.href = "./home.html";
 
     const atualProduto = await getProductById(id);
+    fetch(`http://localhost:3000/api/products/incrementView/${id}`);
     renderProduto(atualProduto);
 }
 

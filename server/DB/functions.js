@@ -78,6 +78,20 @@ async function GetProductByPrice(orderPrice) {
     return await produtos.findAll({ order: [["preco", orderPrice]] });
 }
 
+async function incrementView(id) {
+    produtos.update(
+        { views: client.literal("views + 1") },
+        { where: { id: id } }
+    );
+}
+
+async function incrementSell(id, quantity) {
+    produtos.update(
+        { vendas: client.literal(`vendas + ${quantity}`) },
+        { where: { id: id } }
+    );
+}
+
 export {
     getAllProducts,
     getProductById,
@@ -88,4 +102,6 @@ export {
     getProductsMostSold,
     getProductsLeastStock,
     getProductsByName,
+    incrementView,
+    incrementSell
 };

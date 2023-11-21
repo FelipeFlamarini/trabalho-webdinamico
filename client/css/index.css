@@ -257,22 +257,26 @@
 .carrinho-container .empty-cart h1 {
   font-size: 80px;
 }
-.carrinho-container .empty-cart button {
+.carrinho-container .empty-cart a {
+  text-decoration: none;
+  border: none;
+}
+.carrinho-container .empty-cart a button {
   padding: 1rem;
-  color: #2a9d8f;
+  color: white;
   width: 15rem;
   font-size: 20px;
-  border: 1px solid #2a9d8f;
-  background-color: transparent;
+  box-shadow: 0 0 0.5rem white;
+  border: none;
+  background-color: #e76f51;
   text-transform: uppercase;
   border-radius: 1rem;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: 0.2s ease-in-out;
   cursor: pointer;
 }
-.carrinho-container .empty-cart button:hover {
-  background-color: #2a9d8f;
-  color: #f3dca3;
+.carrinho-container .empty-cart a button:hover {
+  transform: scale(1.1);
 }
 .carrinho-container .all-table {
   display: flex;
@@ -327,7 +331,8 @@
 .carrinho-container table tbody tr td:nth-child(1) .product-details img:nth-child(3) {
   cursor: pointer;
 }
-.carrinho-container table tbody tr td:nth-child(2), .carrinho-container table tbody tr td:nth-child(3) {
+.carrinho-container table tbody tr td:nth-child(2),
+.carrinho-container table tbody tr td:nth-child(3) {
   text-align: center;
 }
 .carrinho-container table tbody tr td:nth-child(2) span {
@@ -371,18 +376,16 @@
 .carrinho-container .purchase button {
   padding: 1rem;
   color: #2a9d8f;
-  border: 1px solid #2a9d8f;
-  background-color: transparent;
+  border: none;
+  background-color: #e76f51;
+  color: white;
+  box-shadow: 0 0 0.5rem white;
   text-transform: uppercase;
   border-radius: 1rem;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: 0.2s ease-in-out;
   cursor: pointer;
   width: 100%;
-}
-.carrinho-container .purchase button:hover {
-  background-color: #2a9d8f;
-  color: #f3dca3;
 }
 
 @media (max-width: 1300px) {

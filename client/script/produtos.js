@@ -60,7 +60,12 @@ async function products(param = getAllProducts()) {
 
     const div2button = document.createElement("div")
     const div2Span = document.createElement("span")
-    div2Span.textContent ="Adicionar ao Carrinho"
+    if (produto.estoque) {
+      div2Span.textContent ="Adicionar ao Carrinho"
+    } else {
+      div2Span.textContent ="Produto Indisponível"
+      button.style.pointerEvents = 'none'
+    }
     div2button.appendChild(div2Span)
 
     const arrayOfIds = localStorage.getItem('productID') ? JSON.parse(localStorage.getItem('productID')) : []

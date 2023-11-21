@@ -579,19 +579,20 @@
   .container-produto {
     flex-direction: column;
   }
-  .product-details {
+  .container-produto .product-details {
     justify-content: center;
+    height: auto;
   }
-  .product-details div:nth-child(1) {
+  .container-produto .product-details div:nth-child(1) {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .product-details div:nth-child(1) {
+  .container-produto .product-details div:nth-child(1) {
     text-align: center;
   }
-  .product-details div:nth-child(3) {
+  .container-produto .product-details div:nth-child(3) {
     justify-content: center !important;
   }
 }

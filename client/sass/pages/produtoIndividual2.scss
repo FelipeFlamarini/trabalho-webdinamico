@@ -15,6 +15,8 @@
   padding: 1rem;
   background-color: $bg-color;
   border-radius: 1rem;
+  
+  
   .container-image {
     display: flex;
     align-items: center;
@@ -130,10 +132,11 @@
 @media (max-width: 1150px) {
   .container-produto {
     flex-direction: column;
-  }
+  
 
   .product-details {
     justify-content: center;
+    height: auto;
 
     div:nth-child(1) {
       display: flex;
@@ -150,6 +153,7 @@
       justify-content: center !important;
     }
   }
+}
 }
 
 @media (max-width: 768px) {

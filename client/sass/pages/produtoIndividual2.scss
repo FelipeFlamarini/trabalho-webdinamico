@@ -34,8 +34,9 @@
     margin: 1rem 0;
     width: 35rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // flex-direction: column;
+    flex-flow: row wrap;
+    // justify-content: flex-start;
 
     div:nth-child(1) {
       // border: 1px solid red;
@@ -68,6 +69,7 @@
     }
 
     div:nth-child(3) {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -107,6 +109,7 @@
         width: 15rem;
         cursor: pointer;
         border-radius: 1rem;
+        margin-left: 1rem;
 
         select {
           background-color: white;

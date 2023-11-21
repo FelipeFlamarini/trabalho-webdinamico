@@ -6,7 +6,7 @@ async function setSearchCards(name) {
             const div = document.createElement("div");
             div.classList.add("searchCard");
             div.innerHTML = `
-            <a href="/product/${product.id}">
+            <a href="./produto.html?id=${product.id}">
                 <div class="searchImg">
                     <img src="http://localhost:3000/api/productImagesTransparent/${product.id}/1.jpg" alt="${product.nome}"></img>
                 </div>
@@ -32,7 +32,7 @@ document
     .querySelector(".searchBar input")
     .addEventListener("keydown", async (event) => {
         clearSearchCards();
-        clearTimeout(timeoutId); // Clear the previous timeout
+        clearTimeout(timeoutId);
 
         timeoutId = setTimeout(async () => {
             const search = document.querySelector(".searchBar input").value;
@@ -48,7 +48,7 @@ document
     .querySelector(".searchBar input")
     .addEventListener("focus", async (event) => {
         clearSearchCards();
-        clearTimeout(timeoutId); // Clear the previous timeout
+        clearTimeout(timeoutId);
 
         timeoutId = setTimeout(async () => {
             const search = document.querySelector(".searchBar input").value;
@@ -60,8 +60,13 @@ document
         }, 1000);
     });
 
+let timeoutFocusout;
+
 document
     .querySelector(".searchBar input")
     .addEventListener("focusout", async (event) => {
-        clearSearchCards();
+        clearTimeout(timeoutFocusout);
+        timeoutFocusout = setTimeout(async () => {
+            clearSearchCards();
+        }, 100);
     });

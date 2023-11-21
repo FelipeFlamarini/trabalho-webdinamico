@@ -56,7 +56,7 @@ const productDetails = document.createElement('div');
 productDetails.classList.add('product-details');
 
 const imgItem = document.createElement('img');
-imgItem.src=`http://localhost:3000/api/productImages/${produto.id}/1.jpg`
+imgItem.src=`http://localhost:3000/api/productImagesTransparent/${produto.id}/1.jpg`
 imgItem.alt=produto.nome
 imgItem.classList.add('img-item');
 
@@ -64,7 +64,10 @@ const span1 = document.createElement('span');
 span1.textContent = produto.universo;
 
 const span2 = document.createElement('span');
-span2.textContent = produto.nome;
+span2.textContent = `${produto.nome.split("!")[0]}!`;
+
+const span3 = document.createElement('span');
+span3.textContent = `${produto.nome.split("!")[1]}`;
 
 const imgTrash = document.createElement('img');
 imgTrash.src= './img/cartTrash.svg'
@@ -101,6 +104,7 @@ const names = document.createElement('div')
 names.classList.add("names-product")
 names.appendChild(span1)
 names.appendChild(span2)
+names.appendChild(span3)
 
 productDetails.appendChild(imgItem);
 productDetails.appendChild(names);

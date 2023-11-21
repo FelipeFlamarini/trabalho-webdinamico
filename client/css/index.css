@@ -242,7 +242,6 @@
 .carrinho-container {
   display: flex;
   padding-left: 3rem;
-  background-color: #e9c46a;
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -281,8 +280,8 @@
   width: 37rem;
 }
 .carrinho-container table tbody tr td:nth-child(1) .product-details .img-item {
-  width: 4rem;
-  height: 4rem;
+  height: 10rem;
+  object-fit: cover;
 }
 .carrinho-container table tbody tr td:nth-child(1) .product-details .names-product {
   display: flex;
@@ -291,7 +290,7 @@
   width: 14rem;
 }
 .carrinho-container table tbody tr td:nth-child(1) .product-details .names-product span:nth-child(1) {
-  color: #f3dca3;
+  color: #264653;
 }
 .carrinho-container table tbody tr td:nth-child(1) .product-details .names-product span:nth-child(2) {
   color: black;
@@ -370,7 +369,6 @@
     padding-left: 0;
   }
   .carrinho-container .all-table {
-    border: 1px solid red;
     width: 100%;
   }
   .carrinho-container table {

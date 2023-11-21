@@ -378,6 +378,7 @@
   font-weight: bold;
   transition: all 0.3s;
   cursor: pointer;
+  width: 100%;
 }
 .carrinho-container .purchase button:hover {
   background-color: #2a9d8f;

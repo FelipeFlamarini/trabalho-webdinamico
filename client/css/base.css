@@ -202,10 +202,56 @@ header nav .searchBar * {
 }
 
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
   height: 15rem;
   width: 100%;
   border-radius: 1.5rem 1.5rem 0 0;
-  background-color: black;
+  background-color: #e76f51;
+}
+@media screen and (max-width: 430px) {
+  footer {
+    height: 18rem;
+  }
+}
+footer .footerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+  width: 15rem;
+  gap: 1rem;
+}
+@media screen and (max-width: 430px) {
+  footer .footerContainer {
+    flex-flow: column nowrap;
+    gap: 0rem;
+  }
+}
+footer .footerContainer .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: inherit;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+footer .footerContainer .logo img {
+  height: 13rem;
+  width: 12rem;
+  object-fit: cover;
+}
+footer .footerContainer .contact * {
+  color: white;
+  text-decoration: none;
+}
+@media screen and (max-width: 430px) {
+  footer .footerContainer .contact * {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 530px) {

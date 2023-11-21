@@ -63,6 +63,7 @@ const tbody = document.getElementById("content-table");
 const bodyRow = document.createElement('tr');
 const itemCell = document.createElement('td');
 
+
 const productDetails = document.createElement('div');
 productDetails.classList.add('product-details');
 
@@ -164,11 +165,21 @@ for (let index = 1; index < 16; index++) {
   select.appendChild(option);
 }
 
-
+const spanSelect = document.createElement("span") 
+spanSelect.textContent= "QTD"
+qtdCell.appendChild(spanSelect)
 qtdCell.appendChild(select);
 
 const totalCell = document.createElement('td');
-totalCell.textContent = produto.preco;
+
+const totalLabel = document.createElement('span');
+totalLabel.textContent = 'TOTAL'
+
+const total = document.createElement('span');
+total.textContent = `R$ ${produto.preco}`;
+
+totalCell.appendChild(totalLabel)
+totalCell.appendChild(total)
 
 bodyRow.appendChild(itemCell);
 bodyRow.appendChild(qtdCell);
@@ -197,7 +208,7 @@ async function putPrice(quantity,id){
 
   calculator.addPrice(preco,quantity)
   console.log(calculator.getTotalPrice())
-  priceText.textContent = `$ ${calculator.getTotalPrice()}`
+  priceText.textContent = `R$ ${calculator.getTotalPrice()}`
 }
 
 window.onload = () => {

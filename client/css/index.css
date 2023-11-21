@@ -383,5 +383,108 @@
     width: auto;
   }
 }
+.container-produtoIndividual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding-bottom: 3rem;
+  background-color: inherit;
+}
+
+.container-produto {
+  display: flex;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.container-produto .container-image {
+  padding: 1rem;
+  background-color: #2a9d8f;
+  border-radius: 1rem;
+}
+.container-produto .container-image img {
+  object-fit: cover;
+  height: 24rem;
+}
+.container-produto .product-details {
+  height: 26.2rem;
+  padding: 1rem;
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container-produto .product-details div:nth-child(1) span:nth-child(1) {
+  color: #264653;
+}
+.container-produto .product-details div:nth-child(1) #produtoPreco {
+  font-size: 2rem;
+  color: #e76f51;
+}
+.container-produto .product-details div:nth-child(2) {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.container-produto .product-details div:nth-child(2) p {
+  color: #264653;
+  font-size: 20px;
+}
+.container-produto .product-details span {
+  color: #264653;
+}
+.container-produto .product-details h1 {
+  color: #264653;
+  font-size: 60px;
+}
+.container-produto .product-details div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.container-produto .product-details div:nth-child(3) button {
+  background-color: #e76f51;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: none;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 5rem;
+  width: 15rem;
+  margin-left: 1rem;
+  border-radius: 1rem;
+}
+.container-produto .product-details div:nth-child(3) button:hover {
+  background-color: #e9c46a;
+  color: #e76f51;
+}
+.container-produto .product-details div:nth-child(3) .changes-button {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #e76f51;
+  text-transform: uppercase;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 5rem;
+  width: 15rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  margin-left: 1rem;
+}
+.container-produto .product-details div:nth-child(3) .changes-button select {
+  background-color: white;
+  color: #264653;
+  border: 2px solid #264653;
+  border-radius: 7px;
+  outline: none;
+  font-size: 1.2rem;
+}
+.container-produto .product-details div:nth-child(3) .changes-button span {
+  color: #ffffff;
+}
 
 /*# sourceMappingURL=index.css.map */

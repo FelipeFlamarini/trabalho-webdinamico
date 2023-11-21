@@ -1,0 +1,123 @@
+@use "../base/colors.scss" as *;
+
+.container-produtoIndividual {
+  // border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding-bottom: 3rem;
+  background-color: inherit;
+}
+
+.container-produto {
+  display: flex;
+  padding: 1rem;
+  background-color: $bg-color;
+  border-radius: 1rem;
+  .container-image {
+    padding: 1rem;
+    background-color: $cian;
+    border-radius: 1rem;
+    img {
+      object-fit: cover;
+      // width: 24rem;
+      height: 24rem;
+    }
+  }
+  .product-details {
+    height: 26.2rem;
+    padding: 1rem;
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    div:nth-child(1) {
+      // border: 1px solid red;
+      span:nth-child(1) {
+        color: $dark-blue;
+      }
+
+      #produtoPreco {
+        font-size: 2rem;
+        color: $orange;
+      }
+    }
+
+    div:nth-child(2) {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      // border: 1px solid blue;
+      p {
+        color: $dark-blue;
+        font-size: 20px;
+      }
+    }
+
+    span {
+      color: $dark-blue;
+    }
+    h1 {
+      color: $dark-blue;
+      font-size: 60px;
+    }
+
+    div:nth-child(3) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      button {
+        // display: none;
+        background-color: $orange;
+        color: $bg-color;
+        text-transform: uppercase;
+        border: none;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        height: 5rem;
+        width: 15rem;
+        // padding: .3rem .8rem;
+        margin-left: 1rem;
+        border-radius: 1rem;
+
+      }
+
+      button:hover {
+        background-color: $yellow;
+        color: $orange;
+      }
+
+      .changes-button {
+        display: none;
+        align-items: center;
+        justify-content: space-around;
+        background-color: $orange;
+        text-transform: uppercase;
+        border: none;
+        font-size: 1rem;
+        font-weight: bold;
+        height: 5rem;
+        width: 15rem;
+        cursor: pointer;
+        border-radius: 1rem;
+
+        select {
+          background-color: white;
+          color: $dark-blue;
+          border: 2px solid $dark-blue;
+          border-radius: 7px;
+          outline: none;
+          font-size: 1.2rem;
+        }
+        span {
+          color: $bg-color;
+        }
+        margin-left: 1rem;
+      }
+    }
+  }
+}

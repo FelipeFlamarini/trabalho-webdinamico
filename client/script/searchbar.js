@@ -60,8 +60,8 @@ document
         }, 1000);
     });
 
+//comentar para estilizar
 let timeoutFocusout;
-
 document
     .querySelector(".searchBar input")
     .addEventListener("focusout", async (event) => {

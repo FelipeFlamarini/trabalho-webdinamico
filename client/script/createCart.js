@@ -140,7 +140,7 @@ function CreateRows(produto, quantity) {
             // console.log(produto.preco)
             // console.log(found.quantity)
             found.quantity = +ev.target.value;
-            total.textContent= `R$${found.quantity * produto.preco}`
+            total.textContent= `R$${(found.quantity * produto.preco).toFixed(2)}`
             localStorage.setItem("productID", JSON.stringify(arrayOfIds));
             arrayOfIds.forEach((produto) => {
                 calculator.totalPrice = 0;

@@ -59,7 +59,7 @@ function renderProduto(produto) {
     if (produto.estoque) {
         buttonElement.innerHTML = "adicionar ao <br> carrinho";
         buttonElement.addEventListener("click", () => {
-            console.log("a");
+            // console.log("a");
             addInCart(produto);
             changesbuttonDiv3.style.display = "flex";
             buttonElement.style.display = "none";
@@ -91,7 +91,7 @@ function renderProduto(produto) {
         option.textContent = index;
 
         if (index === valueSelect) {
-            console.log(index);
+            // console.log(index);
             option.setAttribute("selected", "selected");
         }
 

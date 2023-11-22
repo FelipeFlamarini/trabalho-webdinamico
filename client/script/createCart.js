@@ -8,7 +8,7 @@ const calculator = new PriceCalculator();
 
 const btnprice = document.getElementById("btnPrice");
 btnprice.addEventListener("click", () => {
-    console.log(calculator.getTotalPrice());
+    // console.log(calculator.getTotalPrice());
 });
 
 function getIdsLocalStorage() {
@@ -52,7 +52,7 @@ async function teste(id, quantity) {
 }
 
 function CreateRows(produto, quantity) {
-    console.log(produto.preco);
+    // console.log(produto.preco);
     const tbody = document.getElementById("content-table");
 
     const bodyRow = document.createElement("tr");
@@ -84,11 +84,11 @@ function CreateRows(produto, quantity) {
             ? JSON.parse(localStorage.getItem("productID"))
             : [];
         const filterArray = arrayOfIds.filter((p) => p.id !== produto.id);
-        console.log("click");
-        console.log(filterArray);
-        console.log(filterArray.length);
+        // console.log("click");
+        // console.log(filterArray);
+        // console.log(filterArray.length);
 
-        console.log(arrayOfIds);
+        // console.log(arrayOfIds);
         localStorage.setItem("productID", JSON.stringify(filterArray));
         if (filterArray.length > 0) {
             filterArray.forEach((produto) => {
@@ -134,7 +134,7 @@ function CreateRows(produto, quantity) {
         const found = arrayOfIds.find(
             (produtoLocal) => produtoLocal.id === produto.id
         );
-        console.log(found);
+        // console.log(found);
         if (found) {
             // total.textContent = ""
             // console.log(produto.preco)
@@ -219,7 +219,7 @@ async function putPrice(quantity, id) {
     const priceText = document.getElementById("preco");
 
     calculator.addPrice(preco, quantity);
-    console.log(calculator.getTotalPrice());
+    // console.log(calculator.getTotalPrice());
     priceText.textContent = `R$ ${calculator.getTotalPrice()}`;
 }
 

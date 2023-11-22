@@ -7,7 +7,7 @@ import {
 
 async function products(param = getAllProducts()) {
     const produto = await param;
-    console.log(produto);
+    // console.log(produto);
     try {
         const parentElement = document.querySelector(".grid-layout");
         parentElement.innerHTML = "";
@@ -135,7 +135,7 @@ async function products(param = getAllProducts()) {
                 option.textContent = index;
                 // console.log(valueselect)
                 if (index == valueSelect) {
-                    console.log(index);
+                    // console.log(index);
                     option.setAttribute("selected", "selected");
                 }
 
@@ -165,7 +165,7 @@ async function products(param = getAllProducts()) {
             });
 
             div2button.addEventListener("click", () => {
-                console.log("entrei");
+                // console.log("entrei");
                 addInCart(produto);
                 div2button.style.pointerEvents = "none";
             });
@@ -198,8 +198,8 @@ checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("click", (ev) => {
         uncheckOthers(ev.target);
         if (ev.target.value && ev.target.checked) {
-            console.log("ABGGA");
-            console.log(ev.target.value);
+            // console.log("ABGGA");
+            // console.log(ev.target.value);
             selectFilter(ev.target.value);
             return localStorage.setItem(
                 "filtro",
@@ -238,7 +238,7 @@ function selectFilter(param) {
             products(getAllProducts());
         default:
             products(getAllProducts());
-            console.log("default caiu");
+            // console.log("default caiu");
     }
 }
 

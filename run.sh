@@ -1,0 +1,1 @@
+sudo docker run -d --name funko -p 3000:3000 funko

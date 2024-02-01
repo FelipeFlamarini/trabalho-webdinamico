@@ -1,5 +1,6 @@
 import { addInCart } from "./addInCart.js";
 import { getProductById } from "./allFetch.js";
+import port from "./config.js";
 
 // localStorage.setItem('produtoAtual',JSON.stringify(1))
 
@@ -150,7 +151,7 @@ async function render() {
     if (!id) window.location.href = "./home.html";
 
     const atualProduto = await getProductById(id);
-    fetch(`http://localhost:3000/api/products/incrementView/${id}`);
+    fetch(`http://localhost:${port}}/api/products/incrementView/${id}`);
     renderProduto(atualProduto);
 }
 

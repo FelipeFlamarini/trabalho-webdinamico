@@ -1,3 +1,5 @@
+import port from "./config.js";
+
 function teste() {
     localStorage.setItem(
         "productID",
@@ -37,7 +39,7 @@ async function getMaxQuantity() {
     const max = await Promise.all(
         ids.map(async (id) => {
             const res = await fetch(
-                `http://localhost:3000/api/products/${id.id}`
+                `http://localhost:${port}/api/products/${id.id}`
             );
             const product = await res.json();
             return product.estoque;
@@ -53,13 +55,13 @@ function getIdsLocalStorage() {
 async function setCards() {
     const ids = await getIdsLocalStorage();
     return await ids.map(async (id, index) => {
-        await fetch(`http://localhost:3000/api/products/${id.id}`)
+        await fetch(`http://localhost:${port}/api/products/${id.id}`)
             .then((res) => res.json())
             .then((product) => {
                 const nomeProduto = document.createElement("div");
                 nomeProduto.classList.add("nomeProduto");
                 nomeProduto.innerHTML = `
-                <img src=http://localhost:3000/api/productImagesTransparent/${product.id}/1.jpg></img>
+                <img src=http://localhost:${port}/api/productImagesTransparent/${product.id}/1.jpg></img>
                 <div>
                     <h2>${product.nome}</h2>
                 </div>
@@ -132,7 +134,7 @@ async function updatePrices() {
 
     const prices = document.querySelectorAll(".price");
     const promise = await ids.map(async (id, index) => {
-        await fetch(`http://localhost:3000/api/products/${id.id}`)
+        await fetch(`http://localhost:${port}/api/products/${id.id}`)
             .then((res) => res.json())
             .then((product) => {
                 finalPrice += product.preco * id.quantity;
@@ -160,7 +162,7 @@ async function checkout() {
         },
         body: JSON.stringify(ids),
     };
-    await fetch("http://localhost:3000/api/cart/checkout", reqOptions).then(
+    await fetch(`http://localhost:${port}/api/cart/checkou`, reqOptions).then(
         (res) => {
             console.log(res);
             if (res.status === 200) {

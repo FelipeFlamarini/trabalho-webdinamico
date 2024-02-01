@@ -1,4 +1,5 @@
 import { getProductsByName } from "./allFetch.js";
+import port from "./config.js";
 
 async function setSearchCards(name) {
     await getProductsByName(name, 3).then((products) => {
@@ -8,7 +9,7 @@ async function setSearchCards(name) {
             div.innerHTML = `
             <a href="./produto.html?id=${product.id}">
                 <div class="searchImg">
-                    <img src="http://localhost:3000/api/productImagesTransparent/${product.id}/1.jpg" alt="${product.nome}"></img>
+                    <img src="http://localhost:${port}/api/productImagesTransparent/${product.id}/1.jpg" alt="${product.nome}"></img>
                 </div>
                 <div class="searchNome">
                     <span class=nome1>${product.nome.split("!")[0]}!</span>

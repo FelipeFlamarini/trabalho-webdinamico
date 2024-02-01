@@ -4,6 +4,7 @@ import {
     GetProductByPrice,
     GetProductByUniverse,
 } from "./allFetch.js";
+import port from "./config.js";
 
 async function products(param = getAllProducts()) {
     const produto = await param;
@@ -25,12 +26,12 @@ async function products(param = getAllProducts()) {
 
             // Create the image element
             const img = document.createElement("img");
-            img.src = `http://localhost:3000/api/productImagesTransparent/${produto.id}/1.jpg`;
+            img.src = `http://localhost:${port}/api/productImagesTransparent/${produto.id}/1.jpg`;
             img.alt = produto.nome;
             img.classList.add("main-image");
 
             const secondimg = document.createElement("img");
-            secondimg.src = `http://localhost:3000/api/productImagesTransparent/${produto.id}/2.jpg`;
+            secondimg.src = `http://localhost:${port}/api/productImagesTransparent/${produto.id}/2.jpg`;
             secondimg.alt = produto.nome + " in box";
             secondimg.classList.add("box-image");
             // Append the image element to the image container element

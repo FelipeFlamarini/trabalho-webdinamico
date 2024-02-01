@@ -4,7 +4,7 @@ import {
   getProductsLeastStock,
   getProductsByUniverseLimit,
 } from "./allFetch.js";
-import { Breakpoints } from "../../node_modules/@glidejs/glide/dist/glide.modular.esm.js";
+import { Breakpoints } from "./glide.modular.esm.js";
 import port from "./config.js";
 
 async function teste() {

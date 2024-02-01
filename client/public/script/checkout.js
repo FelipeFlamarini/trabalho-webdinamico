@@ -162,7 +162,7 @@ async function checkout() {
         },
         body: JSON.stringify(ids),
     };
-    await fetch(`http://localhost:${port}/api/cart/checkou`, reqOptions).then(
+    await fetch(`http://localhost:${port}/api/cart/checkout`, reqOptions).then(
         (res) => {
             console.log(res);
             if (res.status === 200) {
@@ -171,7 +171,7 @@ async function checkout() {
                     document.querySelector("#total").innerHTML.split("R$ ")[1]
                 );
                 window.location.assign(
-                    `http://localhost:5500/client/sucesso.html?price=${finalPrice}`);
+                    `http://localhost:3000/client/sucesso.html?price=${finalPrice}`);
             }
         }
     );

@@ -19,7 +19,7 @@ function renderProduto(produto) {
     containerImage.classList.add("container-image");
 
     const image = document.createElement("img");
-    image.src = `../server/public/imgs/produtosTransparent/${produto.id}/1.jpg`;
+    image.src = `http://localhost:${port}/api/productImagesTransparent/${produto.id}/1.jpg`;
     image.alt = "";
 
     containerImage.appendChild(image);
@@ -151,7 +151,7 @@ async function render() {
     if (!id) window.location.href = "./home.html";
 
     const atualProduto = await getProductById(id);
-    fetch(`http://localhost:${port}}/api/products/incrementView/${id}`);
+    fetch(`http://localhost:${port}/api/products/incrementView/${id}`);
     renderProduto(atualProduto);
 }
 

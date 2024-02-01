@@ -19,5 +19,8 @@ RUN pacman -Sy nodejs postgresql npm --noconfirm && npm install && \
 # Start the PostgreSQL server and Node.JS back-end server //tail -f /var/lib/postgres/data/logfile
 CMD su - postgres -c "pg_ctl -D /var/lib/postgres/data start -l /var/lib/postgres/data/logfile" && npm run main
 
-# Make the Node.JS back-end server available on port 3000
+# Make the Node.JS front-end server available on port 3001, and back-end server on port 3000
+# front-end server
 EXPOSE 3000
+# back-end server
+EXPOSE 3001

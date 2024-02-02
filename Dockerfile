@@ -1,4 +1,4 @@
-# Use the Arch Linux base image
+# Use the Alpine Linux base image
 FROM alpine:3.19.1
 
 # Set the working directory to /app

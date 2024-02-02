@@ -18,6 +18,7 @@ $ docker build -t funko .
 $ source run.sh
 ```
 Acesse `https://localhost:3000`
+* * *
 
 ### Para iniciar e parar o container
 `$ docker start funko`\

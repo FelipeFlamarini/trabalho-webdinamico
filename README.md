@@ -4,8 +4,8 @@
 
 ### Utilizando a URL
 ```
-$ docker build -t funko https://github.com/FelipeFlamarini/trabalho-webdinamico.git#Docker:/
-$ docker run -d --name funko -p 3000:3000 -p 3001:3001 funko
+$ docker build -t funko https://github.com/FelipeFlamarini/trabalho-webdinamico.git#Docker
+$ curl https://raw.githubusercontent.com/FelipeFlamarini/trabalho-webdinamico/Docker/run.sh | bash
 ```
 Acesse `https://localhost:3000`
 

@@ -1,23 +1,34 @@
 # Use the Arch Linux base image
-FROM archlinux
+FROM alpine:3.19.1
 
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . .
+# Copy the necessary files into the container at /app
+COPY ./server ./server
+COPY ./client ./client
+COPY ./package.json ./
 
-# Update the package lists, install Node.js, PostgreSQL, npm, and install npm dependencies
-RUN pacman -Sy nodejs postgresql npm --noconfirm && npm install && \
-    # Create the directory for PostgreSQL to, change its ownership to the postgres user and initialize the database
-    mkdir /var/run/postgresql && chown -R postgres:postgres /var/run/postgresql && su - postgres -c "initdb -D /var/lib/postgres/data" && \
-    # Start the PostgreSQL database
-    su - postgres -c "pg_ctl -D /var/lib/postgres/data start -l /var/lib/postgres/data/logfile" && \
-    # Setup the PostgreSQL tables and populate them with data
-    su - postgres -c "psql -f /app/server/DB/setup.sql" && npm run resetdb
+# Installing Node.js LTS and PostgreSQL packages
+RUN apk add nodejs-lts postgresql npm && \
+    # Install the Node.js dependencies
+    npm install && \
+    # Create and give permission to the necessary folders for PostgreSQL to work
+    mkdir -p /run/postgresql && chown postgres:postgres /run/postgresql && \
+    # Initialize the database
+    su - postgres -c "initdb -D /var/lib/postgresql/data" && \
+    # Start the database
+    su - postgres -c "pg_ctl -D /var/lib/postgresql/data start -l /var/lib/postgresql/data/logfile" && \
+    # Setup the tables
+    psql -U postgres -f server/DB/setup.sql && \
+    # Populate database with data
+    npm run resetdb && \
+    # Stop the server
+    su - postgres -c "pg_ctl -D /var/lib/postgresql/data stop" 
 
-# Start the PostgreSQL server and Node.JS back-end server //tail -f /var/lib/postgres/data/logfile
-CMD su - postgres -c "pg_ctl -D /var/lib/postgres/data start -l /var/lib/postgres/data/logfile" && npm run main
+# Start the PostgreSQL server and the webserver
+CMD su - postgres -c "pg_ctl -D /var/lib/postgresql/data start -l /var/lib/postgresql/data/logfile" && \
+    npm run main
 
 # Make the Node.JS front-end server available on port 3001, and back-end server on port 3000
 # front-end server

@@ -9,7 +9,7 @@
 ## Demonstração em vídeo
 [![Demo](https://img.youtube.com/vi/cKqeB-qWF3s/maxresdefault.jpg)](https://www.youtube.com/watch?v=cKqeB-qWF3s)
 
-## Para iniciar o servidor como um contâiner
+## Para iniciar o servidor como um container
 
 ### Utilizando a URL
 ```

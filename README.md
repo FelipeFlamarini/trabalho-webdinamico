@@ -1,7 +1,7 @@
 <!-- ###### Trabalho apresentado no dia 21/11/2023 -->
 #### Website de compras baseado nas figuras Funko.
-<strong>Client front-end:</strong> criado com HTML, SASS e JavaScript.
-<strong>Servidor back-end:</strong> construído com Node.js com Express para lidar com as requisições do front-end. Interage com um banco de dados PostgreSQL para obter as informações dos produtos.
+<strong>Client front-end:</strong> criado com HTML, SASS e JavaScript. \
+<strong>Servidor back-end:</strong> construído com Node.js com Express para lidar com as requisições do front-end. Interage com um banco de dados PostgreSQL para obter as informações dos produtos. \
 <strong>Dockerfile: </strong>baseado no Alpine Linux 3.19.1, garante uma forma fácil de visualizar nosso trabalho sem depender de compatibilidades.
 
 ##### Todo o projeto foi desenvolvido em conjunto por [@felipeflamarini](https://github.com/felipeflamarini) e [@kauandeveloper345](https://github.com/kauan345developer).

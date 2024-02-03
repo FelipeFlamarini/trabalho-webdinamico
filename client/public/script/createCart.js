@@ -184,7 +184,7 @@ function CreateRows(produto, quantity) {
         
         if (found) {
 
-            total.textContent = `R$${produto.preco * found.quantity}`;
+            total.textContent = `R$${(produto.preco * found.quantity).toFixed(2)}`;
         }
 
     totalCell.appendChild(totalLabel);

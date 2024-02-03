@@ -31,7 +31,7 @@ CMD su - postgres -c "pg_ctl -D /var/lib/postgresql/data start -l /var/lib/postg
     npm run main
 
 # Make the Node.JS front-end server available on port 3001, and back-end server on port 3000
-# front-end server
+# front-end server localhost:3000
 EXPOSE 3000
-# back-end server
+# back-end server localhost:3001
 EXPOSE 3001

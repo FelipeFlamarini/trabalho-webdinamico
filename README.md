@@ -13,8 +13,8 @@
 
 ### Utilizando a URL
 ```
-$ docker build -t funko https://github.com/FelipeFlamarini/trabalho-webdinamico.git#Docker
-$ curl https://raw.githubusercontent.com/FelipeFlamarini/trabalho-webdinamico/Docker/run.sh | bash
+$ docker build -t funko https://github.com/FelipeFlamarini/trabalho-webdinamico.git#main
+$ curl https://raw.githubusercontent.com/FelipeFlamarini/trabalho-webdinamico/main/run.sh | bash
 ```
 Acesse `http://localhost:3000`
 

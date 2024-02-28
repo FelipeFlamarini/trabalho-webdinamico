@@ -1,0 +1,260 @@
+@use "./colors.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Nakana", "Roboto", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+.mainContainer {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 65% 25% 20%;
+    width: 90%;
+    height: auto;
+    // margin: 0 auto;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1rem;
+    padding-bottom: 20rem;
+    position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    @media screen and (max-width: 540px) {
+        grid-template-columns: 50% 20% 30%;
+    }
+
+    @media screen and (max-width: 400px) {
+        grid-template-columns: 40% 20% 40%;
+    }
+
+    .nomeProdutoHeader,
+    .precoFinalProdutoHeader,
+    .quantidadeProdutoHeader,
+    .nomeProduto,
+    .precoFinalProduto,
+    .quantidadeProduto {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            // text-align: center;
+        }
+    }
+
+    .nomeProdutoHeader,
+    .precoFinalProdutoHeader,
+    .quantidadeProdutoHeader {
+        @media screen and (max-width: 400px) {
+            display: none;
+        }
+    }
+
+
+
+    .nomeProduto {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 3rem;
+        // width: 50rem;
+        height: 12rem;
+        // padding: 0 7rem;
+
+        @media screen and (max-width: 1000px) {
+            flex-flow: column nowrap;
+            gap: 0;
+            justify-content: center;
+            height: 17rem;
+        }
+        img {
+            width: 6rem;
+            max-height: 100%;
+            object-fit: cover;
+            // position: relative;
+            align-self: center;
+
+            @media screen and (max-width: 480px) {
+                width: 4rem;
+                
+            }
+        }
+        div {
+            // position: absolute;
+            display: flex;
+            // padding-left: 8rem;
+            align-items: center;
+            // width: 50%;
+            h2 {
+                text-align: center;
+                // width: 30rem;
+                font-size: 2rem;
+                @media screen and (max-width: 500px) {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .quantidadeProduto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        button {
+            border: none;
+            background-color: inherit;
+            font-size: 2rem;
+        }
+
+        h2 {
+            @media screen and (max-width: 540px) {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .precoFinalProduto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            @media screen and (max-width: 540px) {
+                font-size: 1.3rem;
+            }
+        }
+
+    }
+
+}
+
+.pagamento {
+    grid-column: 1 / 4;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -17rem;
+
+    h2 {
+        font-size: 2.5rem;
+        text-align: center;
+
+        @media screen and (max-width: 400px) {
+            font-size: 2rem;
+        }
+    }
+
+    .metodosPagamento {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // gap: 5rem;
+        background-color: colors.$bege;
+        // padding: 1rem;
+        border-radius: 1rem;
+
+        @media screen and (max-width:550px) {
+            flex-flow: column nowrap;
+            gap: 1rem;
+        }
+
+        span {
+            font-size: 1.5rem;
+            border-radius: 1rem;
+            padding: 1rem;
+            width: 15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .active {
+            color: white;
+            background-color: colors.$lightred;
+        }
+    }
+}
+
+.totalContainer {
+    background: url("../imgs/bg4.png") no-repeat 0 0;
+    background-position: -1.2rem -0.5rem;
+    background-size: cover;
+    width: 40rem;
+    height: 20rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-flow: column wrap;
+    position: relative;
+    top: -17rem;
+    // overflow: visible;
+
+    @media screen and (max-width: 640px) {
+        width: 100%;
+        background: none;
+        background-size: contain;
+        background-position: 0 0.5rem;
+        background-color: colors.$greenblue;
+        height: auto;
+        width: auto;
+        padding: 2rem;
+        margin-top: 2rem;
+        border-radius: 1rem;
+    }
+
+    @media screen and (max-width: 400px) {
+        padding: 1rem;
+    }
+
+    .totalPreco {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: row nowrap;
+        gap: 2rem;
+
+        h2 {
+            font-size: 2.5rem;
+            color: white;
+
+            @media screen and (max-width: 400px) {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    button {
+        padding: 1rem;
+        border: none;
+        box-shadow: 0 0 0.5rem white;
+        border-radius: 1rem;
+        background-color: colors.$lightred;
+        font-size: 2.5rem;
+        color: white;
+        transition: all 0.2s ease-in-out;
+    }
+
+    button:hover {
+        transform: scale(1.2);
+    }
+}

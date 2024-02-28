@@ -5,8 +5,7 @@ FROM alpine:3.19.1
 WORKDIR /app
 
 # Copy the necessary files into the container at /app
-COPY ./server ./server
-COPY ./client ./client
+COPY ./src ./src
 COPY ./package.json ./
 
 # Installing Node.js LTS and PostgreSQL packages
@@ -20,7 +19,7 @@ RUN apk add nodejs-lts postgresql npm && \
     # Start the database
     su - postgres -c "pg_ctl -D /var/lib/postgresql/data start -l /var/lib/postgresql/data/logfile" && \
     # Setup the tables
-    psql -U postgres -f server/DB/setup.sql && \
+    psql -U postgres -f src/server/DB/setup.sql && \
     # Populate database with data
     npm run resetdb && \
     # Stop the server
@@ -30,8 +29,5 @@ RUN apk add nodejs-lts postgresql npm && \
 CMD su - postgres -c "pg_ctl -D /var/lib/postgresql/data start -l /var/lib/postgresql/data/logfile" && \
     npm run main
 
-# Make the Node.JS front-end server available on port 3001, and back-end server on port 3000
-# front-end server localhost:3000
+# expose port 3000
 EXPOSE 3000
-# back-end server localhost:3001
-EXPOSE 3001

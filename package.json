@@ -13,8 +13,8 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "main": "concurrently -p \"[{name}]\" -n \"SERVER,CLIENT\" \"nodemon server/app.js\" \"nodemon client/app.js\"",
-    "resetdb": "node server/DB/create.js"
+    "main": "nodemon src/app.js",
+    "resetdb": "node src/server/DB/create.js"
   },
   "type": "module",
   "author": "",

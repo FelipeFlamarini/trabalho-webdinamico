@@ -25,6 +25,9 @@ app.use(cors());
 app.use(json());
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: false }));
 
+
+const port = process.env.PORT ? process.env.port : 3001;
+
 app.get("/api/products/:id", async (req, res) => {
     const id = parseInt(req.params.id);
     try {
@@ -186,8 +189,8 @@ app.use(
 );
 
 try {
-    app.listen(3001);
-    console.log("Server running on port 3001");
+    app.listen(port);
+    console.log(`Server listening on port ${port}`);
 } catch {
     console.log("Error on server");
 }

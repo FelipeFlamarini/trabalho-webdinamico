@@ -1,8 +1,7 @@
 // port do back-end
-import { port, URL } from "./config.js";
 
 async function getAllProducts() {
-	return await fetch(`${URL}:${port}/api/products/all`).then(
+	return await fetch(`./api/products/all`).then(
 		async (response) => {
 			if (!response.ok) {
 				throw new Error("Network response was not ok");
@@ -13,7 +12,7 @@ async function getAllProducts() {
 }
 
 async function getProductById(id) {
-	return await fetch(`${URL}:${port}/api/products/${id}`)
+	return await fetch(`./api/products/${id}`)
 		.then(async (response) => {
 			if (!response.ok) {
 				throw new Error("getProductById: Network response was not ok");
@@ -29,7 +28,7 @@ async function getProductById(id) {
 async function getProductsMostViewed(limit) {
 	// filtrar no banco de dados os produtos mais vistos
 	return await fetch(
-		`${URL}:${port}/api/productsFilters/mostViewed?limit=${limit}`
+		`./api/productsFilters/mostViewed?limit=${limit}`
 	).then(async (response) => {
 		if (!response.ok) {
 			throw new Error(
@@ -43,7 +42,7 @@ async function getProductsMostViewed(limit) {
 async function getProductsMostSold(limit) {
 	// filtrar no banco de dados os produtos mais vendidos
 	return await fetch(
-		`${URL}:${port}/api/productsFilters/mostSold?limit=${limit}`
+		`./api/productsFilters/mostSold?limit=${limit}`
 	).then(async (response) => {
 		if (!response.ok) {
 			throw new Error("getProductsMostSold: Network response was not ok");
@@ -55,7 +54,7 @@ async function getProductsMostSold(limit) {
 async function getProductsLeastStock(limit) {
 	// filtrar no banco de dados os produtos com menos estoque
 	return await fetch(
-		`${URL}:${port}/api/productsFilters/leastStock?limit=${limit}`
+		`./api/productsFilters/leastStock?limit=${limit}`
 	).then(async (response) => {
 		if (!response.ok) {
 			throw new Error(
@@ -68,7 +67,7 @@ async function getProductsLeastStock(limit) {
 
 async function getProductsByUniverseLimit(specificUniverse, limit) {
 	return await fetch(
-		`${URL}:${port}/api/products/universe/${encodeURIComponent(
+		`./api/products/universe/${encodeURIComponent(
 			specificUniverse
 		)}?limit=${limit}`
 	)
@@ -86,7 +85,7 @@ async function getProductsByUniverseLimit(specificUniverse, limit) {
 
 async function GetProductByUniverse(specificUniverse) {
 	return await fetch(
-		`${URL}:${port}/api/products/universe/${encodeURIComponent(
+		`./api/products/universe/${encodeURIComponent(
 			specificUniverse
 		)}`
 	)
@@ -103,7 +102,7 @@ async function GetProductByUniverse(specificUniverse) {
 }
 
 async function GetProductByPrice(orderPrice) {
-	return await fetch(`${URL}:${port}/api/products/price/${orderPrice}`)
+	return await fetch(`./api/products/price/${orderPrice}`)
 		.then(async (response) => {
 			if (!response.ok) {
 				throw new Error("Network response was not ok");
@@ -118,7 +117,7 @@ async function GetProductByPrice(orderPrice) {
 
 async function cartCheckout(items) {
 	// array no modelo [ {id: 1, quantity: 2}, {id: 2, quantity: 1}]
-	return await fetch(`${URL}:${port}/api/cart/checkout`, {
+	return await fetch(`./api/cart/checkout`, {
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json",
@@ -132,9 +131,9 @@ async function cartCheckout(items) {
 	});
 }
 
-async function getProductsByName(name, limit) {
+async function getProductsByName(name, limit) {'s'
 	return await fetch(
-		`${URL}:${port}/api/productsSearch?name=${encodeURIComponent(
+		`./api/productsSearch?name=${encodeURIComponent(
 			name
 		)}&limit=${parseInt(limit)}`
 	)
@@ -160,5 +159,4 @@ export {
 	GetProductByUniverse,
 	getProductsByName,
 	GetProductByPrice,
-	port,
 };

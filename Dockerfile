@@ -30,4 +30,4 @@ CMD su - postgres -c "pg_ctl -D /var/lib/postgresql/data start -l /var/lib/postg
     npm run main
 
 # expose port 3000
-EXPOSE 3000
+# EXPOSE 3000

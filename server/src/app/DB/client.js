@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 
 const client = new Sequelize(`funko`, `funko`, `1234`, {
-    host: `localhost`,
+    host: `db`,
     dialect: `postgres`,
 });
 

@@ -1,6 +1,6 @@
 import { getProductById } from "./allFetch.js";
 import { PriceCalculator } from "./price.js";
-import port from "./config.js";
+import ip from "./config.js";
 
 const calculator = new PriceCalculator();
 //atualizar itens
@@ -62,7 +62,7 @@ function CreateRows(produto, quantity) {
     productDetails.classList.add("product-details");
 
     const imgItem = document.createElement("img");
-    imgItem.src = `http://localhost:${port}/api/productImagesTransparent/${produto.id}/1.jpg`;
+    imgItem.src = `${ip}/api/productImagesTransparent/${produto.id}/1.jpg`;
     imgItem.alt = produto.nome;
     imgItem.classList.add("img-item");
 

@@ -179,10 +179,10 @@ app.put("/api/:abc", async (req, res) => {
 });
 
 // servindo imagens dos produtos
-app.use("/api/productImages", express.static("./server/public/imgs/produtos"));
+app.use("/api/productImages", express.static("./app/public/imgs/produtos"));
 app.use(
     "/api/productImagesTransparent",
-    express.static("./server/public/imgs/produtosTransparent")
+    express.static("./app/public/imgs/produtosTransparent")
 );
 
 try {

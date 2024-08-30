@@ -5,7 +5,7 @@ import {
   getProductsByUniverseLimit,
 } from "./allFetch.js";
 import { Breakpoints } from "./glide.modular.esm.js";
-import port from "./config.js";
+import ip from "./config.js";
 
 async function teste() {
   const ids = ["maisVendidos", "marvel"];
@@ -55,7 +55,7 @@ async function createCards(products, idName) {
             <a href="./produto.html?id=${product.id}">
                 <div class="product">
                   <div class="productImage">
-                    <img src="http://localhost:${port}/api/productImagesTransparent/${
+                    <img src="${ip}/api/productImagesTransparent/${
                       product.id
                     }/1.jpg" alt="${product.nome}">
                   </div>

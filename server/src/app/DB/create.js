@@ -387,10 +387,10 @@ const funkoCompras = {
 };
 
 try {
-    await produtos.sync({force: true});
-    await usuarios.sync({force: true});
-    await enderecos.sync({force: true});
-    await compras.sync({force: true});
+    await produtos.sync({force: false});
+    await usuarios.sync({force: false});
+    await enderecos.sync({force: false});
+    await compras.sync({force: false});
     console.log(`Table criada`);
 } catch (error) {
     console.log(`Erro: ${error}`);

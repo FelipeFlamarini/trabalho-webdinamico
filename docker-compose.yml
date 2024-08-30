@@ -1,0 +1,52 @@
+services:
+  client:
+    image: nginx:1.27-alpine
+    volumes:
+      - ./client/app:/usr/share/nginx/html
+    depends_on:
+      - server
+    networks:
+      - funko-data
+      
+  server:
+    image: alpine:latest
+    build: ./server
+    volumes:
+      - ./server/src/app:/src/app
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - funko-db
+      - funko-data
+
+  proxy:
+    image: nginx:1.27-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./client/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - server
+    networks:
+      - funko-data
+
+
+  db:
+    image: postgres:12-alpine
+    env_file:
+      - db/.env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      retries: 1
+      timeout: 10s
+    networks:
+      - funko-db
+
+networks:
+  funko-data:
+    driver: bridge
+
+  funko-db:
+    driver: bridge

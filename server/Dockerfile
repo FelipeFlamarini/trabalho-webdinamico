@@ -1,10 +1,8 @@
-FROM alpine:3.19.1
+FROM alpine:3.19.1  
 
 WORKDIR /app
 
-COPY ./server ./
-
-COPY ./package.json ./
+COPY ./src ./
 
 RUN apk add nodejs-lts npm && \
     npm install && \

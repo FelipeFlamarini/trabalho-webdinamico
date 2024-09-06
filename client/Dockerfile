@@ -1,8 +1,4 @@
-FROM alpine
+FROM nginx:1.27-alpine
 
-WORKDIR /app
-
-COPY ./ ./
-
-RUN apk add nodejs-lts npm && \
-    npm run main
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./app /etc/nginx/html

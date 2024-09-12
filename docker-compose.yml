@@ -1,16 +1,14 @@
 services:
-  client:
-    image: nginx:1.27-alpine
+  proxy:
     build: ./client
     ports:
       - "8080:80"
     depends_on:
-      - server
+      - back
     networks:
       - funko-data
       
-  server:
-    image: alpine:latest
+  back:
     build: ./server
     depends_on:
       db:

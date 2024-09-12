@@ -171,7 +171,7 @@ async function checkout() {
                     document.querySelector("#total").innerHTML.split("R$ ")[1]
                 );
                 window.location.assign(
-                    `http://localhost:3000/sucesso.html?price=${finalPrice}`);
+                    `${ip}/sucesso.html?price=${finalPrice}`);
             }
         }
     );

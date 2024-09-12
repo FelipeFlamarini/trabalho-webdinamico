@@ -4,7 +4,7 @@ import {
     GetProductByPrice,
     GetProductByUniverse,
 } from "./allFetch.js";
-import port from "./config.js";
+import ip from "./config.js";
 
 async function products(param = getAllProducts()) {
     const produto = await param;
@@ -13,53 +13,42 @@ async function products(param = getAllProducts()) {
         const parentElement = document.querySelector(".grid-layout");
         parentElement.innerHTML = "";
         produto.forEach((produto) => {
-            // Get the parent element where the card will be appended
-
-            // Create the card container element
             const cardContainer = document.createElement("div");
             cardContainer.classList.add("produto");
 
-            // Create the image container element
             const imgContainer = document.createElement("a");
             imgContainer.href = `./produto.html?id=${produto.id}`;
             imgContainer.classList.add("img-container");
 
-            // Create the image element
             const img = document.createElement("img");
-            img.src = `http://localhost:${port}/api/productImagesTransparent/${produto.id}/1.jpg`;
+            img.src = `./api/productImagesTransparent/${produto.id}/1.jpg`;
             img.alt = produto.nome;
             img.classList.add("main-image");
 
             const secondimg = document.createElement("img");
-            secondimg.src = `http://localhost:${port}/api/productImagesTransparent/${produto.id}/2.jpg`;
+            secondimg.src = `./api/productImagesTransparent/${produto.id}/2.jpg`;
             secondimg.alt = produto.nome + " in box";
             secondimg.classList.add("box-image");
-            // Append the image element to the image container element
             imgContainer.appendChild(img);
             imgContainer.appendChild(secondimg);
 
             const allDetails = document.createElement("div");
             allDetails.classList.add("all-details");
 
-            // Create the details container element
             const detailsContainer = document.createElement("div");
             detailsContainer.classList.add("details");
 
-            // Create the brand element
             const brand = document.createElement("span");
             brand.textContent = produto.universo;
 
-            // Create the name element
             const name1 = document.createElement("span");
             name1.textContent = `${produto.nome.split("!")[0]}!`;
             const name2 = document.createElement("span");
             name2.textContent = `${produto.nome.split("!")[1]}!`;
 
-            // Create the price element
             const price = document.createElement("span");
             price.textContent = `R$${produto.preco}`;
 
-            // Create the button element
             const button = document.createElement("button");
 
             const div2button = document.createElement("div");

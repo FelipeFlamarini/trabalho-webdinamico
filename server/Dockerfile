@@ -4,10 +4,8 @@ WORKDIR /app
 
 COPY ./src ./
 
-RUN apk add nodejs-lts npm && \
-    npm install && \
-    npm run resetdb
+RUN apk add nodejs-lts npm && npm install
 
-CMD npm run main
+CMD npm run resetdb && npm run main
 
 EXPOSE 3001

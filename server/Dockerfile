@@ -1,10 +1,9 @@
-FROM alpine:3.19.1  
-
+FROM node:20.17
 WORKDIR /app
 
 COPY ./src ./
 
-RUN apk add nodejs-lts npm && npm install
+RUN npm install
 
 CMD npm run resetdb && npm run main
 

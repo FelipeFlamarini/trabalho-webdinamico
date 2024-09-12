@@ -1,6 +1,6 @@
 services:
   proxy:
-    build: ./client
+    build: ./proxy
     image: funko-proxy
     ports:
       - "8080:80"
@@ -10,7 +10,7 @@ services:
       - funko-data
       
   back:
-    build: ./server
+    build: ./back
     image: funko-back
     depends_on:
       db:
